@@ -8,9 +8,10 @@ What do we need?
 ## Notes
 
 Notes about the IVU example XML file from VR:
-- `routeFilter` has foreign IDs but some are recognizable
-- `tripClassFilter` has foreign IDs
-- `vehicleTypeFilter` can be understood but maybe foreign IDs
+- filters (export information as CDATA, not part of xsd):
+  - `routeFilter` has foreign IDs but some are recognizable
+  - `tripClassFilter` has foreign IDs
+  - `vehicleTypeFilter` can be understood but maybe foreign IDs
 - `operationControlPoints` has mapping between station names and station codes
   - more on this in [Official station names](#official-station-names)
 - guess: `operatingPeriod` uses `bitMask` to signify the date
