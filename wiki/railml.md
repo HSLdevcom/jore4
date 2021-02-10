@@ -58,3 +58,25 @@ The result is too long to paste here but cursory skimming indicates that the Dig
 
 There can be a process for introducing new stations from Fintraffic to Jore4.
 As building of new stations or renaming of old stations happens so rarely, another option is to hardcode the translation.
+
+## Questions (and later answers) for the railML-meeting between dev team and HSL on 2021-02-11
+
+### General questions about the development / system process
+
+1. What information does HSL require from VR?
+Why is a meeting with VR needed? (Is it needed?)
+
+2. How much can the railML-import be automized? Is user interaction needed?
+
+3. For which parts of the delivered data / info is VR the owner? Which parts of the data are owned by other stakeholders?
+
+### Questions about railML and its import
+
+1. Is filtering of stations (which are outside of HSL's area of operation) required?
+Or would importing all available station information be useful for some scenarios (e.g. delayed bus connection departures)?
+
+2. What do the numeric `routeFilter`-IDs mean? (There are no such regular train lines.)
+
+3. Can there be operational days ("liikennöintivuorokausi") of more than 24h in railML?
+
+4. Should we save / process the distance measures between stops contained within railML? What are they used for?
