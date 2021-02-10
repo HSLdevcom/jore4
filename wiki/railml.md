@@ -31,12 +31,9 @@ Notes about the IVU example XML file from VR:
 
 ## Official station names
 
-What are the official train station names and IDs?
-Where is the master for them?
+Official train station names and IDs are given by [the Finnish Transport Infrastructure Agency (Väylävirasto)](https://julkaisut.vayla.fi/pdf12/vj_2019-25_luettelo_rautatieliikennepaikoista_web.pdf).
 
-Maybe Fintraffic is responsible for them.
-
-Digitraffic might not be the most suitable API for querying Fintraffic station data but [this GraphQL query](https://rata.digitraffic.fi/api/v2/graphql/graphiql?query=query%20AllStations%20%7B%0A%20%20trainsByDepartureDate(departureDate%3A%20%222021-02-10%22)%20%7B%0A%20%20%20%20timeTableRows%20%7B%0A%20%20%20%20%20%20station%20%7B%0A%20%20%20%20%20%20%20%20passengerTraffic%0A%20%20%20%20%20%20%20%20countryCode%0A%20%20%20%20%20%20%20%20location%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20shortCode%0A%20%20%20%20%20%20%20%20uicCode%0A%20%20%20%20%20%20%20%20type%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A&operationName=AllStations) lists some stations:
+Digitraffic might not be the most suitable API for querying stations but [this GraphQL query](https://rata.digitraffic.fi/api/v2/graphql/graphiql?query=query%20AllStations%20%7B%0A%20%20trainsByDepartureDate(departureDate%3A%20%222021-02-10%22)%20%7B%0A%20%20%20%20timeTableRows%20%7B%0A%20%20%20%20%20%20station%20%7B%0A%20%20%20%20%20%20%20%20passengerTraffic%0A%20%20%20%20%20%20%20%20countryCode%0A%20%20%20%20%20%20%20%20location%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20shortCode%0A%20%20%20%20%20%20%20%20uicCode%0A%20%20%20%20%20%20%20%20type%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A&operationName=AllStations) lists some:
 ```graphql
 query AllStations {
   trainsByDepartureDate(departureDate: "2021-02-10") {
@@ -56,8 +53,9 @@ query AllStations {
 ```
 
 The result is too long to paste here but cursory skimming indicates that the Digitraffic station `shortCode`s matches `<ocp code="FOO">` in the IVU railML.
+`shortCode` is the commonly used ID for train stations used by public transport organizations in Finland.
 
-There can be a process for introducing new stations from Fintraffic to Jore4.
+There can be a process for introducing new stations from the Finnish Transport Infrastructure Agency to Jore4.
 As building of new stations or renaming of old stations happens so rarely, another option is to hardcode the translation.
 
 ## Questions (and later answers) for the railML-meeting between dev team and HSL on 2021-02-11
