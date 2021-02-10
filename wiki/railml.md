@@ -16,7 +16,7 @@ Notes about the IVU example XML file from VR:
   - more on this in [Official station names](#official-station-names)
 - guess: `operatingPeriod` uses `bitMask` to signify the date
   - the example XML unfortunately has only one week with Monday on 2021-02-01
-- what are categories useful for?
+- what are `categories` useful for?
 - trainParts:
   - `trainPart` seems to match Transmodel DatedVehicleJourney
   - `formationTT` signals the vehicle type/model
@@ -52,7 +52,7 @@ query AllStations {
 }
 ```
 
-The result is too long to paste here but cursory skimming indicates that the Digitraffic station `shortCode`s matches `<ocp code="FOO">` in the IVU railML.
+The result is too long to paste here but cursory skimming indicates that the Digitraffic station `shortCode` matches `<ocp code="FOO">` in the IVU railML.
 `shortCode` is the commonly used ID for train stations used by public transport organizations in Finland.
 
 There can be a process for introducing new stations from the Finnish Transport Infrastructure Agency to Jore4.
@@ -65,7 +65,7 @@ As building of new stations or renaming of old stations happens so rarely, anoth
 1. What information does HSL require from VR?
 Why is a meeting with VR needed? (Is it needed?)
 
-2. How much can the railML-import be automized? Is user interaction needed?
+2. How much can the railML-import be automated? Is user interaction needed?
 
 3. For which parts of the delivered data / info is VR the owner? Which parts of the data are owned by other stakeholders?
 
