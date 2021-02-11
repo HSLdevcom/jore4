@@ -69,6 +69,8 @@ Why is a meeting with VR needed? (Is it needed?)
 
 3. For which parts of the delivered data / info is VR the owner? Which parts of the data are owned by other stakeholders?
 
+4. What other formats, e.g. JSON, are possible?
+
 ### Questions about railML and its import
 
 1. Is filtering of stations (which are outside of HSL's area of operation) required?
