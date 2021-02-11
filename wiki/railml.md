@@ -20,7 +20,9 @@ Notes about the IVU example XML file from VR:
 - trainParts:
   - `trainPart` seems to match Transmodel DatedVehicleJourney
   - `formationTT` signals the vehicle type/model
-  - `trainNumber` is likely some kind of block or vehiclejourney
+  - `trainNumber` ("junanumero" or just "juna") must be unique within a day but typically repeats every day if the departure time, line and direction are equal.
+    Similar but different from VehicleJourney in Transmodel.
+    `trainNumber` is required by LIJ and possibly other systems.
   - `direction` is Helsinki -> Lahti or Lahti -> Helsinki
     - this interpretation could but should not be parsed from trainLineDescription. so from where?
   - `operationPeriodRef` refers to day
