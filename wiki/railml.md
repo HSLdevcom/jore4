@@ -62,10 +62,9 @@ As building of new stations or renaming of old stations happens so rarely, anoth
 
 ### General questions about the development / system process
 
-1. What information does HSL require from VR?
-Why is a meeting with VR needed? (Is it needed?)
+1. What information does HSL require from VR? Why?
 
-2. How much can the railML-import be automated? Is user interaction needed?
+2. How does the data delivery process work? How much can the railML import be automated? Is user interaction needed?
 
 3. For which parts of the delivered data / info is VR the owner? Which parts of the data are owned by other stakeholders?
 
