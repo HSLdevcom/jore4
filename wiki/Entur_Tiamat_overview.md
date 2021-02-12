@@ -33,10 +33,10 @@ Data model consists of JPA/Hibernate entities. JPA entity structure follows clos
 
 ## Main entity types
 
-### Main entity types - NeTEx based
+Below is a list of main entity types that are processed in Spring-managed services. Entity type descriptions in this section are primarily taken and summarized from NeTEx documentation and from [Entur's Stops handbook](https://enturas.atlassian.net/wiki/spaces/PUBLIC/pages/728727661/stops)
 
-Below is a list of main entity types that are processed in Spring-managed services. Entity type descriptions in this section are primarily taken and summarized from NeTEx documentation.
-
+* Site
+    * An abstract type describing a place. May be a well known place to which passengers may refer to indicate the origin or destination of a trip.
 * StopPlace
     * Represents a physical stop or station. A place comprising one or more locations where vehicles may stop and where passengers may board or leave vehicles or prepare their trip.
 * Quay
@@ -53,11 +53,10 @@ Below is a list of main entity types that are processed in Spring-managed servic
     * Designated path between two places. NavigationPath has a single direction from origin to destination. Sequences of PathLink can be assembled into named NavigationPath to guide the user through a site. The same PathLink may be reused in many different NavigationPaths.
 * Parking
     * Designated locations for leaving vehicles such as cars, motorcycles or bicycles (e.g. a car park of 50 places).
-
-### Main entity types - other (possibly no direct NeTEx equivalent?)
-
 * TopographicPlace
+    * An abstract data type for geospatial settlement or inhabited areas, such as city, rural area or suburb.
 * TariffZone
+    * A zone used to define a zonal fare structure in a zone-counting or zone-matrix system.
 
 ## Entity identification
 
