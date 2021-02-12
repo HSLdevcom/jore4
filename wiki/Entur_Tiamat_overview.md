@@ -39,7 +39,7 @@ Below is a list of main entity types that are processed in Spring-managed servic
 
 * StopPlace
     * Represents a physical stop or station. A place comprising one or more locations where vehicles may stop and where passengers may board or leave vehicles or prepare their trip.
-* Quay (platform)
+* Quay
     * A place such as platform within StopPlace where passengers have direct access to a vehicle.
 * AccessSpace
     * A passenger area within a StopPlace such as a concourse or booking hall, immigration hall or security area that is accessible by passenger, but without a direct access to vehicles.
@@ -63,16 +63,16 @@ Below is a list of main entity types that are processed in Spring-managed servic
 
 * 64-bit integers (Long)
 * Additionally a separate string-form NeTEx ID is maintained (e.g. "NSR:StopPlace:123")
-    * Coordination is done with Hazelcast between different backend server nodes
+    * Coordination in assigning IDs is done with Hazelcast between different backend server nodes
 
 ## Entity versioning
 
 * Each version has an ID which is a 64-bit integer
-* Each version has "validBetween" property: "fromDate" -> "toDate". The validity periods of different versions of same entity are non-overlapping.
+* Each version has `validBetween` property: `fromDate` -> `toDate`. The validity periods of different versions of same entity are non-overlapping.
 * Old version to be terminated is set to end 1 ms before a new version's validity period begins
 * Change history modeling
-    * created: java.time.Instant
-    * changed: java.time.Instant
+    * `created`: `java.time.Instant`
+    * `changed`: `java.time.Instant`
 
 # Deployment
 
