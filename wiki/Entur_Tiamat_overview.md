@@ -3,9 +3,8 @@ Entur Tiamat overview - A developer's perspective
 
 # General
 
-Tiamat is a backend for Stop Place Register used nationally in Norway.
+[Tiamat](https://github.com/entur/tiamat) is a backend for Stop Place Register used nationally in Norway.
 
-* [Tiamat at Github](https://github.com/entur/tiamat)
 * License: EUPL-1.2 with modifications
 
 # Dependent libraries
@@ -88,4 +87,4 @@ The functionality of Tiamat is pretty well described on the front page of the Gi
 * Versioning of stop places
 * Merging of stop places
 * Diffing of stop places
-* "Tiamat supports looking up and populating references to tariff zones and topographic places from polygon matches when saving a stop place."
+* > Tiamat supports looking up and populating references to tariff zones and topographic places from polygon matches when saving a stop place.
