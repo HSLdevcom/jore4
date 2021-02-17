@@ -1,0 +1,44 @@
+@startuml
+'https://plantuml.com/deployment-diagram
+
+'First draft of the architecture wrt. discussion on 2021-02-17
+
+node "Jore 4 Database\n(postgres/gis)" as db #business {
+    database "Hasura schema" as hasuraschema #lightgray
+    database "Backend schema" as backendschema #lightgray
+}
+
+node "Jore 3 Database\n(mssql)" as legacydb #business {
+    database "Jore 3 schema" as legacyschema #lightgray
+}
+
+node "Hasura" as hasura
+
+frame "Frontend\n(React)" as frontend
+
+component "Backend\n(java)" as backend
+
+cloud "HSL-ID" as hsl
+
+cloud "Tile server\n(OSM)" as tile
+
+note right of backend : Not necessarily\na single process
+
+frontend --(0-- hasura : GraphQL
+
+frontend --(0-- tile : HTTP:image/png
+
+hasura <--(0-- backendschema : read-only
+
+hasura <--(0-- hasuraschema : read+write
+
+backend <--(0--> backendschema : read+write
+
+backend <--(0-- legacyschema : read-only
+
+hasura --(0--> backend : HTTP
+
+hsl ... backend : authorizes
+hsl ... hasura : authorizes
+
+@enduml
