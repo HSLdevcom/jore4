@@ -26,15 +26,15 @@ frontend --(0-- hasura : GraphQL
 
 frontend --(0-- tile : HTTP:image/png
 
-hasura <--(0-- backendschema : read-only
+hasura <--(0--> backendschema : read+write
 
-hasura <--(0-- hasuraschema : read+write
+hasura <--(0--> hasuraschema : read+write
 
 backend <--(0--> backendschema : read+write
 
 backend <--(0-- legacyschema : read-only
 
-hasura --(0--> backend : HTTP
+hasura --(0--> backend : "HTTP\ncomplex logic"
 
 hslid ... backend : authorizes
 hslid ... hasura : authorizes
