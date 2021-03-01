@@ -76,7 +76,7 @@ API type: GraphQL, REST, SOAP, WFS, WMS, SQL, proprietary etc.\
 Data format: JSON, Protocol Buffers, XML, proprietary etc.\
 Data kind: intention, observation, prediction, N/A\
 API license: [License name](https://link-to-where-license-declared)\
-Data license: [License name](https://link-to-where-license-declared)\
+Data license: [License name](https://link-to-where-license-declared)
 ```
 
 #### \<Data set\>
@@ -88,5 +88,5 @@ Data owner: [Name](https://organization-site)\
 URL: [Data set name](possible-page-within-wiki), [Main documentation](https://), [Informative blog post elsewhere](https://)\
 Data format: JSON, Protocol Buffers, XML, proprietary etc.\
 Data kind: intention, observation, prediction, N/A\
-Data license: [License name](https://link-to-where-license-declared)\
+Data license: [License name](https://link-to-where-license-declared)
 ```
