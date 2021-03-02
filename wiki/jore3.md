@@ -21,6 +21,7 @@ The Jore3 db can be accessed through the environments' bastion host. Simply forw
    If not, check
    - that there is a bastion host in the environment you use and that you are using
    - that you are using the right IP address
+   - that the bastion host is running, i.e. not in stopped state (in Azure portal)
    - you are using VPN / have been assigned an IP from the allowed range (see vnet network security group)
    - you are using either a signed public key or the private key itself to log in (see 
 
