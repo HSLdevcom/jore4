@@ -44,15 +44,7 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 
 If there is no route matching destination 10.218.6.14 (in the best case 10.218.6.0/27), a route needs to be added. For this, note the IP of the router of the private subnet (the first IP in that network). *This should be the network routed to eth1, but this is not certain. You may want to double check, e.g. from the Azure portal.* In this case the private subnet of the vnet used is 10.223.29.0/25 with the router IP being 10.223.29.1 .
 
-In this case, the missing route can be added using `sudo route add -net 10.218.6.0/27 gw 10.223.29.1`. After that, `route -n` will output the following routing table:Kernel IP routing table
-Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
-0.0.0.0         10.223.29.233   0.0.0.0         UG    100    0        0 eth0
-10.218.6.0      10.223.29.1     255.255.255.224 UG    0      0        0 eth1
-10.223.29.0     0.0.0.0         255.255.255.128 U     0      0        0 eth1
-10.223.29.232   0.0.0.0         255.255.255.248 U     0      0        0 eth0
-168.63.129.16   10.223.29.233   255.255.255.255 UGH   100    0        0 eth0
-169.254.169.254 10.223.29.233   255.255.255.255 UGH   100    0        0 eth0
-
+In this case, the missing route can be added using `sudo route add -net 10.218.6.0/27 gw 10.223.29.1`. After that, `route -n` will output the following routing table:
 ```Kernel IP routing table
 Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 0.0.0.0         10.223.29.233   0.0.0.0         UG    100    0        0 eth0
