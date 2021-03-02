@@ -10,8 +10,8 @@ You need these accounts:
     - Use your preferred email address.
     - Needed for discussions across the HSL organization. Jore4 relates to many projects.
 1. An external ("EXT") HSL Microsoft account.
-  - Ask the PO.
-  - Needed for Azure, gitlab.hsl.fi, Sharepoint and possibly other services where `@hsl.fi` email address gets a preference.
+    - Ask the PO.
+    - Needed for Azure, gitlab.hsl.fi, Sharepoint and possibly other services where `@hsl.fi` email address gets a preference.
 1. HSL ID account
     - Create it yourself: <https://www.hsl.fi/user/auth/login?language=fi>
     - There are also test versions for HSL ID. 
