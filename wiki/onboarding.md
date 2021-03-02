@@ -47,6 +47,7 @@ python -m pip install mssql-cli
 mssql-cli -S localhost,<LOCAL_PORT> -d joretest
 ```
 to connect to the database.
+Use the relevant credentials from the common Azure key vault.
 Use care when touching the test database.
 
 Type:
