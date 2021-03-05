@@ -1,0 +1,32 @@
+@startuml
+title "Happy path to development environment"
+collections sprintBacklog as "Sprint\nbacklog"
+actor developer as "Developer"
+control unitTests as "Unit tests"
+actor reviewer as "Reviewer"
+database githubRepository as "GitHub\nrepository"
+database dockerHub as "Docker\nHub"
+collections devEnv as "Development\nenvironment"
+sprintBacklog -> developer: Start developing
+developer -> unitTests: Pull request
+unitTests -> reviewer: Pass
+reviewer -> githubRepository: Approved
+githubRepository -> dockerHub: New image
+dockerHub -> devEnv:
+title "Happy path from development to production"
+collections devEnv as "Development\nenvironment"
+control automatedTests as "Automated Tests"
+actor tester as "Exploratory Testing"
+participant testEnv as "Test\nEnvironment"
+note over testEnv: Ticket\ndone
+control e2eTests as "Automated Tests"
+note over e2eTests: Nightly runs
+actor customer as "Acceptance Testing"
+participant prodEnv as "Production\nEnvironment"
+devEnv -> automatedTests:
+automatedTests -> tester:
+tester -> testEnv:
+testEnv -> e2eTests:
+e2eTests -> customer:
+customer -> prodEnv: Accepted
+@enduml
