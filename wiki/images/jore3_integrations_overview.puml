@@ -1,0 +1,94 @@
+@startuml
+
+left to right direction
+
+package jore as "Jore" {
+    database joreDb as "Jore DB"
+
+    component joreWs as "Web service"
+
+    component joreUi as "Jore UI"
+
+    component kalustorekisteri as "Kalustorekisteri"
+
+    package batchJobs as "Batch jobs" {
+        'left to right direction
+        component batch_lij as "LIJ"
+        component batch_gtfs as "Google GTFS"
+        component batch_info as "Infopoiminta"
+        component batch_dr as "Digiroad"
+        component batch_kr as "Kalustorekisteri"
+    }
+}
+
+component hastus as "Hastus"
+
+component katla as "Katla FTP server" {
+    file dumps as "poiminta_$pvm.zip(s)"
+}
+
+package consumers as "External consumers" {
+    component gtfs as "Google GTFS"
+    component reittiopas as "Reittiopas"
+    component opentrip as "OpenTripPlanner"
+    component google_transit as "Google Transit"
+    component digiroad as "Digiroad"
+    component pubtrans as "PubTrans"
+
+    component lissu as "Lissu"
+    component taku as "Taku"
+
+    component bultti as "Bultti"
+
+    component dynamics as "Microsoft Dynamics 365"
+}
+
+package providers as "External providers" {
+    component omm as "OMM"
+}
+
+package users as "Users" {
+    file csv as "CSV"
+    file excel as "Excel"
+    file word as "Word"
+}
+
+actor user as "User"
+
+joreDb ---> joreWs
+
+joreDb ---> batchJobs
+
+batch_lij ---> pubtrans : SOAP
+batch_gtfs ---> katla
+batch_info ---> katla
+batch_dr ---> katla
+batch_kr ---> katla
+
+katla ---> gtfs
+katla ---> reittiopas
+katla ---> opentrip
+katla ---> google_transit
+katla ---> digiroad
+
+joreDb --- joreUi
+
+joreUi <----> csv
+joreUi ----> excel
+joreUi ----> word
+
+csv <--> hastus
+excel ---> user
+word ---> user
+
+joreWs ---> lissu : SOAP
+joreWs ---> taku : SOAP
+
+joreDb ---> bultti : SQL
+
+jore ---> dynamics : XML
+
+omm --> kalustorekisteri : SOAP
+kalustorekisteri --> joreDb
+
+@enduml
