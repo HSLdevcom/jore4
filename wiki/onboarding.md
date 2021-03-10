@@ -20,13 +20,16 @@ You need these accounts:
 
 Also create [a project-specific SSH key](https://gitlab.hsl.fi/developer-resources/azure-ansible#creating-user-key-each-user-should-have-their-own).
 
-### Jore3 test database
+### Connecting to the Azure environment via bastion host
 
-[Jore3](jore3.md) has a test database.
+You can access the Azure environment networks using the environment's bastion host via SSH.
+
 To connect to it, you need to [sign your SSH key](https://gitlab.hsl.fi/developer-resources/azure-ansible#signing-users-public-key-with-private-ca-key).
 Ask the team how to access the CA key.
 
-Then you can add this into your SSH configuration (works on Linux, maybe not on Mac):
+This should allow you to ssh into the bastion host only using your public key. You should be able to forward the Jore3 test DB connection to your own machine using e.g. using the command `ssh -L 15432:10.218.6.14:56239 hsladmin@<BASTION_HOST_IP>`.
+
+In case you have trouble using your signed public key, you may also use the private key directly. In order to do this, you can add this into your SSH configuration (works on Linux, maybe not on Mac):
 ```ssh-config
 # Add into ~/.ssh/config after filling out <VARIABLE>s
 
@@ -41,7 +44,11 @@ Host hsl-jore4-dev-bastion
 
 Ask the sensitive details from the team.
 
-After successfully connecting to the bastion host, you can run locally e.g.
+### Jore3 test database
+
+[Jore3](jore3.md) has a test database.
+
+After successfully connecting to the bastion host as described in the section [on how to connect to the Azure environment](#Connecting to the Azure environment via bastion host), you can run locally e.g. 
 ```sh
 python -m pip install mssql-cli
 mssql-cli -S localhost,<LOCAL_PORT> -d joretest
@@ -56,6 +63,7 @@ Type:
 ```
 to quit.
 
+More information on connecting to the Jore3 test DB and troubleshooting connection problems, see the [Jore3](jore3.md) guide.
 
 ## First immersion
 
