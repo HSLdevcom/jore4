@@ -13,14 +13,7 @@ ALTER LOGIN user_name WITH PASSWORD = 'new_password' OLD_PASSWORD = 'old_passwor
 
 ## Jore3 db access
 
-The Jore3 db can be accessed through the environments' bastion host. Simply forward the connection to the Jore3 db server via ssh, e.g. `ssh -L 15432:10.218.6.14:56239 hsladmin@40.68.123.16`.
-
-Developers can log into the bastion host using a public key, which has been signed using the shared developer private key (stored in the common Azure key vault).
-    
-Instructions for signing your own key as a developer in order to log into the bastion host can be found here:
-https://gitlab.hsl.fi/developer-resources/azure-ansible/-/tree/master#signing-users-public-key-with-private-ca-key
-    
-The CA key is stored in the hsl-jore4-vault, which is common to all environments.
+The Jore3 db can be accessed through the environments' bastion host. Simply forward the connection to the Jore3 db server via ssh, e.g. `ssh -L 15432:10.218.6.14:56239 hsladmin@40.68.123.16`. For more information on how to connect to the bastion host, see the [onboarding guide](onboarding.md).
 
 ### Troubleshooting Jore3 db access
 
