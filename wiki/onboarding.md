@@ -48,7 +48,7 @@ Ask the sensitive details from the team.
 
 [Jore3](jore3.md) has a test database.
 
-After successfully connecting to the bastion host as described in the section [on how to connect to the Azure environment](#Connecting to the Azure environment via bastion host), you can run locally e.g. 
+After successfully connecting to the bastion host as described in the section [on how to connect to the Azure environment](### Connecting to the Azure environment via bastion host), you can run locally e.g. 
 ```sh
 python -m pip install mssql-cli
 mssql-cli -S localhost,<LOCAL_PORT> -d joretest
