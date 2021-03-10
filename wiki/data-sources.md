@@ -3,14 +3,13 @@
 These data sources we use or might use.
 
 Terms used for data kind:
+
 - Intention: What should happen? Plans, requests, orders, commands, nudges, guiding, reservations etc.
 - Observation: What did happen? Sensor data, status updates etc.
 - Prediction: What will likely happen? Arrival predictions, population predictions etc.
 
 It is sometimes easy to confuse these categories.
 Each business process uses only some data kinds.
-
-
 
 ## In use
 
@@ -25,8 +24,6 @@ Data format: proprietary\
 Data kind: intention (most of the data), observation (at least recorded link lengths)\
 Data license: proprietary
 
-
-
 ## Potential for use
 
 ### APIs
@@ -37,6 +34,9 @@ Data license: proprietary
 - [HSL background map tiles](https://digitransit.fi/en/developers/apis/3-map-api/background-map/)
 - [National Access Point for Finland](https://finap.fi/)
 - [Digitransit geocoding API](https://digitransit.fi/en/developers/apis/2-geocoding-api/)
+- [Mapillary](https://github.com/mapillary/mapillary-js)
+- Different kinds of aerial images (HSL/HSY (20 cm resolution), City of Helsinki (5 cm resolution), National Land Survey of Finland (50 cm resolution))
+- 3D models (the [reality mesh model demo](https://kartta.hel.fi/3d/mesh/) and the [city information model demo](https://kartta.hel.fi/3d/) of the [City of Helsinki](https://www.hel.fi/helsinki/en/administration/information/general/3d/))
 - From Jore3 to LIJ
 
 #### Event and Land Use Permits in Public Areas of the City of Helsinki
@@ -59,8 +59,6 @@ Data license: [CC-BY 4.0 International](https://hri.fi/data/fi/dataset//helsingi
 ### Unknown whether API or data set
 
 - Municipal road networks
-
-
 
 ## Templates
 
