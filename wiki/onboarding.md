@@ -5,18 +5,19 @@ This is the starting page for new team members.
 ## Access to services
 
 You need these accounts:
-1. A member access to [HSL Slack](https://hsldevcom.slack.com).
-    - Ask the Product Owner (PO).
-    - Use your preferred email address.
-    - Needed for discussions across the HSL organization. Jore4 relates to many projects.
-1. An external ("EXT") HSL Microsoft account.
-    - Ask the PO.
-    - Needed for Azure, gitlab.hsl.fi, Sharepoint and possibly other services where `@hsl.fi` email address gets a preference.
+
+1. Member access to [HSL Slack](https://hsldevcom.slack.com).
+   - Use your preferred email address.
+   - Ask the Product Owner (PO).
+   - Needed for discussions across the HSL organization. Jore4 relates to many projects.
+1. External ("EXT") HSL Microsoft account.
+   - Ask the PO.
+   - Needed for Azure, gitlab.hsl.fi, Sharepoint and possibly other services where `@hsl.fi` email address gets a preference.
 1. HSL ID account
-    - Create it yourself: <https://www.hsl.fi/user/auth/login?language=fi>
-    - There are also test versions for HSL ID. 
-    - Use your preferred email address unless told otherwise.
-    - Ask the PO to add your email address into Jore3 so that you can sign into Jore Map UI.
+   - Create it yourself: <https://www.hsl.fi/user/auth/login?language=fi>
+   - There are also test versions for HSL ID.
+   - Use your preferred email address unless told otherwise.
+   - Ask the PO to add your email address into Jore3 so that you can sign into Jore Map UI.
 
 Also create [a project-specific SSH key](https://gitlab.hsl.fi/developer-resources/azure-ansible#creating-user-key-each-user-should-have-their-own).
 
@@ -30,6 +31,7 @@ Ask the team how to access the CA key.
 This should allow you to ssh into the bastion host only using your public key. You should be able to forward the Jore3 test DB connection to your own machine using e.g. using the command `ssh -L 15432:10.218.6.14:56239 hsladmin@<BASTION_HOST_IP>`.
 
 In case you have trouble using your signed public key, you may also use the private key directly. In order to do this, you can add this into your SSH configuration (works on Linux, maybe not on Mac):
+
 ```ssh-config
 # Add into ~/.ssh/config after filling out <VARIABLE>s
 
@@ -48,19 +50,23 @@ Ask the sensitive details from the team.
 
 [Jore3](jore3.md) has a test database.
 
-After successfully connecting to the bastion host as described in the section [on how to connect to the Azure environment](#connecting-to-the-azure-environment-via-bastion-host), you can run locally e.g. 
+After successfully connecting to the bastion host as described in the section [on how to connect to the Azure environment](#connecting-to-the-azure-environment-via-bastion-host), you can run locally e.g.
+
 ```sh
 python -m pip install mssql-cli
 mssql-cli -S localhost,<LOCAL_PORT> -d joretest
 ```
+
 to connect to the database.
 Use the relevant credentials from the common Azure key vault.
 Use care when touching the test database.
 
 Type:
+
 ```tsql
 \q
 ```
+
 to quit.
 
 More information on connecting to the Jore3 test DB and troubleshooting connection problems, see the [Jore3](jore3.md) guide.
