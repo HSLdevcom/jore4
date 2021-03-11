@@ -18,6 +18,11 @@ You need these accounts:
    - There are also test versions for HSL ID.
    - Use your preferred email address unless told otherwise.
    - Ask the PO to add your email address into Jore3 so that you can sign into Jore Map UI.
+1. GitHub account
+   - If you do not have one, create it yourself: <https://github.com/join>
+   - Use your preferred email address.
+   - Ask the PO to invite you as a member of the organization [HSLdevcom](https://github.com/HSLdevcom/) and the team [jore4](https://github.com/orgs/HSLdevcom/teams/jore4).
+   - Allow [Reviewable](https://reviewable.io/) to access your GitHub account and the repositories of `jore4` that you use by signing in with your GitHub account and authorizing each repository separately.
 
 Also create [a project-specific SSH key](https://gitlab.hsl.fi/developer-resources/azure-ansible#creating-user-key-each-user-should-have-their-own).
 
