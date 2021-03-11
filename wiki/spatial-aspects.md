@@ -128,9 +128,11 @@ Garages in Transmodel.
 
 ### Spaces for breaks and the restrooms for drivers
 
-### Kiss and ride
+### Park & Ride / Kiss and ride
 
 Parking areas near important public transport hubs for switching to and from public transport ("Liityntäpysäköinti", "LIIPI").
+
+Service [here][park-and-ride].
 
 ### Poster frames
 
@@ -341,8 +343,10 @@ Maybe also UI.
 1. [HSL map project documentation][hsl-map-documentation]
 1. [The waiver from HSL to allow OpenStreetMap to use the CC BY material from HSL][hsl-osm-waiver]
 1. [Road traffic law ("Tieliikennelaki")][law-for-road-traffic]
+1. [Park & Ride][park-and-ride]
 
 [hsl-osm-waiver]: https://wiki.openstreetmap.org/w/images/7/75/HSL_permission.pdf "The waiver from HSL to allow OpenStreetMap to use the CC BY material from HSL"
 [hsl-map-documentation]: https://github.com/HSLdevcom/hsl-map-documentation "HSL map project documentation"
 [peltonen2016]: https://www.doria.fi/handle/10024/121944 "Peltonen, T. (2016). Digiroad-ja OpenStreetMap-aineistojen yhteiskäyttö joukkoliikennepysäkeissä. Opinnäytetyö."
 [law-for-road-traffic]: https://finlex.fi/fi/laki/ajantasa/2018/20180729 "Road traffic law, Tieliikennelaki"
+[park-and-ride]: https://p.hsl.fi/ "Park & Ride (Liityntäpysäköinti, LIIPI)"
