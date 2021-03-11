@@ -35,7 +35,7 @@ Think of the asphalt without the cars.
    - i.e. who is allowed to drive on the lane
    - Full-time, part-time
    - Exclusive or selectively for other traffic as well, e.g. a lane also for private cars turning right in the next junction or a tunnel only for public transit
-   - Tram lanes ("raitioliikennekaista") and bus lanes ("joukkoliikennekaista") separately
+   - Tram lanes ("raitioliikennekaista") and bus lanes ("linja-autokaista") separately
    - Municipalities did not have the information on bus lanes
    - There exists an unnamed project that collected this information
 
