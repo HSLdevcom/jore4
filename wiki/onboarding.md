@@ -23,6 +23,7 @@ You need these accounts:
    - Use your preferred email address.
    - Ask the PO to invite you as a member of the organization [HSLdevcom](https://github.com/HSLdevcom/) and the team [jore4](https://github.com/orgs/HSLdevcom/teams/jore4).
    - Allow [Reviewable](https://reviewable.io/) to access your GitHub account and the repositories of `jore4` that you use by signing in with your GitHub account and authorizing each repository separately.
+1. Figma account
 
 Also create [a project-specific SSH key](https://gitlab.hsl.fi/developer-resources/azure-ansible#creating-user-key-each-user-should-have-their-own).
 
