@@ -25,8 +25,6 @@ You need these accounts:
    - Allow [Reviewable](https://reviewable.io/) to access your GitHub account and the repositories of `jore4` that you use by signing in with your GitHub account and authorizing each repository separately.
 1. Figma account
 
-Also create [a project-specific SSH key](https://gitlab.hsl.fi/developer-resources/azure-ansible#creating-user-key-each-user-should-have-their-own).
-
 ### Connecting to the Azure environment via bastion host
 
 You can access the Azure environment networks using the environment's bastion host via SSH.
