@@ -31,26 +31,49 @@ Also create [a project-specific SSH key](https://gitlab.hsl.fi/developer-resourc
 
 You can access the Azure environment networks using the environment's bastion host via SSH.
 
-To connect to it, you need to [sign your SSH key](https://gitlab.hsl.fi/developer-resources/azure-ansible#signing-users-public-key-with-private-ca-key).
-Ask the team how to access the CA key.
+To connect to it, you need to
+- create a new key pair (not strictly needed, but recommended as best practice), e.g. using the command
+  ```
+  ssh-keygen -t ed25519 -f ~/.ssh/jore4_key_ed25519 -C "<YOUR_EMAIL_ADDRESS>"
+  ```
+- download the CA private key, e.g. using the commands
+  ```
+  az login
+  mkdir -p /tmp/jore
+  az keyvault secret show --vault-name <KEY_VAULT_NAME> --name <KEY_SECRET_NAME> --output tsv --query value > /tmp/jore/jore4.key
+  chmod 0600 /tmp/jore/jore4.key
+  ```
+- sign your own key pair with the private CA key using the command
+  ```
+  ssh-keygen -s /tmp/jore/jore4.key -I <YOUR_USER_NAME> -n hsladmin -V -5m:+100d ~/.ssh/jore4_key_ed25519
+  ```
+- REMOVE THE PRIVATE KEY from your machine:
+  ```
+  rm /tmp/jore/jore4.key
+  ```
 
-This should allow you to ssh into the bastion host only using your public key. You should be able to forward the Jore3 test DB connection to your own machine using e.g. using the command `ssh -L 15432:10.218.6.14:56239 hsladmin@<BASTION_HOST_IP>`.
+Ask the team about the CA key details. Check the [original HSL instructions](https://gitlab.hsl.fi/developer-resources/azure-ansible#creating-user-key-each-user-should-have-their-own) for updates in case you run into trouble.
 
-In case you have trouble using your signed public key, you may also use the private key directly. In order to do this, you can add this into your SSH configuration (works on Linux, maybe not on Mac):
+Once you have signed your SSH key, you can add the following snippet into your SSH configuration (works on Linux, maybe not on Mac):
 
 ```ssh-config
 # Add into ~/.ssh/config after filling out <VARIABLE>s
 
 Host hsl-jore4-dev-bastion
   HostName <BASTION_HOST_IP>
-  User <USER_NAME>
+  User hsladmin
   IdentityFile ~/.ssh/jore4_key_ed25519
   # HSL Jore3 test database
   LocalForward localhost:<LOCAL_PORT> <JORE3_TEST_DB_IP>:<JORE3_TEST_DB_PORT>
   ExitOnForwardFailure yes
 ```
 
-Ask the sensitive details from the team.
+This will configure ssh to use the appropriate key when accessing the bastion host and to forward the Jore3 DB connection to your local machine. Ask the sensitive details from the team.
+
+After performing these steps, you should be able to SSH into the bastion host using the command
+```
+ssh hsladmin@hsl-jore4-dev-bastion
+```
 
 ### Jore3 test database
 
@@ -68,6 +91,12 @@ Use the relevant credentials from the common Azure key vault.
 Use care when touching the test database.
 
 Type:
+
+```tsql
+\ld
+```
+
+to list the available databases in order to test database access and
 
 ```tsql
 \q
