@@ -13,7 +13,7 @@ ALTER LOGIN user_name WITH PASSWORD = 'new_password' OLD_PASSWORD = 'old_passwor
 
 ## Jore3 db access
 
-The Jore3 db can be accessed through the environments' bastion host. Simply forward the connection to the Jore3 db server via ssh, e.g. `ssh -L 15432:10.218.6.14:56239 hsladmin@40.68.123.16`. For more information on how to connect to the bastion host, see the [onboarding guide](onboarding.md).
+The Jore3 db can be accessed through the environments' bastion host. For information on how to connect to the bastion host, see the [onboarding guide](onboarding.md).
 
 ### Troubleshooting Jore3 db access
 
