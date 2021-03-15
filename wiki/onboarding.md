@@ -13,6 +13,7 @@ You need these accounts:
 1. External ("EXT") HSL Microsoft account.
    - Ask the PO.
    - Needed for Azure, gitlab.hsl.fi, Sharepoint and possibly other services where `@hsl.fi` email address gets a preference.
+   - Set up Multi-Factor Authentication (MFA) for yourself in Azure.
 1. HSL ID account
    - Create it yourself: <https://www.hsl.fi/user/auth/login?language=fi>
    - There are also test versions for HSL ID.
