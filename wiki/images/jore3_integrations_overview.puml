@@ -72,6 +72,7 @@ katla ---> reittiopas
 katla ---> opentrip
 katla ---> google_transit
 katla ---> digiroad
+katla ---> kartat
 
 joreDb --- joreUi
 
