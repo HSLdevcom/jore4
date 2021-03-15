@@ -88,7 +88,7 @@ This will configure ssh to use the appropriate key when accessing the bastion ho
 
 After performing these steps, you should be able to SSH into the bastion host using the command
 ```
-ssh hsladmin@hsl-jore4-dev-bastion
+ssh hsl-jore4-dev-bastion
 ```
 
 ### Jore3 test database
