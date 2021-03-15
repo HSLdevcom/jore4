@@ -33,25 +33,29 @@ You can access the Azure environment networks using the environment's bastion ho
 #### Creating an SSH key
 
 To connect to it, you need to
-- create a new key pair (not strictly needed, but recommended as best practice), e.g. using the command
-  ```
-  ssh-keygen -t ed25519 -f ~/.ssh/jore4_key_ed25519 -C "<YOUR_EMAIL_ADDRESS>"
-  ```
-- download the CA private key, e.g. using the commands
-  ```
-  az login
-  mkdir -p /tmp/jore
-  az keyvault secret show --vault-name hsl-jore4-vault --name jore4-developer-ca-key-private --output tsv --query value > /tmp/jore/jore4.key
-  chmod 0600 /tmp/jore/jore4.key
-  ```
-- sign your own key pair with the private CA key using the command
-  ```
-  ssh-keygen -s /tmp/jore/jore4.key -I <YOUR_USER_NAME> -n hsladmin -V -5m:+100d ~/.ssh/jore4_key_ed25519
-  ```
-- REMOVE THE PRIVATE KEY from your machine:
-  ```
-  rm /tmp/jore/jore4.key
-  ```
+
+1. create a new key pair for this project (required for security), e.g. using the command
+   ```sh
+   ssh-keygen -t ed25519 -f ~/.ssh/jore4_key_ed25519 -C "${YOUR_EMAIL_ADDRESS}"
+   ```
+1. sign your own public key with the private SSH CA key using the command
+   ```sh
+   az login \
+     && ssh-keygen \
+       -s <(
+         az keyvault secret show \
+           --vault-name 'hsl-jore4-vault' \
+           --name 'jore4-developer-ca-key-private' \
+           --output tsv \
+           --query value
+       ) \
+       -I "${YOUR_FULL_NAME} user key" \
+       -n 'hsladmin' \
+       -V '-5m:+100d' \
+       ~/.ssh/jore4_key_ed25519
+   ```
+
+The command above refers to your private key but actually uses your public key with the conventional `.pub` extension. If you modify the command above, do not persist the CA private key on your computer.
 
 Check the [original HSL instructions](https://gitlab.hsl.fi/developer-resources/azure-ansible#creating-user-key-each-user-should-have-their-own) for updates in case you run into trouble.
 
