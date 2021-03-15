@@ -30,6 +30,7 @@ The Jore3 db can be accessed through the environments' bastion host. For informa
    - that the -private -subnet of the environment in question uses the "jore4-route"-routing table
    - the bastion host has a route entry routing db traffic to the private subnet gateway (see section below)
    - that the firewall on the Jore3 db side has an exception for the environment in question (contact customer representative)
+   - that the peering to the Jore3 network has been established (contact customer representative)
 
 ### Checking the bastion host routing table
 
