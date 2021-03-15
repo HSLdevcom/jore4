@@ -23,6 +23,8 @@ package jore as "Jore" {
 
 component hastus as "Hastus"
 
+component liptu as "LIPTU"
+
 component katla as "Katla FTP server" {
     file dumps as "poiminta_$pvm.zip(s)"
 }
@@ -40,6 +42,8 @@ package consumers as "External consumers" {
 
     component bultti as "Bultti"
 
+    component kartat as "kartta.hsl.fi"
+
     component dynamics as "Microsoft Dynamics 365"
 }
 
@@ -52,8 +56,6 @@ package users as "Users" {
     file excel as "Excel"
     file word as "Word"
 }
-
-actor user as "User"
 
 joreDb ---> joreWs
 
@@ -78,8 +80,30 @@ joreUi ----> excel
 joreUi ----> word
 
 csv <--> hastus
-excel ---> user
-word ---> user
+csv --> liptu
+
+file bathroom as "reitin_lmaarat.xls"
+file routeLengths as "reitin_tiedot.xls"
+file business1 as "Massalistaus Exceliin suunnitellut suoritteet.xlsx"
+file business2 as "Massalistaus Exceliin suoritteet ja korvaukset.xlsx"
+file equipmentReport as "Varustelutiedot.xlsx"
+file posterExport as "Julistepaikkatiedot.xlsx"
+file posterUsageGuide as "vb2JulistePaikat.docx"
+file infoExport as "Infopaikkatiedot.xlsx"
+file plateGuide as "vb2Kilvitys.docx"
+file posterExport2 as "vb2P2.docx"
+
+excel --> bathroom
+excel --> routeLengths
+excel --> business1
+excel --> business2
+excel --> equipmentReport
+excel --> posterExport
+excel --> infoExport
+
+word --> posterUsageGuide
+word --> plateGuide
+word --> posterExport2
 
 joreWs ---> lissu : SOAP
 joreWs ---> taku : SOAP

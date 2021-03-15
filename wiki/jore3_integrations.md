@@ -16,6 +16,7 @@ Routes are uploaded to Hastus using a plain CSV file, which can be exported from
 
 ```
 Format: CSV
+Contact: Ossi Berg
 Data:
   - routes
   - stop places and distances between them
@@ -38,6 +39,7 @@ Schedules are retrieved from Hastus using a plain CSV file, and imported to Jore
 
 ```
 Format: CSV
+Contact: Ossi Berg
 Data:
   - vehicle schedules / "kaaviot"
     -- departure and arrival times
@@ -55,6 +57,100 @@ Sample:
 6;14731707;;4940206;;;;;0723;204.0;;
 6;14731707;;4940208;;;;;0724;435.0;;
 ...
+```
+
+### Excel Exports
+
+#### Route Usage Export
+
+```
+Filename: reitin_lmaarat.xls
+Format: XLS
+Contact: Ossi Berg, Natalia Berezina
+Data:
+  - ??
+```
+
+#### Route Lengths Export
+
+```
+Filename: reitin_tiedot.xls
+Format: XLS
+Contact: Natalia Berezina
+Data:
+  - ??
+```
+
+#### "Suunnitellut suoritteet" Export
+
+```
+Filename: "Massalistaus Exceliin suunnitellut suoritteet.xlsx"
+Format: XLSX
+Contact: Oskari Leho
+Data:
+  - ??
+```
+
+#### "Suoritteet ja korvaukset" Export
+
+```
+Filename: "Massalistaus Exceliin suoritteet ja korvaukset.xlsx"
+Format: XLSX
+Contact: Oskari Leho
+Data:
+  - ??
+```
+
+#### Bus Stop Equipment Export
+
+```
+Filename: "Varustelutiedot.xlsx"
+Format: XLSX
+Contact: Joona Packalén, Kari Lehtonen
+Data:
+  - ??
+```
+
+#### Poster Export for Terminals
+
+```
+Filename: "Julistepaikkatiedot.xlsx"
+Format: XLSX
+Contact: Joona Packalén
+Data:
+  - ??
+```
+
+#### "Infopaikka" Export
+
+```
+Filename: "Infopaikkatiedot.xlsx"
+Format: XLSX
+Contact: Joona Packalén
+Data:
+  - ??
+```
+
+### Word Exports
+
+#### Poster Installation Instructions Export for Terminals
+
+```
+Filename: "vb2JulistePaikat.docx"
+Format: DOCX
+Contact: Joona Packalén
+Data:
+  - ??
+```
+
+#### Plate Installation Instructions for Stop Places
+
+```
+Filename: "vb2Kilvitys.docx"
+Format: DOCX
+Contact: Joona Packalén
+Data:
+  - ??
 ```
 
 ## Database Batch Jobs
