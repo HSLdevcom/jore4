@@ -10,6 +10,8 @@
 
 [Retrospectives](retrospectives.md)
 
+[Code Review](code_review.md)
+
 ## Other
 
 [Data sources](data-sources.md)
