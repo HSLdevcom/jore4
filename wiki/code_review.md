@@ -16,10 +16,10 @@ As of now, we are using Reviewable.io to expand our options for code reviews. It
 
 For all JORE4 git repositories, the following Settings should be set up:
 
-* Git Repository / Settings / Merge Button:*
+_Git Repository / Settings / Merge Button_
 1. Should disable merge commits as we wish to keep the main branch linear.
 
-* Git Repository / Settings / Branches*
+_Git Repository / Settings / Branches_
 1. Should set the `main` branch as protected
 2. Should require at least 1 reviewer to accept the changes for the pull request
 3. Should require status checks to pass before merging
