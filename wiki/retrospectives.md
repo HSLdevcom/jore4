@@ -11,4 +11,4 @@
 
 ## 2021-03-16
 
-![Retrospective board] (images/retro_2021-03.16.png "Retrospecive board)
+![Retrospective board] (images/retro_2021-03.16.png "Retrospecive board")
