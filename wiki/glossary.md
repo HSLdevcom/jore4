@@ -5,7 +5,25 @@
 - [Transmodel V6 hierarchy](http://www.transmodel-cen.eu/model/index.htm)
 - [Entur AS wiki](https://enturas.atlassian.net/wiki/spaces/PUBLIC/overview) (Nordic NeTEx profile)
 
-## Terminology
+## HSL non-technical terminology
+
+### Employees
+
+#### Public transport planner
+
+* In Finnish: _Joukkoliikennesuunnittelija_
+
+### Work processes
+
+#### Compensation
+
+* In Finnish: _Liikennöintikorvaus_
+
+#### Compensation calculation
+
+* In Finnish: _Korvauslaskenta_
+
+## Transport data terminology
 
 The following taxonomy loosely follows the Transmodel hierarchy and attemps to map similar concepts in Transmodel and Jore 3.x.
 
