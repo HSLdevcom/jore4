@@ -13,6 +13,18 @@
 
 * In Finnish: _Joukkoliikennesuunnittelija_
 
+#### Transport planner
+
+* In Finnish: _Liikennesuunnittelija_
+
+#### Planning assistant
+
+* In Finnish: _Suunnitteluavustaja_
+
+#### Data service coordinator
+
+* In Finnish: _Tietopalvelukoordinaattori_
+
 ### Work processes
 
 #### Compensation
