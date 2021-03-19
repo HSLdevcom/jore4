@@ -179,4 +179,4 @@ Links a `route point` with a `route`. The `order` attribute defines the order in
 
 In Jore 3, hastus points represent important route-specific stop places, which are used to e.g. synchronize timetables between multiple routes, or highlight a point where the vehicle speed changes significantly (e.g. the last stop before transitioning to a highway).
 
-Because the hastus points are route specific, a single stop place may be a hastus point on a particular route but only a regular stop place on other routes. A single route may have any number of hastus points, or none.
+Because the hastus points are route specific, a single stop place may be a hastus point on a particular route but only a regular stop place on other routes. A single route may have any number of hastus points, minimum amount is two: The first and last stops are always Hastus points.
