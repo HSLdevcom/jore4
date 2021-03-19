@@ -131,6 +131,16 @@ Data:
   - ??
 ```
 
+#### Stop time export for a route Export
+
+```
+Filename: "valipisteajat.xlsx"
+Format: XLSX
+Contact: Ossi Berg
+Data:
+  - ??
+```
+
 ### Word Exports
 
 #### Poster Installation Instructions Export for Terminals
