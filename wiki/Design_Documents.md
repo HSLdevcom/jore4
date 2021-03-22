@@ -1,11 +1,11 @@
-#Design documents#
+# Design documents
 
-##Coming up##
+## Coming up
 - User evaluation 03/21 results
 - User evaluation, ideas to discuss
 - Updated wireframes, focus on route planning
 
-##Current design documents##
+## Current design documents
 
 [Usage paths, work in progress (Figma)](https://www.figma.com/file/gOaUkZDPwiH4qbsJgmf0yc/Reitit?node-id=1%3A2)
 - Updating a permanent route
