@@ -5,7 +5,14 @@
 - [Transmodel V6 hierarchy](http://www.transmodel-cen.eu/model/index.htm)
 - [Entur AS wiki](https://enturas.atlassian.net/wiki/spaces/PUBLIC/overview) (Nordic NeTEx profile)
 
-## HSL non-technical terminology
+## Non-transmodel terminology of less technical subjects
+
+### Physical world
+
+#### Poster frame
+
+* In Finnish: _Julistepaikka_
+* _Infopaikka_ should also be translated to Poster frame. They are the same physical object. In Jore3 world, Infopaikka is something attached to a stop and Julistepaikka is something attached to a terminal.
 
 ### Employees
 
