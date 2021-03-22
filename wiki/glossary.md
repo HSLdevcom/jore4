@@ -14,6 +14,12 @@
 * In Finnish: _Julistepaikka_
 * _Infopaikka_ should also be translated to Poster frame. They are the same physical object. In Jore3 world, Infopaikka is something attached to a stop and Julistepaikka is something attached to a terminal.
 
+#### Break room
+
+* In Finnish: _Taukotila_
+* Used by bus and tram drivers. Metro and train driver break rooms are at the moment (3/2021) not interesting for HSL
+* Typically in HSL jargon "taukotila" might mean also toilet. Toilet is like a smallest possible version of a break room.
+
 ### Employees
 
 #### Public transport planner
