@@ -1,8 +1,12 @@
 # Jore4 wiki
 
+[Roadmap](roadmap.md)
+
 ## Development process
 
 [Onboarding](onboarding.md)
+
+[Design documents](Design_Documents.md)
 
 [Architecture](architecture.md)
 
@@ -14,6 +18,8 @@
 
 ## Other
 
+[Glossary](glossary.md)
+
 [Data sources](data-sources.md)
 
 [Spatial data and processes](spatial-aspects.md)
@@ -23,3 +29,5 @@
 [Existing Jore 3 Integrations](jore3_integrations.md)
 
 [Entur Tiamat overview - A developer's perspective](Entur_Tiamat_overview.md)
+
+[railML from VR](railml.md)
