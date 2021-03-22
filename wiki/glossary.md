@@ -24,6 +24,10 @@
 
 * In Finnish: _Liikennesuunnittelija_
 
+#### Transport researcher
+
+* In Finnish: _Liikennetutkija_
+
 #### Planning assistant
 
 * In Finnish: _Suunnitteluavustaja_
