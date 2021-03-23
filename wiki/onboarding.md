@@ -29,7 +29,7 @@ You need these accounts:
    - Allow [Reviewable](https://reviewable.io/) to access your GitHub account and the repositories of `jore4` that you use by signing in with your GitHub account and authorizing each repository separately.
 1. Figma account
    - Use your preferred email address.
-   - Ask the PO to be added to the group Jore 4.0 in the organization HSL.
+   - Ask the PO to add you into the group Jore 4.0 in the organization HSL.
 
 ### Connecting to the Azure environment via bastion host
 
