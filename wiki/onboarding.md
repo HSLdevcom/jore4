@@ -11,9 +11,12 @@ You need these accounts:
    - Ask the Product Owner (PO).
    - Needed for discussions across the HSL organization. Jore4 relates to many projects.
 1. External ("EXT") HSL Microsoft account.
-   - Ask the PO.
-   - Needed for Azure, gitlab.hsl.fi, Sharepoint and possibly other services where `@hsl.fi` email address gets a preference.
-   - Set up Multi-Factor Authentication (MFA) for yourself in Azure.
+   - Ask the PO:
+     - for the Microsoft account
+     - to be added to the AD and Azure group `jore4-platform-developers`
+     - to be added to the group `jore` in [gitlab.hsl.fi](https://gitlab.hsl.fi)
+   - Needed for Azure, [gitlab.hsl.fi](https://gitlab.hsl.fi), Sharepoint and possibly other services where `@hsl.fi` email address gets a preference.
+   - Set up Multi-Factor Authentication (MFA).
 1. HSL ID account
    - Create it yourself: <https://www.hsl.fi/user/auth/login?language=fi>
    - There are also test versions for HSL ID.
@@ -25,6 +28,8 @@ You need these accounts:
    - Ask the PO to invite you as a member of the organization [HSLdevcom](https://github.com/HSLdevcom/) and the team [jore4](https://github.com/orgs/HSLdevcom/teams/jore4).
    - Allow [Reviewable](https://reviewable.io/) to access your GitHub account and the repositories of `jore4` that you use by signing in with your GitHub account and authorizing each repository separately.
 1. Figma account
+   - Use your preferred email address.
+   - Ask the PO to be added to the group Jore 4.0 in the organization HSL.
 
 ### Connecting to the Azure environment via bastion host
 
