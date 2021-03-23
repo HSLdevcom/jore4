@@ -22,24 +22,24 @@
   * Q4, Valmius toteuttaa migraatio aina tarvittaessa (koskee moduulia aikataulut ja kaaviot).
 
 * Aikataulut
- * Q3, Aikataulujen tietomallin luonti Joren tietokantaan
- * Q4, Aikataulujen importointi ulkoisista tietolähteistä, aikataulujen yksinkertaiset muokkausmahdollisuudet (esim. voimassaolon muuttaminen)
+  * Q3, Aikataulujen tietomallin luonti Joren tietokantaan
+  * Q4, Aikataulujen importointi ulkoisista tietolähteistä, aikataulujen yksinkertaiset muokkausmahdollisuudet (esim. voimassaolon muuttaminen)
 
 <h2>2022</h2>
 
 * Aikataulut
- * Q1, korvaavat linjat sekä aikataulujen loput ominaisuudet, mm. poikkeusreitteihin liittyvä hallinta
+  * Q1, korvaavat linjat sekä aikataulujen loput ominaisuudet, mm. poikkeusreitteihin liittyvä hallinta
 
 * Pysäkit
- * Q2, Pysäkkeihin liittyvät raportointitoiminnallisuudet, loput pysäkkien ominaisuudet, kuten kuulutukset ja julistepaikat
+  * Q2, Pysäkkeihin liittyvät raportointitoiminnallisuudet, loput pysäkkien ominaisuudet, kuten kuulutukset ja julistepaikat
 
 * Terminaalit
- * Q3, Loput terminaalin ominaisuudet, kuten julistepaikat ja hissitiedot
+  * Q3, Loput terminaalin ominaisuudet, kuten julistepaikat ja hissitiedot
 
 * Matkustajainformaatio
- * Q1, GTFS-poiminta
- * Q2, Tietojen exportointi Takuun ja julistegeneraattoriin ym. ulkoisiin matkustajainfomaation luontityökaluihin
- * Q3, Netex-poiminta
+  * Q1, GTFS-poiminta
+  * Q2, Tietojen exportointi Takuun ja julistegeneraattoriin ym. ulkoisiin matkustajainfomaation luontityökaluihin
+  * Q3, Netex-poiminta
 
 * Taukotilat
- * Q3, Taukotiloihin liittyvät toiminnallisuudet, laskujen luonti lienee monimutkaisin
+  * Q3, Taukotiloihin liittyvät toiminnallisuudet, laskujen luonti lienee monimutkaisin
