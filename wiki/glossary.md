@@ -9,6 +9,11 @@
 
 ### Physical world
 
+#### Installation instruction for stop signs
+
+* In Finnish: _Kilvitysohje_
+* This is a terrible translation
+
 #### Poster frame
 
 * In Finnish: _Julistepaikka_
