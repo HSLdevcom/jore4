@@ -57,6 +57,11 @@
 
 * In Finnish: _Korvauslaskenta_
 
+#### Route bundle contract
+
+* In Finnish: _Sopimuskohde_
+* Practically all routes that are driven from a single contract. Contract has a limited validity period, such as 5 years.
+
 ## Transport data terminology
 
 The following taxonomy loosely follows the Transmodel hierarchy and attemps to map similar concepts in Transmodel and Jore 3.x.
