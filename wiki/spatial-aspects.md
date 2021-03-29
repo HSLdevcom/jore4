@@ -235,7 +235,7 @@ If there is a system that already serves its purpose, Jore4 might not need to re
 - Geocoding
 - HSL/HSY aerial images
 
-## Road network data sources
+## Infrastructure network data sources
 
 Details about the data sources in [Data sources](data-sources.md).
 
