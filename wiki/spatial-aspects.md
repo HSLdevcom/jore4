@@ -5,7 +5,7 @@ We should try to recognize those.
 
 ## What is spatial data?
 
-Spatial data: data depicting locations, e.g. coordinates or boundaries, or data related to those locations, e.g. the population count in an area or the median measured bus speed on a road segment at a given time range.
+Spatial data describes locations, e.g. coordinates or boundaries, or relates to those locations, e.g. the population count in an area or the median measured bus speed on a road segment at a given time range.
 
 ## Relevant data sets
 
