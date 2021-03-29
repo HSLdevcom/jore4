@@ -242,15 +242,17 @@ Details about the data sources in [Data sources](data-sources.md).
 - OpenStreetMap
   - variable quality, usually high in HSL area
   - variable structure, e.g. in interchanges
-  - includes tram network, sidewalks, squares
+  - includes tram network, metro network, sidewalks, squares
   - fast update process (1-2 days)
 - Digiroad
   - constant quality
   - constant structure
   - limited content
   - slow update process (months)
-- Probably not used: municipal data sets
+  - no tram tracks, train tracks or metro tracks
+- Municipal data sets
   - Vantaa has accurate data, includes street lanes
+- National Land Survey
 - To be deprecated: Jore3 road network
   - Migration phase from Jore3 to Jore4 needs to be managed, though.
 - Aerial images
@@ -266,6 +268,59 @@ We are asked to:
 - keep history of changes
 - control changes to the network with at least some human supervision
 - have an audit log of the changes
+
+### Road network sources
+
+- OpenStreetMap
+- Digiroad
+- Base map of the City of Helsinki ("kantakartta")
+- Jore3 implicitly for migrating routes
+
+### Tram track network sources
+
+- OpenStreetMap
+- Base map of the City of Helsinki ("kantakartta")
+  - accurate
+- Jokeri Light Rail by Helsinki city
+- Jore3 implicitly for migrating routes
+
+### Metro track network sources
+
+- Base map of the City of Helsinki ("kantakartta")
+  - accurate
+  - excludes track segments underground
+  - excludes West Metro ("Länsimetro") in Espoo
+- Guide Map of the City of Helsinki ("opaskartta")
+  - approximate, no separation of tracks
+  - <https://kartta.helsinginseutu.fi/>
+- National Land Survey
+  - approximate, no separation of tracks
+  - vector format excludes West Metro ("Länsimetro") in Espoo
+  - raster format includes West Metro ("Länsimetro") in Espoo
+- Sitowise West Metro progress map
+  - excludes anything east of Ruoholahti so most of Helsinki
+  - includes separate tracks
+  - includes some but not all of the track segments, e.g. many crossovers ("puolenvaihtopaikka") are missing
+- Jore3 implicitly for migrating routes
+
+### Train track network sources
+
+Not yet properly looked at.
+
+- National Land Survey has simplified track lines
+- Base map of the City of Helsinki
+  - includes only tracks within Helsinki
+- Jore3 implicitly for migrating routes
+
+Maybe Finnish Transport Infrastructure Agency ("Väylävirasto") can help.
+
+Not in Digiroad.
+
+### Waterway network
+
+Not yet looked at.
+
+Maybe not needed.
 
 ## Licensing
 
