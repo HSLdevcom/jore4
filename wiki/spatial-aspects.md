@@ -17,7 +17,9 @@ Think of the asphalt without the cars.
 #### Important aspects
 
 1. Geographic structure
-   - For displaying on the map
+   - For displaying beautiful route lines on the map
+   - For snapping to roads when editing routes in the UI
+   - For automatic routing from A to B when sketching routes in the UI
    - For measuring the length of routes
 1. Topographic structure
    - Electric busses require the elevation information
