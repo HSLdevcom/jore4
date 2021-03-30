@@ -15,4 +15,4 @@
 
 ## 2021-03-30
 
-![Retrospective board] (images/retro-300321.png "Retrospective board")
+![Retrospective board](images/retro-300321.png "Retrospective board")
