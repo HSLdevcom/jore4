@@ -19,5 +19,9 @@
 [Draft wireframes (Figma)](https://www.figma.com/file/ImSTkCqQn0nhVUtMcUm41P/Rautalankan%C3%A4kymi%C3%A4?node-id=0%3A1)
 - Structure, main views, some subpages. Edited after user interviews 03/2021
 
-[Prototype presented to users (Figma)](https://www.figma.com/proto/ImSTkCqQn0nhVUtMcUm41P/Rautalankan%C3%A4kymi%C3%A4?node-id=1%3A459&viewport=3498%2C3120%2C0.332456111907959&frame-preset-name=Desktop&scaling=scale-down-width)
-- A clickable prototype
+## Prototypes
+
+[Overall concept (Figma)](https://www.figma.com/proto/ImSTkCqQn0nhVUtMcUm41P/Rautalankan%C3%A4kymi%C3%A4?node-id=1%3A459&viewport=3498%2C3120%2C0.332456111907959&frame-preset-name=Desktop&scaling=scale-down-width)
+
+[Creating a route (Figma)](https://www.figma.com/proto/ImSTkCqQn0nhVUtMcUm41P/Rautalankan%C3%A4kymi%C3%A4?node-id=567%3A654&viewport=384%2C1154%2C0.03836604952812195&scaling=scale-down-width&page-id=497%3A69)
+
