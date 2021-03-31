@@ -9,7 +9,7 @@ This document references the [architectural risks EasyRetro board](https://easyr
 -------------------------------
 
 **1. How to deploy releases in the future?**
-  * Short demo by Tamas, if ready?
+  * Short demo by @pallost, if ready?
   * If not ready, next time
 
 
@@ -30,7 +30,7 @@ This document references the [architectural risks EasyRetro board](https://easyr
       * (b) pushing the same environment-independent `cluster.yml` changes contained in e.g. the `test` branch to the `prod` branch
           * pro: semantic action ("change which is now in test should be deployed in prod") more clear
           * con: have to check different place for version history (e.g. flux log)
-  * => Tamas will demo / show a simple example of what the different solutions could look like in an upcoming meeting
+  * => @pallost will demo / show a simple example of what the different solutions could look like in an upcoming meeting
 
 **4. How to deploy cloud infra changes in the future?**
   * not urgent, an [idea-ticket](https://github.com/HSLdevcom/jore4/issues/269) has been created to start working on this
@@ -38,4 +38,4 @@ This document references the [architectural risks EasyRetro board](https://easyr
 
 **5. How can developers update their IP-address in the Azure bastion host Network Security Group in the future?**
   * manually, either through Azure portal or via a bash script
-  * => Tamas agreed to create a script, [an idea-ticket](https://github.com/HSLdevcom/jore4/issues/274) has been created for this
+  * => @pallost agreed to create a script, [an idea-ticket](https://github.com/HSLdevcom/jore4/issues/274) has been created for this
