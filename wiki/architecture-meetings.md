@@ -39,3 +39,8 @@ This document references the [architectural risks EasyRetro board](https://easyr
 **5. How can developers update their IP-address in the Azure bastion host Network Security Group in the future?**
   * manually, either through Azure portal or via a bash script
   * => @pallost agreed to create a script, [an idea-ticket](https://github.com/HSLdevcom/jore4/issues/274) has been created for this
+
+**6. Should developers use rather the `test` env instead of the `dev` env for regular development work?**
+  * this way the dev-env could be used for cloud infra experiments / development
+  * => no, developers should use the dev-env also in the future
+  * => cloud guys can create their own experimental env when / if needed, should not be financially significant
