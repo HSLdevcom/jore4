@@ -12,6 +12,9 @@ This document references the [architectural risks EasyRetro board](https://easyr
   * Short demo by @pallost, if ready?
   * If not ready, next time
 
+**2. What data / IPs to keep secret?**
+  * No special requirement from customer's side regarding Jore3 db
+
 
 2021-03-31 Architecture meeting
 -------------------------------
