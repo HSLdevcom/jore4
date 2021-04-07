@@ -11,9 +11,18 @@ This document references the [architectural risks EasyRetro board](https://easyr
 **1. How to deploy releases in the future?**
   * Short demo by @pallost, if ready?
   * If not ready, next time
+  * => next time
 
-**2. What data / IPs to keep secret?**
-  * No special requirement from customer's side regarding Jore3 db
+**2. Which credentials / IPs to keep secret?**
+  * No special requirements from customer's side regarding Jore3 db IP
+  * => Nothing to be kept secret in documentation except for DB credentials themselves
+  * => @jschummer will perform documentation updates (Jore3 db IP, credential vault name, credential names to be published)
+
+**3. Which risks to tackle next?**
+  * Chosen from EasyRetro board: "data model becomes a monolithic mess"
+  * side comment: largest risks in frontend development:
+    * graphql (relay)
+    * map library
 
 
 2021-03-31 Architecture meeting
