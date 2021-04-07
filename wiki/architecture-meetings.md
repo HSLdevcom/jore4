@@ -5,6 +5,14 @@ It is not meant to document the architectural solutions as such, rather to docum
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
 
+2021-04-14 Architecture meeting
+-------------------------------
+
+**1. How to deploy releases in the future?**
+  * Short demo by @pallost, if ready?
+  * If not ready, next time
+
+
 2021-04-07 Architecture meeting
 -------------------------------
 
@@ -20,7 +28,12 @@ This document references the [architectural risks EasyRetro board](https://easyr
 
 **3. Which risks to tackle next?**
   * Chosen from EasyRetro board: "data model becomes a monolithic mess"
-  * side comment: largest risks in frontend development:
+  * 3 most voted:
+    1. plan data model so that different modules' data is connected via well defined interfaces (API if microservice arch)
+    1. gherkin-style requirement modelling for db / other query-based trial and testing of db
+    1. (many different ones got the same amount of votes, see EasyRetro board for info)
+    * let's get back to these when the data model is being changed more rapidly / substantially
+  * side comment: large risks / open issues in frontend development:
     * graphql (relay)
     * map library
 
