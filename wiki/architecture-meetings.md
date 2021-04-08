@@ -31,6 +31,7 @@ This document references the [architectural risks EasyRetro board](https://easyr
   * 3 most voted:
     1. plan data model so that different modules' data is connected via well defined interfaces (API if microservice arch)
     1. gherkin-style requirement modelling for db / other query-based trial and testing of db
+       * EDIT 2021-04-08: @jarkkoka pointed out that jore-map-ui contains a set of queries used with jore3. (Some of) those can maybe be used to check the new data model of jore4.
     1. (many different ones got the same amount of votes, see EasyRetro board for info)
     * let's get back to these when the data model is being changed more rapidly / substantially
   * side comment: large risks / open issues in frontend development:
