@@ -38,7 +38,7 @@ To connect to it, you need to
   ```
   az login
   mkdir -p /tmp/jore
-  az keyvault secret show --vault-name <KEY_VAULT_NAME> --name <KEY_SECRET_NAME> --output tsv --query value > /tmp/jore/jore4.key
+  az keyvault secret show --vault-name hsl-jore4-vault --name jore4-developer-ca-key-private --output tsv --query value > /tmp/jore/jore4.key
   chmod 0600 /tmp/jore/jore4.key
   ```
 - sign your own key pair with the private CA key using the command
@@ -62,7 +62,7 @@ Host hsl-jore4-dev-bastion
   User hsladmin
   IdentityFile ~/.ssh/jore4_key_ed25519
   # HSL Jore3 test database
-  LocalForward localhost:<LOCAL_PORT> <JORE3_TEST_DB_IP>:<JORE3_TEST_DB_PORT>
+  LocalForward localhost:<LOCAL_PORT> 10.218.6.14:56239
   ExitOnForwardFailure yes
 ```
 
