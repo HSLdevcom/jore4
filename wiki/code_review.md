@@ -32,6 +32,7 @@ _Git Repository / Settings / Branches_
 1. Should require status checks to pass before merging
 1. Should require linear history
 1. Should require to dismiss stale pull request approvals when new commits are pushed
+1. Should require to enforce all configured restrictions above for administrators
 
 ## Code Review Process
 
