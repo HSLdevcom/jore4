@@ -62,7 +62,7 @@ Host hsl-jore4-dev-bastion
   User hsladmin
   IdentityFile ~/.ssh/jore4_key_ed25519
   # HSL Jore3 test database
-  LocalForward localhost:<LOCAL_PORT> 10.218.6.14:56239
+  LocalForward localhost:56239 10.218.6.14:56239
   ExitOnForwardFailure yes
 ```
 
