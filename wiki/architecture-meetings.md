@@ -18,7 +18,7 @@ This document references the [architectural risks EasyRetro board](https://easyr
   * How to determine which set of changes (which tables, transaction?) to revert from the temporal history data?
   * How to check consistency / integrity before changing data? (Both priority and validity period affect the actually valid set of time at a certain point of time)
 
-**3. Coding conventions (nullability, collection libraries, etc)
+**3. Coding conventions (nullability, collection libraries, etc)**
 
 
 2021-04-07 Architecture meeting
