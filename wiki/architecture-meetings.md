@@ -19,9 +19,12 @@ This document references the [architectural risks EasyRetro board](https://easyr
   * How to check consistency / integrity before changing data? (Both priority and validity period affect the actually valid set of time at a certain point of time)
 
 **3. Coding conventions (nullability, collection libraries, etc)**
+  * Both frontend and backend conventions / libraries can be discussed, see ticket jore4#290
 
 **4. Status of different proof-of-concept / trial tracks**
 
+**5. Gather / check questions on Hastus-integration (ticket jore4#14)**
+  * Questions should be added to ticket and finally be sent / presented to Hastus-owner(s)
 
 2021-04-07 Architecture meeting
 -------------------------------
