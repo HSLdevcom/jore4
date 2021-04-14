@@ -10,6 +10,10 @@ This document references the [architectural risks EasyRetro board](https://easyr
 
 **1. Status of different proof-of-concept / trial tracks**
 
+**2. State of github ticket commenting**
+  * Java-/frontend code conventions / libraries
+  * Hastus-questions
+
 
 2021-04-14 Architecture meeting
 -------------------------------
