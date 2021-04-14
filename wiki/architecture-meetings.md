@@ -5,28 +5,51 @@ It is not meant to document the architectural solutions as such, rather to docum
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
 
+2021-04-21 Architecture meeting
+-------------------------------
+
+**1. Status of different proof-of-concept / trial tracks**
+
+
 2021-04-14 Architecture meeting
 -------------------------------
 
-**1. How to deploy releases in the future?**
+**1. Coding conventions (nullability, collection libraries, etc)**
+  * Both frontend and backend conventions / libraries can be discussed, see tickets HSLdevcom/jore4#290 and HSLdevcom/jore4#291
+  * => Let's first gather general ideas in the form of comments on the tickets themselves, as suggested by @haphut
+  * => Can then in a second step gather to discuss our findings and write down actual conventions
+
+**2. How to deploy releases in the future?**
   * Short demo by @pallost, if ready?
   * If not ready, next time
+  * => demo by @pallost
+  * => yaml-file defines
+    * definitions of different env's env vars
+    * docker-image versions to be used in kubernetes
+  * => deployment to different environments via git tags
+  * => rollback via new tag, new deployment
+  * => everything to be deployed goes through main branch
 
-**2. How / when to tackle prioritized bi-temporal data model integrity issues**
+**3. How / when to tackle prioritized bi-temporal data model integrity issues**
   * Which entities need to be prioritizable?
   * Which entities need to have have a validity time?
   * How to determine which set of changes (which tables, transaction?) to revert from the temporal history data?
   * How to check consistency / integrity before changing data? (Both priority and validity period affect the actually valid set of time at a certain point of time)
-
-**3. Coding conventions (nullability, collection libraries, etc)**
-  * Both frontend and backend conventions / libraries can be discussed, see tickets HSLdevcom/jore4#290 and HSLdevcom/jore4#291
-  * Maybe we could first gather general ideas in the form of comments on the tickets themselves, as suggested by @haphut ?
-  * Can then in a second step gather to discuss our findings and write down actual conventions
+  * => priorities don't need to be integers
+  * => enough to be able to tell the order of different entities
+  * => Transmodel has versions, they are however probably not related to priorities
+  * => can avoid modeling of priorities by saving only the relevant ("visible") parts of data
+    * i.e. temporary route would split the "normal" route into two parts
+  * => need to check how designers see prioritization needs, which entities need to be prioritizable
 
 **4. Status of different proof-of-concept / trial tracks**
+  * => Ran out of time, let's check those next week
 
 **5. Gather / check questions on Hastus-integration (ticket jore4#14)**
   * Questions should be added to ticket and finally be sent / presented to Hastus-owner(s)
+  * => Let's add more questions to the ticket and sync with PO when we're ready for sending
+  * => @jschummer will ask for a Hastus demo
+  
 
 2021-04-07 Architecture meeting
 -------------------------------
