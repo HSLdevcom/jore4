@@ -19,7 +19,9 @@ This document references the [architectural risks EasyRetro board](https://easyr
   * How to check consistency / integrity before changing data? (Both priority and validity period affect the actually valid set of time at a certain point of time)
 
 **3. Coding conventions (nullability, collection libraries, etc)**
-  * Both frontend and backend conventions / libraries can be discussed, see tickets jore4#290 and jore4#291
+  * Both frontend and backend conventions / libraries can be discussed, see tickets HSLdevcom/jore4#290 and HSLdevcom/jore4#291
+  * Maybe we could first gather general ideas in the form of comments on the tickets themselves, as suggested by @haphut ?
+  * Can then in a second step gather to discuss our findings and write down actual conventions
 
 **4. Status of different proof-of-concept / trial tracks**
 
