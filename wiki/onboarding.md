@@ -50,15 +50,23 @@ To connect to it, you need to
   rm /tmp/jore/jore4.key
   ```
 
-Ask the team about the CA key details. Check the [original HSL instructions](https://gitlab.hsl.fi/developer-resources/azure-ansible#creating-user-key-each-user-should-have-their-own) for updates in case you run into trouble.
+Check the [original HSL instructions](https://gitlab.hsl.fi/developer-resources/azure-ansible#creating-user-key-each-user-should-have-their-own) for updates in case you run into trouble.
 
-Once you have signed your SSH key, you can add the following snippet into your SSH configuration (works on Linux, maybe not on Mac):
+Next, you may have to add your personal IP (as seen by the bastion host) to the appropriate network security group (NSG)
+in Azure. Note that this is not needed if you use the bastion host via a VPN whose IP is already
+present in the NSG.
+
+Currently, the easiest way to add your address to the NSG is by using the [Azure portal](https://portal.azure.com). Navigate
+to the NSG of the public subnet of the environment in question, i.e. find `hsl-jore4-dev-nsg-public` in the list of
+resources. (Replace `dev` with `playg`, `test`, or `prod` for the other environments.) Select the NSG by clicking on it and
+open the `allow_SSH` inbound security rule. In the `Source IP addresses`-field, add your own IP or range to the
+comma-separated list. By saving the changes, you'll be granted access to the bastion host from the IP added.
+
+After these steps, you can add the following snippet into your SSH configuration (works on Linux, maybe not on Mac):
 
 ```ssh-config
-# Add into ~/.ssh/config after filling out <VARIABLE>s
-
 Host hsl-jore4-dev-bastion
-  HostName <BASTION_HOST_IP>
+  HostName bastion.dev.jore.hsl.fi
   User hsladmin
   IdentityFile ~/.ssh/jore4_key_ed25519
   # HSL Jore3 test database
@@ -66,7 +74,11 @@ Host hsl-jore4-dev-bastion
   ExitOnForwardFailure yes
 ```
 
-This will configure ssh to use the appropriate key when accessing the bastion host and to forward the Jore3 DB connection to your local machine. Ask the sensitive details from the team.
+This will configure ssh to use the appropriate key when accessing the bastion host and to forward the Jore3 DB connection to your local machine. Additionally, you can create similar configurations for different environments by using a different local port for forwarding and the correct bastion host DNS name:
+- `bastion.dev.jore.hsl.fi` - dev environment (as used above)
+- `bastion.playg.jore.hsl.fi` - devops playground environment
+- `bastion.test.jore.hsl.fi` - test environment
+- `bastion.jore.hsl.fi` - prod environment
 
 After performing these steps, you should be able to SSH into the bastion host using the command
 ```
