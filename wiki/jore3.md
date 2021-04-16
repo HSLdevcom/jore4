@@ -17,10 +17,10 @@ The Jore3 db can be accessed through the environments' bastion host. For informa
 
 ### Troubleshooting Jore3 db access
 
-1. Can you log into the bastion host? E.g. `ssh hsladmin@40.68.123.16`
+1. Can you log into the bastion host? E.g. `ssh hsladmin@bastion.dev.jore.hsl.fi`
    If not, check
    - that there is a bastion host in the environment you use and that you are using
-   - that you are using the right IP address
+   - that you are using the right host name
    - that the bastion host is running, i.e. not in stopped state (in Azure portal)
    - you are using VPN / have been assigned an IP from the allowed range (see vnet network security group)
    - you are using either a signed public key or the private key itself to log in (see 
