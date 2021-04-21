@@ -5,14 +5,38 @@ It is not meant to document the architectural solutions as such, rather to docum
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
 
+2021-04-28 Architecture meeting
+-------------------------------
+
+**1. SQL migration strategy**
+
+
 2021-04-21 Architecture meeting
 -------------------------------
 
 **1. Status of different proof-of-concept / trial tracks**
+  * graphql-playground: data model and UI in good state, repo can be used in future for frontend PoC
+    * => subscriptions good to use
+  * jore4-model-mapping-experiment
+    * => manual Transmodel XML message creation difficult
+  * jore4-deploy: under active development, provisioning Azure cloud resources, in the future not used for Kube (which has its own repo, jore4-flux)
+  * jore4-sql-schema-experiment: ready, data model not useful for further development
+    * => showed how Hasura can be used
+  * jore4-jore3-importer: under active development
+  * jore4-robot: template for future times when we have something to test
+  * jore4-digiroad-import-experiment: loading and importing of digiroad Uusimaa material
+    * => loading succeeds, open PR
+  * jore4-ui: Jore4 UI, under active development
+  * jore4-flux: under active development Kubernetes configurations, deployment
+  * jore4-deploy-branch-experiment: how to use different branches with flux
+  * temporal-jooq (repo under different account): various experiments related to database structure
+  * hootenanny (not yet in repo): experiments related to combining of different infrastructure networks
 
-**2. State of github ticket commenting**
-  * Java-/frontend code conventions / libraries
-  * Hastus-questions
+**2. State of Hastus-questions ([github-ticket](https://github.com/HSLdevcom/jore4/issues/14))**
+  * discussed ticket comments
+
+**3. State of coding style / library conventions ([backend-github-ticket](https://github.com/HSLdevcom/jore4/issues/297), [frontent-github-ticket](https://github.com/HSLdevcom/jore4/issues/290))**
+  * discussed ticket comments
 
 
 2021-04-14 Architecture meeting
