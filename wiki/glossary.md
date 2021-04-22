@@ -49,6 +49,11 @@
 
 ### Work processes
 
+#### Public transport target
+
+* In Finnish: _Joukkoliikennekohde_
+* A route category used in subvention calculations, such as "Regional traffic towards Vantaa" / "Seutu, Vantaan suunta"
+
 #### Compensation
 
 * In Finnish: _Liikennöintikorvaus_
