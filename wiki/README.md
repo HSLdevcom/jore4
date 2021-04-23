@@ -16,6 +16,8 @@
 
 [Code Review](code_review.md)
 
+[Infrastructure deployment](infrastructure-deployment.md)
+
 ## Other
 
 [Glossary](glossary.md)
