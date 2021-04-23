@@ -6,6 +6,7 @@ Jore3 has some information integrated in line and route IDs. The format of code,
 
 In ferries, trams and buses this means the municipality the route primarily servers. Nowadays there are no know use cases that use this, deprecated by Public transport target. In metro and tram, this denotes the mode.
 
+* 0 Not used. Some historical routes have this prefix
 * 1 Helsinki
 * 2 Espoo
 * 3 Train or metro
