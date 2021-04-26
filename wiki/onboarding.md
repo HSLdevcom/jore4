@@ -29,6 +29,8 @@ You need these accounts:
 
 You can access the Azure environment networks using the environment's bastion host via SSH.
 
+#### Creating an SSH key
+
 To connect to it, you need to
 - create a new key pair (not strictly needed, but recommended as best practice), e.g. using the command
   ```
@@ -52,6 +54,8 @@ To connect to it, you need to
 
 Check the [original HSL instructions](https://gitlab.hsl.fi/developer-resources/azure-ansible#creating-user-key-each-user-should-have-their-own) for updates in case you run into trouble.
 
+#### Adding your IP to the whitelist (NSG)
+
 Next, you may have to add your personal IP (as seen by the bastion host) to the appropriate network security group (NSG)
 in Azure. Note that this is not needed if you use the bastion host via a VPN whose IP is already
 present in the NSG.
@@ -61,6 +65,8 @@ to the NSG of the public subnet of the environment in question, i.e. find `hsl-j
 resources. (Replace `dev` with `playg`, `test`, or `prod` for the other environments.) Select the NSG by clicking on it and
 open the `allow_SSH` inbound security rule. In the `Source IP addresses`-field, add your own IP or range to the
 comma-separated list. By saving the changes, you'll be granted access to the bastion host from the IP added.
+
+#### Creating an SSH configuration entry
 
 After these steps, you can add the following snippet into your SSH configuration (works on Linux, maybe not on Mac):
 
