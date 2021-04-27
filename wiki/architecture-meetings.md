@@ -10,6 +10,12 @@ This document references the [architectural risks EasyRetro board](https://easyr
 
 **1. SQL migration strategy**
 
+**2. State of Hastus-questions ([github-ticket](https://github.com/HSLdevcom/jore4/issues/14))**
+
+**3. State of coding style / library conventions ([backend-github-ticket](https://github.com/HSLdevcom/jore4/issues/297), [frontent-github-ticket](https://github.com/HSLdevcom/jore4/issues/290))**
+
+**4. Gerrit / jenkins**
+
 
 2021-04-21 Architecture meeting
 -------------------------------
