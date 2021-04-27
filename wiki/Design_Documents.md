@@ -2,7 +2,7 @@
 
 ## Story map
 
-[User Story Map (Google)] (https://docs.google.com/drawings/d/1pUTdReSAxF-Umq94ovtMYzsdogyV-9DnTmcEso5MBC0/edit?usp=sharing)
+[User Story Map (Google)](https://docs.google.com/drawings/d/1pUTdReSAxF-Umq94ovtMYzsdogyV-9DnTmcEso5MBC0/edit?usp=sharing)
 
 ## Concept and groundwork
 
