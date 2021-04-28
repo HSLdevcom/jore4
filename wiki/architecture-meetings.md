@@ -28,8 +28,8 @@ This document references the [architectural risks EasyRetro board](https://easyr
   * => secrets should be put in key vault
   * => only ansible can write in key vault
   * => in the beginning ansible should create users, later "big migrator" 
-5. Who has admin role to execute sql migrations?
-6. How to implement SQL migrator? As a single docker container or split to applications?
+4. Who has admin role to execute sql migrations?
+5. How to implement SQL migrator? As a single docker container or split to applications?
   * => Hasura gets admin role and runs migrations 
 
 **2. State of Hastus-questions ([github-ticket](https://github.com/HSLdevcom/jore4/issues/14))**
