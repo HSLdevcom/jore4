@@ -1,0 +1,56 @@
+@startuml
+!define AzurePuml https://raw.githubusercontent.com/plantuml-stdlib/Azure-PlantUML/release/2-1/dist
+!includeurl AzurePuml/AzureCommon.puml
+!includeurl AzurePuml/Databases/all.puml
+!includeurl AzurePuml/Networking/all.puml
+!includeurl AzurePuml/Security/all.puml
+!includeurl AzurePuml/Compute/AzureVirtualMachine.puml
+!includeurl AzurePuml/Containers/AzureKubernetesService.puml
+
+together {
+  actor "User" as userAlias
+  actor "Developer" as developerAlias
+}
+
+rectangle "HSL Jore4 VNET" as jore4Vnet {
+  rectangle "Public Subnet Security Group (NSG) IP whitelist" as bastionHostNsgAlias
+  AzureVirtualMachine(bastionHostAlias, "Bastion Host", "")
+  AzureApplicationGateway(appGatewayAlias, "App Gateway", "")
+  AzureDatabaseForPostgreSQL(dbAlias, "Database", "")
+  AzureKubernetesService(kubeAlias, "Kube", "") {
+    rectangle "Backend 1 (docker)" as backend1Alias
+    rectangle "Backend N (docker)" as backendNAlias
+    rectangle "Ingress Controller (AGIC)" as agicAlias
+  }
+}
+
+AzureKeyVault(keyVaultAlias, "Key Vault", "")
+
+rectangle "Jore3 DB VNET" as jore3DbVnet {
+  database "Jore3 Database" as jore3DbAlias
+}
+
+developerAlias --> bastionHostNsgAlias
+bastionHostNsgAlias --> bastionHostAlias
+
+agicAlias -> appGatewayAlias: "configures"
+
+userAlias --> appGatewayAlias
+appGatewayAlias --> backend1Alias
+appGatewayAlias --> backendNAlias
+
+backend1Alias --> dbAlias
+backendNAlias --> dbAlias
+backend1Alias ..> jore3DbAlias
+backendNAlias ..> jore3DbAlias
+
+bastionHostAlias --> jore3DbAlias
+bastionHostAlias ..> kubeAlias
+bastionHostAlias ..> dbAlias
+
+appGatewayAlias --> keyVaultAlias: "retrieves certs"
+backend1Alias --> keyVaultAlias: "retrieves secrets"
+backendNAlias --> keyVaultAlias: "retrieves secrets"
+
+jore3DbVnet <-[dotted]r-> jore4Vnet: "VNET peering"
+@enduml
