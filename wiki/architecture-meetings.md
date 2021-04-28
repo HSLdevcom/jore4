@@ -5,16 +5,44 @@ It is not meant to document the architectural solutions as such, rather to docum
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
 
+2021-05-05 Architecture meeting
+-------------------------------
+
+
 2021-04-28 Architecture meeting
 -------------------------------
 
 **1. SQL migration strategy**
+1. What is the scope of the applications, overlapping schemas?
+=> Hasura runs migrations, creates schemas 
+1. Modules' unit tests need at least scoped sql migration scripts?
+=> need to ensure that schema can be used by all modules / backends
+=> modules could create their own migrations, which would be populated to hasura
+=> at a later stage, the modules could possibly run their own independent migrations
+=> common schema might be problematic, since single module might need to create common schema content in tests, but not in prod
+=> [another document on datamodel sketching](data-model-sketching.pdf) is already under work, might want to go through that later
+=> during development of module could override hasura docker container's migrations via volume mounts
+1. Who is responsible for creating sql users?
+=> secrets should be put in key vault
+=> only ansible can write in key vault
+=> in the beginning ansible should create users, later "big migrator" 
+5. Who has admin role to execute sql migrations?
+6. How to implement SQL migrator? As a single docker container or split to applications?
+=> Hasura gets admin role and runs migrations 
 
 **2. State of Hastus-questions ([github-ticket](https://github.com/HSLdevcom/jore4/issues/14))**
+=> Questions could be skimmed at local Hastus demonstration (5.5.2021)
+=> Should be sent on after that
 
 **3. State of coding style / library conventions ([backend-github-ticket](https://github.com/HSLdevcom/jore4/issues/297), [frontent-github-ticket](https://github.com/HSLdevcom/jore4/issues/290))**
+=> First should check if Kotlin should be used
+=> Clojure maybe not an option, not enough large support community available
+=> @haphut will ask about possibility to use Kotlin
+=> let's leave tickets in there, get back to them later
 
 **4. Gerrit / jenkins**
+=> currently it does not pay off to have own gerrit / jenkins
+=> let's get back when more coding is underway
 
 
 2021-04-21 Architecture meeting
