@@ -8,6 +8,8 @@ This document references the [architectural risks EasyRetro board](https://easyr
 2021-05-05 Architecture meeting
 -------------------------------
 
+**1. [Data model sketching document](data-model-sketching.pdf) walk-through**
+
 
 2021-04-28 Architecture meeting
 -------------------------------
