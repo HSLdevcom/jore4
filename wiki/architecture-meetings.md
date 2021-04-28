@@ -14,21 +14,21 @@ This document references the [architectural risks EasyRetro board](https://easyr
 
 **1. SQL migration strategy**
 1. What is the scope of the applications, overlapping schemas?
-=> Hasura runs migrations, creates schemas 
-1. Modules' unit tests need at least scoped sql migration scripts?
-=> need to ensure that schema can be used by all modules / backends
-=> modules could create their own migrations, which would be populated to hasura
-=> at a later stage, the modules could possibly run their own independent migrations
-=> common schema might be problematic, since single module might need to create common schema content in tests, but not in prod
-=> [another document on datamodel sketching](data-model-sketching.pdf) is already under work, might want to go through that later
-=> during development of module could override hasura docker container's migrations via volume mounts
-1. Who is responsible for creating sql users?
-=> secrets should be put in key vault
-=> only ansible can write in key vault
-=> in the beginning ansible should create users, later "big migrator" 
+- => Hasura runs migrations, creates schemas 
+2. Modules' unit tests need at least scoped sql migration scripts?
+- => need to ensure that schema can be used by all modules / backends
+- => modules could create their own migrations, which would be populated to hasura
+- => at a later stage, the modules could possibly run their own independent migrations
+- => common schema might be problematic, since single module might need to create common schema content in tests, but not in prod
+- => [another document on datamodel sketching](data-model-sketching.pdf) is already under work, might want to go through that later
+- => during development of module could override hasura docker container's migrations via volume mounts
+3. Who is responsible for creating sql users?
+- => secrets should be put in key vault
+- => only ansible can write in key vault
+- => in the beginning ansible should create users, later "big migrator" 
 5. Who has admin role to execute sql migrations?
 6. How to implement SQL migrator? As a single docker container or split to applications?
-=> Hasura gets admin role and runs migrations 
+- => Hasura gets admin role and runs migrations 
 
 **2. State of Hastus-questions ([github-ticket](https://github.com/HSLdevcom/jore4/issues/14))**
 => Questions could be skimmed at local Hastus demonstration (5.5.2021)
