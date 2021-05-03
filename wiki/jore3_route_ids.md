@@ -44,4 +44,5 @@ This denomination is used similarly for all modes.
 * If this is a integer, it is hidden variant. This means that it has some difference in a route compared to basic version of a route, but it is so small that it does not deserve a visible difference in route name. In this example, route 9787A4 runs via Laukkoski to serve some school children, but they are well aware of this so we would not like to confuse other passenger by making this a separate variant.
 
 * If this is a letter, it is a visible variant to customer, such as "9788KV" is visible in passenger information as 788KV. 
-** A special example is buses that replace rail traffic: Then typically only this letter is used and shown in passenger information: "1004 X" is tram replacing bus 4X. Because fifth is empty, this is the main route of a line, and because sixth is a letter, it is visible to passengers. The empty fifth is omitted in passenger information.
+
+* A special example is buses that replace rail traffic: Then typically only this letter is used and shown in passenger information: "1004 X" is tram replacing bus 4X. Because fifth is empty, this is the main route of a line, and because sixth is a letter, it is visible to passengers. The empty fifth is omitted in passenger information.
