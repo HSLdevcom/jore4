@@ -52,12 +52,12 @@ This denomination is used similarly for all modes.
 | Identifier   | Displayed   | Primary? | Testing? | Other |
 |--------------|-------------|----------|----------|-------|
 | `0052B`      | `52B`       |          |          |       |
-| `1000 X`     | `<empty>`   |          | x        | Should this be `X` & primary? |
+| `1000 X`     | `X`         | x        | x        |       |
 | `1000A`      | `A`         |          | x        |       |
 | `1000S4`     | `S`         |          | x        |       |
 | `1001 3`     | `1`         |          |          |       |
 | `1001A4`     | `1A`        |          |          |       |
-| `1003 X`     | `3`         |          |          | Should this be `3X` & primary? |
+| `1003 X`     | `3X`        | x        |          | A bus replacing the tram `3` |
 | `1019`       | `19`        | x        |          |       |
 | `1039`       | `39`        | x        |          |       |
 | `2147KT`     | `147KT`     |          |          |       |
@@ -75,6 +75,7 @@ This denomination is used similarly for all modes.
 | `5530 3`     | `530`       |          |          |       |
 | `6021SV`     | `21SV`      |          |          |       |
 | `7177MB`     | `177MB`     |          |          |       |
+| `8888`       | `888`       | x        | x        |       |
 | `9008`       | `8`         | x        |          |       |
 | `9008TT`     | `8TT`       |          |          |       |
 | `9787A4`     | `787A`      |          |          |       |
