@@ -19,6 +19,8 @@ This document references the [architectural risks EasyRetro board](https://easyr
 
 **4. State of repo management (West?)**
 
+**5. Dependency security issues (github actions vs frontend / backend dependency exploitability)**
+
 
 2021-05-05 Architecture meeting
 -------------------------------
