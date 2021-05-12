@@ -5,7 +5,7 @@ It is not meant to document the architectural solutions as such, rather to docum
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
 
-2021-05-12 Architecture meeting
+2021-05-19 Architecture meeting
 -------------------------------
 
 **1. [Data model sketching document](data-model-sketching.pdf) walk-through**
@@ -20,6 +20,13 @@ This document references the [architectural risks EasyRetro board](https://easyr
 **4. State of repo management (West?)**
 
 **5. Dependency security issues (github actions vs frontend / backend dependency exploitability)**
+
+
+2021-05-12 Architecture meeting
+-------------------------------
+- Short discussion about the current implementation state of the auth backend
+- Uses sessions, implemented in Kotlin
+- Agenda moved to next week due to many absences
 
 
 2021-05-05 Architecture meeting
