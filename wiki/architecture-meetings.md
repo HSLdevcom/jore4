@@ -5,21 +5,48 @@ It is not meant to document the architectural solutions as such, rather to docum
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
 
-2021-05-19 Architecture meeting
+2021-05-26 Architecture meeting
 -------------------------------
 
 **1. [Data model sketching document](data-model-sketching.pdf) walk-through**
 
+**2. State of repo management (West)**
+  * @jschummer will demonstrate how / if West can be used
+
+
+2021-05-19 Architecture meeting
+-------------------------------
+
+**1. [Data model sketching document](data-model-sketching.pdf) walk-through**
+  * => skipped since @jarkkoka is not present
+  * => let's talk about it next week
+
 **2. Auth-backend - open issues**
   * use of sessions
   * sharing of resources (role and permission definitions)
+  * => at least roles, better also definitions
+  * => Hasura generates own role definitions (and what permission they include)
+  * => these are shared with frontend in graphql schema
+  * => problem: How can frontend use compile-time static type defs if Hasura uses dynamically defined roles
+  * => possible solution: Super-user can be used to generate all possible role definitions, but not used for anything else
+  * => problem: do all queries have to be formed separately for all roles? (if e.g. only super-user is allowed to see certain response parts)
+  * => possible solution: graphql's "include" directive could be used to include certain information only for certain users
+  * => @haphut will create ticket to try out how this can be achieved with Hasura
 
 **3. Port conventions for microservices**
   * local / cloud env
+  * => @jschummer will create wiki file to keep track of ports used with different components
 
 **4. State of repo management (West?)**
+  * => @jschummer will try out west in current scenario and report next week how it can be used
 
 **5. Dependency security issues (github actions vs frontend / backend dependency exploitability)**
+  * => good to pin github actionsit to prevent easy ways of sabotage
+  * => SHA-pinning (as opposed to referring to versions) good way to prevent accidents and attacks
+  * => trusted orgs repositories' actions could be referenced by version
+  * => others (e.g. Lighthouse actions) could be audited and forked or SHA-pinned
+  * => all actions should be checked case-by-case
+  * => the ticket related to SHA-pinning (created by @pallost) could be used to cover this work
 
 
 2021-05-12 Architecture meeting
