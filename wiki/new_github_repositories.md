@@ -17,7 +17,7 @@ When forking an existing project outside of Jore4:
 
 1. As with any dependency, check from [the list](https://joinup.ec.europa.eu/collection/eupl/matrix-eupl-compatible-open-source-licences#section-2) that the license of the project to be forked is upstream-compatible with EUPL v1.2.
 1. Fork under `HSLdevcom`.
-1. Do not use `jore4-` in the name unless it makes sense.
+1. In most cases prefer the original repository name instead of `jore4-something`.
 1. Do not change the license of the original project.
    This way our contributions may eventually swim upstream.
    That would reduce our maintenance burden and give back to the ecosystem.
