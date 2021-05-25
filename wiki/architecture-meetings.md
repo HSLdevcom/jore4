@@ -13,6 +13,9 @@ This document references the [architectural risks EasyRetro board](https://easyr
 **2. State of repo management (West)**
   * @jschummer will demonstrate how / if West can be used
 
+**3. Frontend graphql library**
+  * relay / apollo?
+
 
 2021-05-19 Architecture meeting
 -------------------------------
