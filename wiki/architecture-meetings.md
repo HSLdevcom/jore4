@@ -14,7 +14,27 @@ This document references the [architectural risks EasyRetro board](https://easyr
   * @jschummer will demonstrate how / if West can be used
 
 **3. Frontend graphql library**
-  * relay / apollo?
+  - relay
+    - principled
+    - developed and used heavily by Facebook
+  - apollo
+    - most popular
+    - easy to start with
+  - https://formidable.com/open-source/urql/docs/comparison/
+    - about two developers from one company, Formidable Labs
+    - 6k GitHub stars
+  - https://gqless.com/
+    - about 1.5 developers
+    - 3k GitHub stars
+  - https://github.com/ablestack/graphql-codegen-hasura
+    - not a client but helps with typing when using both apollo and hasura
+    - beta status
+    - 120 GitHub stars
+    - dwindling development
+      - on the other hand, I think it's just a generator so maybe not that much to maintain
+
+
+
 
 
 2021-05-19 Architecture meeting
