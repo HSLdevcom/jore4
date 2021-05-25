@@ -8,7 +8,9 @@ When creating a new GitHub repository that is not a fork of another project, fol
 1. Configure the GitHub repository settings regarding available merges and protected branches as described in [Code Review](./code_review.md#git-repository-settings).
    FIXME: add example image of complete settings here and move the corresponding section in code review wiki page here
 1. [Link the repository](https://github.com/orgs/HSLdevcom/projects/2/settings/linked_repositories) to the project backlog.
-1. In <https://vincit.slack.com> on channel `#jore-hsl-bots`, run `/github subscribe HSLdevcom/jore4-new-repository-name`.
+1. In <https://vincit.slack.com> on channel `#jore-hsl-bots`, run:
+   1. `/github subscribe HSLdevcom/jore4-new-repository-name`
+   1. `/github unsubscribe HSLdevcom/jore4-new-repository-name commits`.
 1. If the repository is intended to build Docker images, ask the HSL DevOps team to create a Docker Hub repository with the same name as the GitHub repository.
    Provide the link to the GitHub repository to the HSL DevOps team as documentation.
    When the HSL DevOps team says the task is done, check that the Docker Hub credentials are available in the GitHub repository like they are in [jore4-ui secrets settings](https://github.com/HSLdevcom/jore4-ui/settings/secrets/actions).
