@@ -10,6 +10,8 @@
 
 [Architecture](architecture.md)
 
+[New GitHub repositories](new_github_repositories.md)
+
 [CI/CD pipeline](cicd_pipeline.md)
 
 [Retrospectives](retrospectives.md)
