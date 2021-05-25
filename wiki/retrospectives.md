@@ -27,3 +27,7 @@
 ## 2021-05-11
 
 ![Retrospective board](images/retro2021-05-11.png "Retrospective board")
+
+## 2021-05-25
+
+![Retrospective board](images/retro_2021-05-25.png "Retrospective board")
