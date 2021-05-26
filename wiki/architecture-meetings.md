@@ -8,6 +8,13 @@ This document references the [architectural risks EasyRetro board](https://easyr
 2021-06-02 Architecture meeting
 -------------------------------
 
+**1. Frontend graphql library**
+  - relay
+  - apollo
+  - https://formidable.com/open-source/urql/docs/comparison/
+  - https://gqless.com/
+  - https://github.com/ablestack/graphql-codegen-hasura
+
 
 2021-05-26 Architecture meeting
 -------------------------------
