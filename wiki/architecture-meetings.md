@@ -5,18 +5,35 @@ It is not meant to document the architectural solutions as such, rather to docum
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
 
+2021-06-02 Architecture meeting
+-------------------------------
+
+
 2021-05-26 Architecture meeting
 -------------------------------
 
 **1. [Data model sketching document](data-model-sketching.pdf) walk-through**
+  * @jarkkoka showed state of work on data model
+  * => open issues:
+    - geometry vs geography
+    - maybe good to model route as own entity (not only journey-pattern-based)
+    - Jore3:ssa lot of redundant data, might be good to come up with ways to join these
 
 **2. State of repo management (West)**
   * @jschummer will demonstrate how / if West can be used
+  * useful if dependencies between components differ in development and "production" environments
+  * => not needed yet, let's get back to it when needed
 
 **3. Frontend graphql library**
   - relay
     - principled
     - developed and used heavily by Facebook
+    - meeting comments:
+      - documentation not good
+      - can support types
+      - good automatic performance optimizations
+      - may not work together with Hasura well
+      - => Hasura community call 27.5. might reveil more about what will be supported in the future
   - apollo
     - most popular
     - easy to start with
@@ -32,9 +49,7 @@ This document references the [architectural risks EasyRetro board](https://easyr
     - 120 GitHub stars
     - dwindling development
       - on the other hand, I think it's just a generator so maybe not that much to maintain
-
-
-
+  - let's continue next week
 
 
 2021-05-19 Architecture meeting
