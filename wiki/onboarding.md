@@ -136,3 +136,7 @@ More information on connecting to the Jore3 test DB and troubleshooting connecti
 ## First immersion
 
 Before using Azure at HSL, [read the guide](https://portal.azure.com/#@hslfi.onmicrosoft.com/dashboard/arm/subscriptions/b13714ed-2c1b-416c-89a9-909524515193/resourcegroups/dashboards/providers/microsoft.portal/dashboards/bcea8162-492c-4428-ba8c-19321eceb0cd).
+
+## Improvements
+
+It's your job to update this document to fill gaps and add information you wish you had known.
