@@ -1,42 +1,89 @@
 @startuml
-'https://plantuml.com/deployment-diagram
 
-database "Jore 4 Database\n(postgres/gis)" as db #business {
-    rectangle "Hasura schema" as hasuraschema #lightgray
-    rectangle "Backend schema" as backendschema #lightgray
+' Relevant documentation:
+' https://plantuml.com/deployment-diagram
+'
+' Modifying the arrow lengths, e.g. from <--> to <---->, changes the layout
+' dramatically.
+
+'FIXME: maybe later:
+'!includeurl https://raw.githubusercontent.com/HSLdevcom/hsl-plantuml-theme/master/hsl-theme.iuml
+
+database "Jore 4 database\n(PostGIS)" as jore4db #business {
+  rectangle "Import schemas" as importschemas {
+    rectangle "Jore3" as jore3schema #lightgray
+    rectangle "Import schemas for\ninfrastructure network" as importinfrastructurenetworkschemas {
+      rectangle "Fixed Digiroad" as fixeddigiroadschema #lightgray
+      rectangle "Tram tracks" as tramtracknetworkschema #lightgray
+      rectangle "Train tracks" as traintracknetworkschema #lightgray
+      rectangle "Metro tracks" as metrotracknetworkschema #lightgray
+      rectangle "Waterways" as waterwaynetworkschema #lightgray
+    }
+    rectangle "Import schemas for\nDigiroad" as importdigiroadschemas {
+      rectangle "Raw Digiroad" as rawdigiroadschema #lightgray
+      rectangle "HSL Digiroad fixes" as hsldigiroadfixschema #lightgray
+    }
+  }
+  rectangle "Service schemas" as serviceschemas {
+    rectangle "Route" as routeschema #lightgray
+    rectangle "Infrastructure network" as infrastructurenetworkschema #lightgray
+    collections "Other schemas" as otherschemas #lightgray
+  }
 }
 
-database "Jore 3 Database\n(mssql)" as legacydb #business {
-    rectangle "Jore 3 schema" as legacyschema #lightgray
-}
+database "Jore 3 database\n(Microsoft SQL Server)" as jore3db #business
 
-node "Hasura" as hasura
+node "Authentication service\n(jore4-auth)" as jore4auth
+node "Jore3 importer\n(jore4-jore3-importer)" as jore4jore3importer
+node "NeTEx GraphQL API\n(jore4-hasura)" as jore4hasura
+node "React frontend\n(jore4-ui)" as jore4ui
+node "Digiroad importer\n(jore4-digiroad-import-experiment)" as jore4digiroadimportexperiment
+node "Navigation service" as navigation
+node "Jore 3 route geometry map matching\n(jore4-digiroad-gtfs-map-matching-experiment)" as mapmatcher
+node "Digiroad fixer" as digiroadfixer
+node "Map conflation\n(jore4-hootenanny-experiment)" as mapconflation
+node "SQL schema migrator\n(jore4-hasura)" as sqlschemamigrator
 
-frame "Frontend\n(React)" as frontend
+file "HSL Digiroad fix layer" as hsldigiroadfixlayer
 
-component "Backend\n(java)" as backend
+cloud "HSL ID" as hslid
+cloud "Map tile server" as tileserver
+cloud "Digiroad" as digiroad
+cloud "National Access Point" as nap
 
-cloud "HSL-ID" as hslid
+nap <- jore4hasura : read
 
-cloud "Tile server\n(OSM)" as tile
+jore4ui <--> jore4hasura : subscribe\n+mutate
+jore4ui -- jore4auth : "login\n+logout"
+jore4ui <-- tileserver : show background map
+jore4ui <-- navigation : "suggest\nroutes"
 
-note right of backend : Not necessarily\na single process
+navigation <-- infrastructurenetworkschema : read
 
-frontend --(0-- hasura : GraphQL
+jore4auth -- hslid
+jore4hasura -- jore4auth : authenticate\nusing webhooks
 
-frontend --(0-- tile : HTTP:image/png
+jore4hasura <--> serviceschemas : read\n+write
 
-hasura <--(0--> backendschema : read+write
+jore4jore3importer <-- jore3db : read
+jore3schema <----> jore4jore3importer : read\n+write
 
-hasura <--(0--> hasuraschema : read+write
+infrastructurenetworkschema ----> mapmatcher : read\ninfrastructure\nnetwork
+jore3schema ----> mapmatcher : read\nroute\ngeometries
+routeschema <---- mapmatcher : write\nroute\ngeometries
 
-backend <--(0--> backendschema : read+write
+rawdigiroadschema ----> digiroadfixer : read
+hsldigiroadfixschema ----> digiroadfixer : read
+fixeddigiroadschema <---- digiroadfixer : write
 
-backend <--(0-- legacyschema : read-only
+jore4digiroadimportexperiment <-- digiroad : read
+rawdigiroadschema <---- jore4digiroadimportexperiment : write
 
-hasura --(0--> backend : "HTTP\ncomplex logic"
+jore4db <--- sqlschemamigrator : "create schemas\n+authorize SQL users"
 
-hslid ... backend : authorizes
-hslid ... hasura : authorizes
+importinfrastructurenetworkschemas ----> mapconflation : read
+infrastructurenetworkschema <---- mapconflation : write
+
+hsldigiroadfixschema <.... hsldigiroadfixlayer : import
 
 @enduml
