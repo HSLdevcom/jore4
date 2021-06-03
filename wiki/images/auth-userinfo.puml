@@ -1,0 +1,48 @@
+@startuml
+|Jore4 frontend|
+:Request logged in user's information;
+|Jore4 auth backend|
+if (User has a session) then (yes)
+	:Attach the access token from the session to the request to be sent;
+endif
+:Send a user-info request;
+|OIDC provider|
+if (Access token is attached to request and valid) then (yes)
+	:Retrieve user information;
+	:Reply 200 OK;
+else (no)
+	:Reply 401 Unauthorized;
+endif
+|Jore4 auth backend|
+if (Access token was attached to request) then (yes)
+	if (Reply was 401) then (yes)
+		:Check access token validity;
+		if (Access token has expired) then (yes)
+			:Request new access and refresh tokens using refresh token;
+			|OIDC provider|
+			:Generate new access (and if needed refresh) token;
+			|Jore4 auth backend|
+			:Store new access and refresh tokens in user's session;
+			:Attach the new access token to the request to be sent;
+			:Re-send the user-info request;
+			|OIDC provider|
+			if (Access token is attached to request and valid) then (yes)
+				:Retrieve user information;
+				:Reply 200 OK;
+			else (no)
+				:Reply 401 Unauthorized;
+			endif
+			|Jore4 auth backend|
+		endif
+	endif
+endif
+if (Received reply was 200) then (yes)
+	:Parse contents from response;
+	:Send on contents in reply;
+else (no)
+	:Reply 401 Unauthorized;
+endif
+|Jore4 frontend|
+:;
+@enduml
+

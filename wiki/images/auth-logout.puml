@@ -1,0 +1,25 @@
+@startuml
+|User|
+:Click login button;
+|Browser|
+:Send click event;
+|Jore4 frontend|
+:Redirect to jore4-auth logout endpoint;
+|Browser|
+:Perform redirect;
+|Jore4 auth backend|
+:Invalidate user session;
+:Redirect to OIDC provider end session endpoint;
+|Browser|
+:Perform redirect;
+|OIDC provider|
+:Logout user;
+:Redirect to OIDC client logout page;
+|Browser|
+:Perform redirect;
+|Jore4 frontend|
+:Display frontend to user;
+|User|
+:;
+@enduml
+

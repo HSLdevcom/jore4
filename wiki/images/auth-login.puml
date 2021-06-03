@@ -1,0 +1,49 @@
+@startuml
+|User|
+:Click login button;
+|Browser|
+:Send click event;
+|Jore4 frontend|
+:Redirect to jore4-auth login endpoint;
+|Browser|
+:Perform redirect;
+|Jore4 auth backend|
+if (User session present) then (no)
+	:Create user session;
+	:Attach session cookie to response;
+endif
+:Create random OIDC state and save in session;
+:Redirect to OIDC provider authorize endpoint;
+|Browser|
+:Store session cookie if present;
+:Perform redirect;
+|OIDC provider|
+:Prompt user for credentials;
+|Browser|
+:Show prompt for credentials;
+|User|
+:Enter credentials;
+|Browser|
+:Send credentials;
+|OIDC provider|
+:Authenticate user;
+:Create authorization code;
+:Transmit authorization code to OIDC client via redirect;
+|Browser|
+:Perform redirect;
+|Jore4 auth backend|
+:Validate transmitted OIDC state against state in session;
+:Request access and refresh tokens using transmitted auth code;
+|OIDC provider|
+:Create access and refresh tokens;
+|Jore4 auth backend|
+:Save access and refresh tokens in state;
+:Redirect back to Jore4 frontend;
+|Browser|
+:Perform redirect;
+|Jore4 frontend|
+:Display frontend to user;
+|User|
+:;
+@enduml
+
