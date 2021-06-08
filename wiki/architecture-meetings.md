@@ -15,6 +15,8 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - different libraries have been studied
   - problems have been found
 
+**3. How to import digiroad data**
+
 
 2021-06-02 Architecture meeting
 -------------------------------
