@@ -252,6 +252,7 @@ Details about the data sources in [Data sources](data-sources.md).
   - no tram tracks, train tracks or metro tracks
 - Municipal data sets
   - Vantaa has accurate data, includes street lanes
+  - Helsinki has the tram track network
 - National Land Survey
 - To be deprecated: Jore3 road network
   - Migration phase from Jore3 to Jore4 needs to be managed, though.
