@@ -2,8 +2,7 @@
 <h2>2021</h2>
 
 * Reitit ja verkko
-  * Q2, Joren tietokannassa ja käyttöliittymällä on edellytykset Transmodel-tietomallin mukaiseen joukkoliikenneverkon esittämiseen. Joukkoliikeverkolla tarkoitetaan reittigeometriaa (viivat) ja pysäkkejä (pisteet).
-  * Q3, Joren tietokannassa ja käyttöliittymällä on edellytykset Transmodel-tietomallin mukaiseen joukkoliikenneverkon muokkaamiseen. Joukkoliikenneverkon ominaisuustietoja (esim. yksittäisen pysäkin Hastuspaikkatieto) voidaan tarkastella ja muokata.
+  * Q2-Q3, Joren tietokannassa ja käyttöliittymällä on edellytykset Transmodel-tietomallin mukaiseen joukkoliikenneverkon esittämiseen ja muokkaamiseen. Joukkoliikenneverkolla tarkoitetaan reittigeometriaa (viivat) ja pysäkkejä (pisteet). Joukkoliikenneverkon ominaisuustietoja (esim. yksittäisen pysäkin Hastuspaikkatieto) voidaan tarkastella ja muokata.
   * Q4, Yksityiskohtien viimeistely ja tuki datapoiminnoille on olemassa.
 
 * UI/UX-konsepti + käyttöliittymä
