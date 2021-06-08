@@ -57,6 +57,7 @@ Data license: [CC-BY 4.0 International](https://hri.fi/data/fi/dataset//helsingi
 - [Digiroad](https://vayla.fi/en/transport-network/data/digiroad)
 - [OpenStreetMap](https://wiki.openstreetmap.org/wiki/Main_Page)
 - [HSL GTFS](https://dev.hsl.fi/gtfs/hsl.zip)
+- Base map of Helsinki City has an accurate tram network in it
 
 ### Unknown whether API or data set
 
