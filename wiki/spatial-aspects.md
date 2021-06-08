@@ -203,7 +203,7 @@ Transformation of names to map coordinates. Reverse geocoding is turning coordin
 
 1. Stops
 1. Routes
-1. "All wordly possessions of HSL"
+1. "All worldly possessions of HSL"
    1. Ticket machine locations
    1. Ticket vendor locations
 1. Fare zones
@@ -255,6 +255,10 @@ Details about the data sources in [Data sources](data-sources.md).
 - National Land Survey
 - To be deprecated: Jore3 road network
   - Migration phase from Jore3 to Jore4 needs to be managed, though.
+- Digitraffic
+  - Rail network, operational point of view
+- Finnish Transport Infrastructure Agency
+  - Rail network, owner of infrastructure 
 - Aerial images
 - Street view images
 - 3D models
