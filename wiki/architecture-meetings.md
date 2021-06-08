@@ -5,15 +5,21 @@ It is not meant to document the architectural solutions as such, rather to docum
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
 
+2021-06-09 Architecture meeting
+-------------------------------
+
+**1. For documentation purposes: Frontend graphql library**
+  - apollo was decided, since hasura's relay support is not reliable enough
+
+**2. Frontend map library**
+  - different libraries have been studied
+  - problems have been found
+
+
 2021-06-02 Architecture meeting
 -------------------------------
 
-**1. Frontend graphql library**
-  - relay
-  - apollo
-  - https://formidable.com/open-source/urql/docs/comparison/
-  - https://gqless.com/
-  - https://github.com/ablestack/graphql-codegen-hasura
+- skipped
 
 
 2021-05-26 Architecture meeting
