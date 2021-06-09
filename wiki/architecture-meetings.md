@@ -10,15 +10,27 @@ This document references the [architectural risks EasyRetro board](https://easyr
 
 **1. For documentation purposes: Frontend graphql library**
   - apollo was decided, since hasura's relay support is not reliable enough
+  - is redux needed / wanted to keep (also) Apollo's state?
+  - => might not be needed, Apollo has its own store
 
 **2. Frontend map library**
   - different libraries have been studied
   - problems have been found
+  - => Some findings documented in [board issue](https://github.com/HSLdevcom/jore4/issues/26)
+  - => OpenLayers not natively React-compatible
+  - => MapLibre has "ecosystem risk" (proprietary version has been developed)
+  - => Leaflet was easy to demo with markers
+  - => criteria should include team's experience
+  - => performance might not be a real problem
+  - => it was decided to use leaflet, since there is experience with it
 
 **3. Common /api prefix for backend paths in cloud?**
+  - only reason to use /api is to avoid conflicts in routes between frontend and backends
+  - => let's use /api prefix
 
 **4. How to import digiroad data**
-
+  - let's schedule own meeting for this
+  
 
 2021-06-02 Architecture meeting
 -------------------------------
