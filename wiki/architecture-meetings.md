@@ -9,6 +9,21 @@ This document references the [architectural risks EasyRetro board](https://easyr
 -------------------------------
 
 **1. Azure psql single-server vs flexi-server**
+  - flexi-server
+    - => API not ready
+    - => scales well
+    - => high availability
+  - single server instance
+    - => does not scale well
+    - => supports pg_route extension
+  - postgresql in kubernetes
+    - => most flexible
+    - => allows to use latest postgresql versions and features
+    - => most work (administration)
+    - => needs own backup solutions
+  - => will create ticket to study how backups work in Azure hosted postgresql
+  - => no hurry to decide which solution to use
+  - => let's hear @haphut's reasons for suggesting self-hosted solutions before deciding
 
 
 2021-06-09 Architecture meeting
