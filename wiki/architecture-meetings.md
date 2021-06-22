@@ -15,7 +15,7 @@ This document references the [architectural risks EasyRetro board](https://easyr
     - => high availability
   - single server instance
     - => does not scale well
-    - => supports pg_route extension
+    - => supports pgRouting extension
   - postgresql in kubernetes
     - => most flexible
     - => allows to use latest postgresql versions and features
