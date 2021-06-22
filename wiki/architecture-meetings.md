@@ -24,6 +24,7 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - => will create ticket to study how backups work in Azure hosted postgresql
   - => no hurry to decide which solution to use
   - => let's hear @haphut's reasons for suggesting self-hosted solutions before deciding
+
 **2. Running pgRouting (in PostgreSQL database with PostGIS) in Docker as a dedicated microservice
 
 2021-06-09 Architecture meeting
