@@ -8,10 +8,30 @@ This document references the [architectural risks EasyRetro board](https://easyr
 2021-06-23 Architecture meeting
 -------------------------------
 
-**1. GraphHopper vs pgRouting**
-  - ready docker image available containing pgrouting and shape file import extensions?
+**1. "Netex Transmodel Nordic Profile Discussion" -meeting news**
+  - ABTBO and Jore4 -project have interfaces
+  - ABTBO might need bus stop, time table, etc data
+  - => projects will sync their common parts later when ABTBO has identified their needs
 
-**2. "Netex Transmodel Nordic Profile Discussion" -meeting news**
+**2. GraphHopper vs pgRouting**
+  - ready docker image available containing pgrouting and shape file import extensions?
+  - mapmatching using pgrouting works quite well
+  - => if pgrouting is not available in managed db, map matching and navigation can be done in own microservice container
+  - => postgresql foreign data wrapper could be used to expose "main db" data to navigation service db container
+  - => hasura could use the navigation service like a "normal" db
+  - => 2 use cases for navigation:
+    1. jore3 import and
+    2. route creation and navigation
+  - => hasura 2 needed to run navigation service sql functionality
+
+**3. Kind cluster vs docker-compose for development dependencies**
+  - during development of only one microservice, many microservices may be needed to run locally
+  - kind is slow (locally)
+  - docker compose better, but would need duplicate data
+  - => can share docker image tags between kind and docker compose in flux repo
+  - => services, which are needed during development, but not development target, can be started from docker compose
+  - => services, which are to be developed, can be started from their repo using development tools
+  - => need to solve how locally started services can be accessed from inside docker containers
 
 
 2021-06-16 Architecture meeting
