@@ -22,7 +22,7 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - => 2 use cases for pgRouting:
     1. jore3 route map matching and
     2. route creation and navigation
-  - => hasura 2 needed to run navigation service sql functionality easily (or use two hasura 1 instances)
+  - => hasura v2 needed to run navigation service sql functionality easily (or use two hasura v1 instances)
 
 **3. Kind cluster vs docker-compose for development dependencies**
   - during development of only one microservice, many microservices may be needed to run locally
