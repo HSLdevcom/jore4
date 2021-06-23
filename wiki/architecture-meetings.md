@@ -14,15 +14,15 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - => projects will sync their common parts later when ABTBO has identified their needs
 
 **2. GraphHopper vs pgRouting**
-  - ready docker image available containing pgrouting and shape file import extensions?
+  - ready docker image available containing pgrouting and shapefile import extensions?
   - mapmatching using pgrouting works quite well
   - => if pgrouting is not available in managed db, map matching and navigation can be done in own microservice container
   - => postgresql foreign data wrapper could be used to expose "main db" data to navigation service db container
   - => hasura could use the navigation service like a "normal" db
-  - => 2 use cases for navigation:
-    1. jore3 import and
+  - => 2 use cases for pgRouting:
+    1. jore3 route map matching and
     2. route creation and navigation
-  - => hasura 2 needed to run navigation service sql functionality
+  - => hasura 2 needed to run navigation service sql functionality easily (or use two hasura 1 instances)
 
 **3. Kind cluster vs docker-compose for development dependencies**
   - during development of only one microservice, many microservices may be needed to run locally
