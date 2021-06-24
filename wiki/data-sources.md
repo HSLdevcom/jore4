@@ -40,6 +40,7 @@ Data license: proprietary
 - Rail network by Finnish Transport Infrastructure Agency, owner of the infrastructure ([WFS, avoin:locationtracks](https://julkinen.vayla.fi/inspirepalvelu/avoin/wfs?request=getcapabilities)) ([visually on a map](https://julkinen.vayla.fi/oskari/?zoomLevel=2&coord=429230.65625_6755196&mapLayers=1+100+default,481+100+avoin:ratko_line&uuid=e139ce6f-ad06-4d64-a49f-b7e57c27e81d&noSavedState=true&showIntro=false))
 - Rail network from Digitraffic by Fintraffic ([visualization](https://rata.digitraffic.fi/infra-api/))
 - From Jore3 to LIJ
+- kartat.hel.fi: Suunnitelmat > Liikennesuunnitelmat
 
 #### Event and Land Use Permits in Public Areas of the City of Helsinki
 
