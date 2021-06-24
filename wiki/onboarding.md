@@ -55,7 +55,7 @@ To connect to it, you need to
        ~/.ssh/jore4_key_ed25519
    ```
 
-The command above refers to your private key but actually uses your public key with the conventional `.pub` extension. If you modify the command above, do not persist the CA private key on your computer.
+The command above refers to your private key but actually uses your public key with the conventional `.pub` extension. If you modify the command above, do not persist the SSH CA private key on your computer.
 
 Check the [original HSL instructions](https://gitlab.hsl.fi/developer-resources/azure-ansible#creating-user-key-each-user-should-have-their-own) for updates in case you run into trouble.
 
