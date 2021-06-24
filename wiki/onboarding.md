@@ -69,7 +69,7 @@ comma-separated list. By saving the changes, you'll be granted access to the bas
 
 #### Creating an SSH configuration entry
 
-After these steps, you can add the following snippet into your SSH configuration (works on Linux, maybe not on Mac):
+After these steps, you can add the following snippet into your SSH configuration for the dev environment (the tunnelling part works on Linux but maybe not on Mac):
 
 ```ssh-config
 Host hsl-jore4-dev-bastion
