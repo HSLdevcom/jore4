@@ -229,6 +229,10 @@ Data:
 
 Some Jore 3 integrations directly read data from the Jore database.
 
+### Tarkastusmaksujärjestelmä TMJ
+
+Uses train numbers and route codes from Jore3 table "jr_tmj"
+
 ### Bultti
 
 Source code is available on [github](https://github.com/HSLdevcom/bultti), see e.g. the [Jore DB API](https://github.com/HSLdevcom/bultti/blob/master/src/jore/JoreDataSource.ts).
