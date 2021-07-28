@@ -54,6 +54,12 @@
 * In Finnish: _Joukkoliikennekohde_
 * A route category used in subvention calculations, such as "Regional traffic towards Vantaa" / "Seutu, Vantaan suunta"
 
+#### Trip operation plan
+
+* In Finnish: _Lähtöketju_
+* Operator's plan on how their buses (phyical vehicles) run trips HSL has ordered them to run.
+* Practically a CSV file uploaded by operator to LIJ
+
 #### Compensation
 
 * In Finnish: _Liikennöintikorvaus_
