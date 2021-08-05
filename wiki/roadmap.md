@@ -21,7 +21,7 @@
   * Q4, Valmius toteuttaa migraatio aina tarvittaessa (koskee moduulia aikataulut ja kaaviot).
 
 * Aikataulut
-  * Q3, Aikataulujen tietomallin luonti Joren tietokantaan
+  * Q4, Aikataulujen tietomallin luonti Joren tietokantaan
   * Q4, Aikataulujen importointi ulkoisista tietolähteistä, aikataulujen yksinkertaiset muokkausmahdollisuudet (esim. voimassaolon muuttaminen)
 
 <h2>2022</h2>
