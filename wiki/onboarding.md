@@ -37,28 +37,45 @@ You can access the Azure environment networks using the environment's bastion ho
 
 #### Creating an SSH key
 
-To connect to it, you need to
+Use the bash script below to create a new signed ssh key for yourself:
 
-1. create a new key pair for this project (required for security), e.g. using the command
-   ```sh
-   ssh-keygen -t ed25519 -f ~/.ssh/jore4_key_ed25519 -C "${YOUR_EMAIL_ADDRESS}"
-   ```
-1. sign your own public key with the private SSH CA key using the command
-   ```sh
-   az login \
-     && ssh-keygen \
-       -s <(
-         az keyvault secret show \
-           --vault-name 'hsl-jore4-vault' \
-           --name 'jore4-developer-ca-key-private' \
-           --output tsv \
-           --query value
-       ) \
-       -I "${YOUR_FULL_NAME} user key" \
-       -n 'hsladmin' \
-       -V '-5m:+100d' \
-       ~/.ssh/jore4_key_ed25519
-   ```
+```sh
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Fill in your own data here:
+YOUR_EMAIL_ADDRESS=""
+YOUR_FULL_NAME=""
+
+# Making sure that the CA key is deleted
+cleanup() {
+  echo "Cleaning up"
+  rm ~/.ssh/jore4_ca_ed25519
+}
+trap cleanup EXIT
+
+# Create new user-specific ssh key for yourself
+ssh-keygen -t ed25519 -f ~/.ssh/jore4_key_ed25519 -C "${YOUR_EMAIL_ADDRESS}"
+
+# Fetch CA key from Azure
+az login
+az keyvault secret show \
+  --vault-name 'hsl-jore4-vault' \
+  --name 'jore4-developer-ca-key-private' \
+  --output tsv \
+  --query value \
+  > ~/.ssh/jore4_ca_ed25519
+chmod 0600 ~/.ssh/jore4_ca_ed25519
+
+# Sign the user-specific ssh key with the CA key
+ssh-keygen \
+  -s ~/.ssh/jore4_ca_ed25519 \
+  -I "${YOUR_FULL_NAME} user key" \
+  -n 'hsladmin' \
+  -V '-5m:+100d' \
+  ~/.ssh/jore4_key_ed25519
+```
 
 The command above refers to your private key but actually uses your public key with the conventional `.pub` extension. If you modify the command above, do not persist the SSH CA private key on your computer.
 
