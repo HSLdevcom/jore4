@@ -104,10 +104,12 @@ Host hsl-jore4-dev-bastion
   IdentityFile ~/.ssh/jore4_key_ed25519
   # HSL Jore3 test database
   LocalForward localhost:56239 10.218.6.14:56239
+  LocalForward localhost:9432 hsl-jore4-dev-db.postgres.database.azure.com:5432
   ExitOnForwardFailure yes
+  ServerAliveInterval 60
 ```
 
-This will configure ssh to use the appropriate key when accessing the bastion host and to forward the Jore3 DB connection to your local machine. Additionally, you can create similar configurations for different environments by using a different local port for forwarding and the correct bastion host DNS name:
+This will configure ssh to use the appropriate key when accessing the bastion host and to forward both the Jore3 and Jore4 DB connections to your local machine. Additionally, you can create similar configurations for different environments by using a different local port for forwarding and the correct bastion host DNS name:
 - `bastion.dev.jore.hsl.fi` - dev environment (as used above)
 - `bastion.playg.jore.hsl.fi` - devops playground environment
 - `bastion.test.jore.hsl.fi` - test environment
