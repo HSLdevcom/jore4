@@ -18,7 +18,7 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - docker image to provide database for import
   - repository contains script to export data for use by map-matching-server
   - data used by map-matching-server and application (hasura) can get out of sync
-    => @jschummer will create ticket to explore possibility to use postgresql foreign data wrapper to have only a single source of 
+    - => @jschummer will create ticket to explore possibility to use postgresql foreign data wrapper to have only a single source of 
        truth
   - scripts will be extended to include import into hasura db
 
