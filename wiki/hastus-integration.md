@@ -1,4 +1,4 @@
-#Hastus integration
+# Hastus integration
 
 ## Q&A
 
