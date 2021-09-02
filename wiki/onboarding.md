@@ -16,7 +16,7 @@ You need these accounts:
      - to be added to the AD and Azure group `jore4-platform-developers`
      - to be added to the group `jore` in [gitlab.hsl.fi](https://gitlab.hsl.fi)
    - Needed for Azure, [gitlab.hsl.fi](https://gitlab.hsl.fi), Sharepoint and possibly other services where `@hsl.fi` email address gets a preference.
-   - Set up Multi-Factor Authentication (MFA).
+   - Set up Multi-Factor Authentication (MFA). MFA is mandatory for all users and you should be asked to set it up when logging in for the first time.
 1. HSL ID account
    - Create it yourself: <https://www.hsl.fi/user/auth/login?language=fi>
    - There are also test versions for HSL ID.
