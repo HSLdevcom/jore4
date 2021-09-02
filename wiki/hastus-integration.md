@@ -9,7 +9,7 @@ Q: As a developer I want to know is it possible to integrate to Hastus so that w
 A: Hastus is able to import from CSV/XML files and export those as well in different standards.
 
 Q: What kind of APIs does Hastus offer?
-A: It is possible to create a batch job for CSV/XML exports/imports
+A: It is possible to create a batch job for CSV/XML exports/imports, no direct API provided
 
 Q: What integrations could be done automatically?
 A: It is possible to create a batch job
@@ -17,7 +17,7 @@ A: It is possible to create a batch job
 Q: If not possible, is there a way to combine multiple vehicle schedules to one export file Hastus -> Jore?
 A: 
 
-Q: What kind of state does Hastus store?
+Q: What kind of state does Hastus store? Can automatic import / export create conflicts with Hastus' own state?
 A: 
 
 Q: If both Jore3 and Jore4 push data into Hastus, will we get conflicts? Do we need a separate Hastus instance for Jore4?
