@@ -9,6 +9,8 @@ This document references the [architectural risks EasyRetro board](https://easyr
 -------------------------------
 
 **1. Project testing process**
+  - Kind-cluster needed anymore?
+  - in which environment should (different sets of) e2e-tests be run?
 
 **2. Deployment process**
   - what (version?) information is contained in the flux main branch
