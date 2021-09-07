@@ -15,6 +15,11 @@ This document references the [architectural risks EasyRetro board](https://easyr
 **2. Deployment process**
   - what (version?) information is contained in the flux main branch
 
+**3. Dependabot**
+  - should it be used and how?
+
+**4. (Kubernetes) autoscaling**
+
 
 2021-09-01 Architecture meeting
 -------------------------------
