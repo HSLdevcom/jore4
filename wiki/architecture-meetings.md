@@ -10,15 +10,26 @@ This document references the [architectural risks EasyRetro board](https://easyr
 
 **1. Project testing process**
   - Kind-cluster needed anymore?
+  - => docker-compose can be used in github actions
   - in which environment should (different sets of) e2e-tests be run?
+  - => can be run in e.g. `dev`-kube env
+  - => need to solve how to to either access db or trigger tests on container which is running inside kube
+  - => will create ticket to study which one is more feasible
 
 **2. Deployment process**
   - what (version?) information is contained in the flux main branch
+  - => flux-repo should always refer to other components' main-branch docker-builds
 
 **3. Dependabot**
   - should it be used and how?
+  - => atm only in hasura
+  - => will generate lots of PRs
+  - => if configured to run only once a month, once a month we'll get lots of PRs
+  - => should try with one repository, will create ticket about this
 
 **4. (Kubernetes) autoscaling**
+  - => some cases have been seen, in which resources were not sufficient in Kube
+  - => for now we can increase number of vms, later can take autoscaling into use
 
 
 2021-09-01 Architecture meeting
