@@ -16,10 +16,10 @@ on:
       # otherwise.
       - synchronize
 
-  # Schedule a check 2 minutes. Useful if you reference cross-repository
+  # Schedule a check once an hour. Useful if you reference cross-repository
   # issues or pull requests. Can be removed otherwise.
   schedule:
-    - cron: "*/2 * * * *"
+    - cron: "0 * * * *"
 
 jobs:
   check:
