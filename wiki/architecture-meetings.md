@@ -9,7 +9,10 @@ This document references the [architectural risks EasyRetro board](https://easyr
 -------------------------------
 
 **1. Level of documentation in different components**
-  - jore3-importer
+  - jore3-importer needs better docs?
+  - other important components
+  - different environments of operation (kube, kind, docker) to be documented
+  - summary of discussion outcome for the whole team in slack
 
 
 2021-09-08 Architecture meeting
