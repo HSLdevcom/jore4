@@ -10,9 +10,18 @@ This document references the [architectural risks EasyRetro board](https://easyr
 
 **1. Level of documentation in different components**
   - jore3-importer needs better docs?
+  - => @pkainulainen-vincit will write documentation as good as possible
   - other important components
+  - => DoD contains already documentation requirement, let's keep that in mind in the future (also reviewers should check!)
   - different environments of operation (kube, kind, docker) to be documented
+  - => should be documented in a centralized spot (architecture docs)
+  - => @jschummer will take responsibility (together with @pallost)
   - summary of discussion outcome for the whole team in slack
+
+**2. Is the DoD still up to date?**
+  - testing could be taken into account better
+  - testing step should / could be pictured by its own ticket on the board
+  - => @jpeuralinna will ask PO about this when he gets back from holiday
 
 
 2021-09-08 Architecture meeting
