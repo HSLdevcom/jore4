@@ -10,6 +10,7 @@ This document references the [architectural risks EasyRetro board](https://easyr
 
 **1. Level of documentation in different components**
   - jore3-importer needs better docs?
+  - => not possible to write down design intentions after the original author has left
   - => @pkainulainen-vincit will write documentation as good as possible
   - other important components
   - => DoD contains already documentation requirement, let's keep that in mind in the future (also reviewers should check!)
