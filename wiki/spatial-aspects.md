@@ -44,14 +44,14 @@ Think of the asphalt without the cars.
 #### Not seen as important at the moment
 
 1. Speed limits
-
-#### Unknown importance
-
-1. Bus turnouts
 1. Turning restrictions
    - Can one turn left here?
 1. Road restrictions
    - Can a large bus practically fit here?
+
+#### Unknown importance
+
+1. Bus turnouts
 1. Road lanes
    - In some junctions one route continues straight while another turns left. The vehicles might end up on different lanes before the junction. If there's congestion on one lane but not on the other, it might affect stop arrival and departure time estimates.
    - In comparison, we model each rail track separately instead of e.g. having one link from Helsinki to Pasila.
