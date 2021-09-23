@@ -33,3 +33,16 @@ For local development, we are aiming to use these port spaces for different serv
 - 3100 - 3199: test databases
 - 3200 - 3299: API ports (hasura, REST, etc)
 - 3300 - 3399: frontend ports (for browsers)
+
+# Environments
+
+The project setup can be run in the following types of environments:
+- Kubernetes (AKS)
+- Kubernetes in Docker (Kind)
+- docker compose
+
+The configurations for all environment types are generated from the same input yaml files using gomplate.
+
+Several Kubernetes staging environments have been deployed in the Azure cloud ("playg", "dev", "test") in addition to the production ("prod") environment. The Kind environment type was created to be used in end-to-end-tests, but may be discontinued in the future. The docker compose environment type can be used locally when developing individual components and may in the future replace the Kind environment type in end-to-end-test scenarios.
+
+For more information on the environment types and deployed environments, please see [the Jore4 flux repository README](https://github.com/HSLdevcom/jore4-flux/#readme).
