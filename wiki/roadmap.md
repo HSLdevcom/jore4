@@ -38,7 +38,7 @@
   * Q2, Pysäkkeihin liittyvät raportointitoiminnallisuudet, loput pysäkkien ominaisuudet, kuten kuulutukset ja julistepaikat
  
 * Saavutettavuus
- * Q3, Saavutettavuuden scope tarkennetaan
+  * Q3, Saavutettavuuden scope tarkennetaan
 
 * Terminaalit
   * Q3, Loput terminaalin ominaisuudet, kuten julistepaikat ja hissitiedot
@@ -56,6 +56,9 @@
   * Q4, Sopimuksiin liittyvät toiminnallisuudet
  
  <h2>2023</h2>
+ 
+* Saavutettavuus, pysäkit, terminaalit, reitit, aikataulut
+  * Q1-Q2 MVP:stä nousseiden toiveiden korjaaminen
  
 * Korvauslaskenta
   * Q1, Korvauslaskennan toiminnallisuudet
