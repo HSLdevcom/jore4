@@ -58,8 +58,8 @@
  <h2>2023</h2>
  
 * Korvauslaskenta
- * Q1, Korvauslaskennan toiminnallisuudet
- * Q2, Integraatiot mm. Bulttiin
+  * Q1, Korvauslaskennan toiminnallisuudet
+  * Q2, Integraatiot mm. Bulttiin
 
 * Kalustorekisteri
- * Q2, Kalustorekisterin toiminnallisuudet (raide- ja bussikalusto)
+  * Q2, Kalustorekisterin toiminnallisuudet (raide- ja bussikalusto)
