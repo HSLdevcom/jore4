@@ -13,24 +13,24 @@
 * Käyttäjähallinta
   * Q1, Selvitetään oikea ratkaisu todentamiseen liittyen.
   * Q2-Q3, Toteutus / HSLid
+  * Q4, Hasuran päivitys, joka mahdollistaa suunnitellun mukaisen toiminnan
 
 * Datamigraatio
   * Q1, Datamigraation toteutus on suunniteltu ja toteutustyö on käynnistynyt.
-  * Q2, Valmius toteuttaa migraatio aina tarvittaessa (koskee moduulia reitit ja verkko, koskee perusgeometriaa).
-  * Q3, Reitit ja verkko -moduulin ominaisuustietojen migraatiovalmius.
+  * Q2-Q3, Valmius toteuttaa migraatio aina tarvittaessa (koskee moduulia reitit ja verkko, koskee perusgeometriaa). Reitit ja verkko -moduulin ominaisuustietojen migraatiovalmius.
   * Q4, Valmius toteuttaa migraatio aina tarvittaessa (koskee moduulia aikataulut ja kaaviot).
 
 * Aikataulut
-  * Q4, Aikataulujen tietomallin luonti Joren tietokantaan, aikataulujen importointi Jore3:sta sovitussa laajuudessa, aikataulujen yksinkertaiset muokkausmahdollisuudet (esim. voimassaolon muuttaminen)
+  * Q4, Aikataulujen tietomallin luonti Joren tietokantaan, aikataulujen importointi Jore3:sta sovitussa laajuudessa
 
 <h2>2022</h2>
 
 * Aikataulut
-  * Q1, Aikataulujen importointi ulkoisista tietolähteistä
+  * Q1, Aikataulujen importointi ulkoisista tietolähteistä, aikataulujen yksinkertaiset muokkausmahdollisuudet (esim. voimassaolon muuttaminen)
   * Q2, Korvaavat linjat sekä aikataulujen loput ominaisuudet, mm. poikkeusreitteihin liittyvä hallinta
 
 * UI/UX-konsepti + käyttöliittymä
-  * Q1, Matkustajainformaatioon liittyvä käyttöliittymäsuunnittelu on toteutettu
+  * Q1, Matkustajainformaatioon & infraan liittyvä käyttöliittymäsuunnittelu on toteutettu
   * Q2, Sopimusten ja korvauslaskennan käyttöliittymäsuunnittelu on toteutettu
   * Q3, Kalustorekisterin käyttöliittymäsuunnittelu on toteutettu
 
