@@ -42,3 +42,9 @@
 
 ## 2021-08-17
 ![Retrospective board](images/retro-2021-08-18.png "Retrospective board")
+
+## 2021-09-14
+![Retrospective board](images/Retro-2021-09-14.png "Retrospective board")
+
+## 2021-09-28
+![Retrospective board](images/Retro-2021-09-28.png "Retrospective board")
