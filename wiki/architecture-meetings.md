@@ -5,6 +5,18 @@ It is not meant to document the architectural solutions as such, rather to docum
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
 
+2021-10-06 Architecture meeting
+-------------------------------
+
+**1. Hasura**
+  - data encapsulation using views and INSTEAD OF triggers
+  - soft delete implementation using views and BEFORE DELETE triggers
+
+**2. Local development database**
+  - some db conf is needed locally but not in the clound (because deploy scripts create e.g. db users)
+  - own image could be used in local development, which has those configs "built in"
+
+
 2021-09-15 Architecture meeting
 -------------------------------
 
