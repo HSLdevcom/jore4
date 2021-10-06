@@ -4,6 +4,12 @@ It is not meant to document the architectural solutions as such, rather to docum
 
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
+2021-10-13 Architecture meeting
+-------------------------------
+
+**1. Routing to microservices**
+  - should the ingress allow routing directly to individual microservices or... (easier implementation and less maintenance in case REST API changes)
+  - should we expose the microservices' REST API through Hasura (better auditing and authorization control)
 
 2021-10-06 Architecture meeting
 -------------------------------
