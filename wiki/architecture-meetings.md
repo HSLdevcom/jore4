@@ -11,10 +11,13 @@ This document references the [architectural risks EasyRetro board](https://easyr
 **1. Hasura**
   - data encapsulation using views and INSTEAD OF triggers
   - soft delete implementation using views and BEFORE DELETE triggers
+  - => some limitations, such as ON CONFLICT not working
+  - => might later decide to just expose all internal_-schemas and not use INSTEAD OF triggers
 
 **2. Local development database**
   - some db conf is needed locally but not in the clound (because deploy scripts create e.g. db users)
   - own image could be used in local development, which has those configs "built in"
+  - => @pallost will create ticket to implement this
 
 
 2021-09-15 Architecture meeting
