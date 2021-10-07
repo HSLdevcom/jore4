@@ -245,7 +245,7 @@ See `Jore_WS_Metodit.doc` document.
 
 ### Lissu
 
-Lissu is an analysis toolkit.
+Lissu is an analysis toolkit. Deprecated, not in use.
 
 ```
 Protocol: SOAP
