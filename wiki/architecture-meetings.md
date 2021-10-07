@@ -11,6 +11,8 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - should the ingress allow routing directly to individual microservices or... (easier implementation and less maintenance in case REST API changes)
   - should we expose the microservices' REST API through Hasura (better auditing and authorization control)
 
+**2. Presentation on how to use the docker-compose bundle from the flux repo
+
 2021-10-06 Architecture meeting
 -------------------------------
 
