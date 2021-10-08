@@ -216,9 +216,17 @@ Data:
 ### Digiroad
 
 ```
-Format: DAT, files for all stops, removed stops as well as changed/new stops. May include also a file with timestamp flags
+Format: Zipped DAT files. Files for all stops, removed stops as well as changed/new stops. Includes a file with timestamp flags in same folder as the zip.
 Protocol: FTP
 Data:
+Example:
+
+1020106667391625528646673919255286060.1733024.95227Kaisaniemenpuisto   Kajsaniemiparken    Kaisaniemenkatu     Kajsaniemigatan        020220603H 165110                                                                                                                         1A     01 
+1020109667375725526756673762255267560.1718424.94886Rautatientori       Järnvägstorget      Vilhonkatu          Vilhelmsgatan       14 010220534H 310960 Rautatientori                           Järnvägstorget                                                                  1A        
+1020112667361125525096673610255249760.1705824.94565Rautatientori       Järnvägstorget      Rautatientori       Järnvägstorget      17 020220403H 164929 Rautatientori                           Järnvägstorget                                                                  1A     01 
+
+...
+
 Tieto		Pituus	Sarakkeet
 
 Pysäkin tunnus	7	1-7
@@ -246,6 +254,7 @@ Pysäkin sijaintipaikka ru	20	253-272
 Onko aikataulu kyllä/ei	1	273
 Pysäkin vyöhyke	6	274-279
 Pysäkkityyppi (varustelut.)	3	280-282
+...
 
 ```
 
