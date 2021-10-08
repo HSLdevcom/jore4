@@ -216,10 +216,37 @@ Data:
 ### Digiroad
 
 ```
-Format: ??
-Protocol: ??
+Format: DAT, files for all stops, removed stops as well as changed/new stops. May include also a file with timestamp flags
+Protocol: FTP
 Data:
-  - ??
+Tieto		Pituus	Sarakkeet
+
+Pysäkin tunnus	7	1-7
+KKJ2-X (keskiviiva)	7	8-14
+KKJ2-Y (keskiviiva)	7	15-21
+KKJ2-X (tien reuna)	7	22-28
+KKJ2-Y (tien reuna)	7	29-35
+Maant.leveys (tien reuna)	8	36-43
+Maant.pituus (tien reuna)	8	44-51
+Nimi suomeksi	20	52-71
+Nimi ruotsiksi	20	72-91
+Osoite suomeksi	20	92-111
+Osoite ruotsiksi	20	112-131
+Laiturinumero	3	132-134
+Katostieto		2	135-136
+Pysäkin tyyppi	2	137-138
+Lyhyttunnus		4	139-142
+Esteettömyysluokka	1	143
+Solmun lyhyttunnus	2	144-145
+Elynumero		7	146-152
+Terminaalialueen nimi su	40	153-192
+Terminaalialueen nimi ru	40	193-232
+Pysäkin sijaintipaikka su	20	233-252
+Pysäkin sijaintipaikka ru	20	253-272
+Onko aikataulu kyllä/ei	1	273
+Pysäkin vyöhyke	6	274-279
+Pysäkkityyppi (varustelut.)	3	280-282
+
 ```
 
 ### Kalustorekisteri
