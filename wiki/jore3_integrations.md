@@ -138,7 +138,7 @@ Filename: "valipisteajat.xlsx"
 Format: XLSX
 Contact: Ossi Berg
 Data:
-  - ??
+- ??
 ```
 
 ### Word Exports
@@ -181,19 +181,36 @@ Data:
 ### Google GTFS
 
 ```
-Format: ??
-Protocol: ??
-Data:
-  - ??
+Format: Multiple CSV files on a ZIP, reference: https://developers.google.com/transit/gtfs 
+Protocol: FTP?
+Data: 
+- Mostly according to specification. Sample dataset available in Drive. Sample from e.g. routes.txt
+  ...
+  route_id,agency_id,route_short_name,route_long_name,route_desc,route_type,route_url
+1001,HSL,1,Eira - Töölö - Sörnäinen (M) - Käpylä,,0,http://aikataulut.hsl.fi/linjat/fi/h1_1a.html
+1001H,HSL,1H,Käpylä - Koskelan halli,,0,http://aikataulut.hsl.fi/linjat/fi/h1_1a.html
+1002,HSL,2,Olympiaterminaali - Töölö - Pasila as.,,0,http://aikataulut.hsl.fi/linjat/fi/h2.html
+1002H,HSL,2H,Pasila as. - Töölön halli,,0,http://aikataulut.hsl.fi/linjat/fi/h2.html
+...
 ```
 
 ### Infopoiminta
 
 ```
-Format: ??
-Protocol: ??
+Format: Multiple DAT files in a zip
+Protocol: FTP
 Data:
-  - ??
+  - Sample dataset available in Drive. For example reitti.dat:
+  ...
+  105041710504161001  12021071220211003Telakkakatu         0  1  0     0     0LKäpylä              Kottby              Rautatieas.         Järnvägsst.         0
+ 105041610604041001  12021071220211003Perämiehenkatu      0  2  251   251   0M                                                                                0
+ 106040410504081001  12021071220211003Eiran sairaala      1  3  341   592   0M                                                                                0
+ 105040810504131001  12021071220211003Viiskulma           2  4  312   904   0M                                                                                0
+ 105041310404011001  12021071220211003Iso Roobertinkatu   3  5  203   1107  0M                                                                                0
+ 104040110404371001  12021071220211003Fredrikinkatu       4  6  301   1408  0M                                                                                0
+ 104043710204631001  12021071220211003Erottaja            5  7  246   1654  0M                                                                                0
+ 102046310204531001  12021071220211003Ylioppilastalo      7  8  294   1948  0M                                                                                0
+  ...
 ```
 
 ### Digiroad
@@ -208,12 +225,39 @@ Data:
 ### Kalustorekisteri
 
 ```
-Format: ??
-Protocol: ??
+Format: CSV in a ZIP
+Protocol: FTP
 Data:
-  - ??
-```
+  - Separate datasets for rail vehicles and buses. An example of buses:
+  ...
+   Nobina Finland Oy	1256	CPG-188	1.8.2021	D 	7	HSL-orans	8	BYD	14	BYD		1205	222	1
+ Nobina Finland Oy	1255	CPG-187	1.8.2021	D 	7	HSL-orans	8	BYD	14	BYD		1205	222	1
+ Nobina Finland Oy	1254	CPG-186	1.8.2021	D 	7	HSL-orans	8	BYD	14	BYD		1205	222	1
+...
+- For rail vehicles:
+...
+ VR Oy	25205	Eilf                                                      
+ VR Oy	25208	Eilf                                                      
+ HKL-Raitioliikenne	228	MLRV                                           
+ HKL-Raitioliikenne	402	MLNRV3                                         
 
+...
+  ```
+
+### HSL DW
+```
+Format: CSV in a ZIP
+Protocol: FTP
+Data:
+- Includes information regarding vehicle tasks, contracts, stops and day types. For example pysakkityypit.csv:
+ reitti	suunta	suuvoimast	suuviimpvm	soltunnus	tyyppi                                           
+1001	1	4.10.2021	31.12.2050	1050417	1
+1001	1	4.10.2021	31.12.2050	1050416	3
+1001	1	4.10.2021	31.12.2050	1060404	3
+
+
+  ```
+  
 ### Jore History GraphQL Importer
 
 Source code is available on [github](https://github.com/HSLdevcom/jore-history-graphql-import).
