@@ -6,6 +6,36 @@
 
 Jore 3 offers several endpoints for importing & exporting data (e.g. CSV, Excel..) to external systems or use cases.
 
+### IVU
+
+IVU is a software in which train timetables are planned by VR. They are imported to Jore3.
+
+Format: XML
+Contact: Markus Elfström
+Data:
+- Timetables
+- Vehicles
+- Amount of train units by which a trip is driven
+- Planned departure tracks
+
+An example:
+
+```
+<?xml version="1.0" encoding="UTF-8"?><ns1:TimetableExport xmlns:ns1="uri:VR/IVU/TimetableExport/v1" xsi:schemeLocation="uri:VR/IVU/TimetableExport/ivu_timetable_export_v1.0.2.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ExportMetadata exportTime="2020-05-07T09:43:57" exportRangeStart="2020-08-03T00:00:00" exportRangeEnd="2020-08-09T00:00:00" exportType="" sourceDataRevision=""/>
+<Train train-number="321" frequency="12345()" ivu-train-type="1" ivu-trip-class="HSM" route-short-name="15">
+<TimetableRow station-id="LH" station-uic-code="10001001" departure-time="07:11:00" stop-type="stop">
+<Equipment>
+<Vehicle vehicle-type="SM1-2" position="1"/>
+</Equipment>
+<Track track-id="702"/>
+</TimetableRow>
+<TimetableRow station-id="VLH" station-uic-code="10001041" departure-time="07:18:00" arrival-time="07:17:00" stop-type="stop"/>
+<TimetableRow station-id="NSL" station-uic-code="10005951" departure-time="07:22:00" arrival-time="07:21:00" stop-type="stop"/>
+<TimetableRow station-id="UKÄ" station-uic-code="10001051" departure-time="07:26:00" arrival-time="07:25:00" stop-type="stop"/>
+<TimetableRow station-id="MKA" station-uic-code="10013361" departure-time="07:32:00" arrival-time="07:32:00" stop-type="pass"/>
+```
+
 ### HASTUS
 
 [Hastus](https://www.giro.ca/en-ca/our-solutions/hastus-software/) is a separate timetable planning software.
