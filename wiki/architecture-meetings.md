@@ -15,6 +15,10 @@ This document references the [architectural risks EasyRetro board](https://easyr
 
 **3. Repository / component walk-through to identify testing needs**
 
+**4. How can services be decoupled on database level?**
+  - own schemas, which are (not?) created by Hasura and managed by microservice
+  - completely own db
+
 
 2021-10-06 Architecture meeting
 -------------------------------
