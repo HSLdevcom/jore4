@@ -7,7 +7,7 @@ This document references the [architectural risks EasyRetro board](https://easyr
 2021-10-20 Architecture meeting
 -------------------------------
 
-**1. Check how far we are with route support: https://github.com/HSLdevcom/jore4/issues/331 **
+**1. Check how far we are with route support: https://github.com/HSLdevcom/jore4/issues/331**
 
 
 2021-10-13 Architecture meeting
