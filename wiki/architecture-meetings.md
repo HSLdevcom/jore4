@@ -28,7 +28,7 @@ This document references the [architectural risks EasyRetro board](https://easyr
 **3. How can services be decoupled on database level?**
   - own schemas, which are (not?) created by Hasura and managed by microservice
   - completely own db
-  - => create ticket to separate different application's internal data into own DB
+  - => create ticket to separate different microservices' internal data into own DB
 
 
 2021-10-06 Architecture meeting
