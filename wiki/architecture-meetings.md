@@ -9,6 +9,8 @@ This document references the [architectural risks EasyRetro board](https://easyr
 
 **1. Check how far we are with route support: https://github.com/HSLdevcom/jore4/issues/331**
 
+**2. Presentation on how to use the docker-compose bundle from the flux repo**
+
 
 2021-10-13 Architecture meeting
 -------------------------------
@@ -16,14 +18,17 @@ This document references the [architectural risks EasyRetro board](https://easyr
 **1. Routing to microservices**
   - should the ingress allow routing directly to individual microservices or... (easier implementation and less maintenance in case REST API changes)
   - should we expose the microservices' REST API through Hasura (better auditing and authorization control)
+  - => create ticket to study / create PoC about using map-matching backend through Hasura (via remote schema)
 
-**2. Presentation on how to use the docker-compose bundle from the flux repo**
+**2. Repository / component walk-through to identify testing needs**
+  - => map-matching backend could be tested through robot tests
+  - => after data model deployment, can send real request via UI to Hasura (including auth backend)
+  - => jore3 importer can be tested later in e2e tests (when it's ready)
 
-**3. Repository / component walk-through to identify testing needs**
-
-**4. How can services be decoupled on database level?**
+**3. How can services be decoupled on database level?**
   - own schemas, which are (not?) created by Hasura and managed by microservice
   - completely own db
+  - => create ticket to separate different application's internal data into own DB
 
 
 2021-10-06 Architecture meeting
