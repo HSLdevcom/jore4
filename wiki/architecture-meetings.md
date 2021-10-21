@@ -7,7 +7,7 @@ This document references the [architectural risks EasyRetro board](https://easyr
 2021-10-27 Architecture meeting
 -------------------------------
 
-**1. Discuss whether we separate something to own databases (#511)
+**1. Discuss whether we separate something to own databases (#511)**
 
 2021-10-20 Architecture meeting
 -------------------------------
