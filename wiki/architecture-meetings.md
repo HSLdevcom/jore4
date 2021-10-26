@@ -9,6 +9,8 @@ This document references the [architectural risks EasyRetro board](https://easyr
 
 **1. Discuss whether we separate something to own databases (#511)**
 
+**2. Presentation on how to user docker-compose bundle Hasura for local repo migrations**
+
 2021-10-20 Architecture meeting
 -------------------------------
 
