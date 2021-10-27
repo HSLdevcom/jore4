@@ -4,12 +4,26 @@ It is not meant to document the architectural solutions as such, rather to docum
 
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
+
+2021-11-03 Architecture meeting
+-------------------------------
+
+**1. Presentation on how to use docker-compose bundle Hasura for local repo migrations**
+
+
 2021-10-27 Architecture meeting
 -------------------------------
 
-**1. Discuss whether we separate something to own databases (#511)**
+**1. Discuss whether we separate something to own databases (ticket #511)**
+  - => Use of microservice specific logical databases should be employed where useful
+  - => jore3-importer and auth-backend will get their own logical databases (not postgresql instances)
+  - => see ticket #516
+  - => closed ticket #511, since it is not needed anymore
 
 **2. Presentation on how to use docker-compose bundle Hasura for local repo migrations**
+  - => Would be good to have @pallost explain this, since he created the docker-compose bundle generation
+  - => Moved to next week
+
 
 2021-10-20 Architecture meeting
 -------------------------------
