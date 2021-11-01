@@ -10,7 +10,7 @@ Digiroad with our custom fix layer for bus terminals and temporary infrastructur
 
 TBD
 
-Potential sources: Digiroad/MML or HKL
+Potential sources: Digiroad/MML, City of Helsinki (Kaupunkimittaus) or HKL
 
 ## Train
 
