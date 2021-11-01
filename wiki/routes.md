@@ -19,10 +19,11 @@ Sometimes there is a need to run routes that are only run for a limited time for
 2. A pre-planned route that only operates on special circumstances. For example 130X which runs only when Metro is out-of-order due to an acute issue. In GTFS-RT, similar to category 1.
 3. A pre-planned route with pre-planned timetables that run for a short period of time, such as 24X which runs every Christmas.
 4. Routes that are only used for testing, never operating.
+5. Tram's days first trip from depot to middle of some route and from there to route's terminus
 
 ### How these exceptions should behave technically
-|Exception type | 1 | 2 | 3 | 4 |
-|---|---|---|---|---|
-|Priority|Normal|Temporary|Temporary|?|
-|Visible on static passenger information|Only normal service|No|No|No|
-|Visible on dynamic passenger information|Yes|Yes|Yes|No|
+|Exception type | 1 | 2 | 3 | 4 | 5 | 
+|---|---|---|---|---|---|
+|Priority|Normal|Temporary|Temporary|?|?|
+|Visible on static passenger information|Only normal service|No|No|No|No|
+|Visible on dynamic passenger information|Yes|Yes|Yes|No|Like case 2, only when a driver has logged in to that trip/vehicle task|
