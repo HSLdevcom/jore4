@@ -10,6 +10,8 @@ This document references the [architectural risks EasyRetro board](https://easyr
 
 **1. Presentation on how to use docker-compose bundle Hasura for local repo migrations**
 
+**2. Recap: Has the current way of ticket walk-through and check-lists in tickets been working?**
+
 
 2021-10-27 Architecture meeting
 -------------------------------
