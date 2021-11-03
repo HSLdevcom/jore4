@@ -8,9 +8,11 @@ Digiroad with our custom fix layer for bus terminals and temporary infrastructur
 
 ## Tram
 
-TBD
-
 Potential sources: Digiroad/MML, City of Helsinki (Kaupunkimittaus) or HKL
+
+Helsinki/Kaupunkimittaus & HKL will discuss the possibility to maintain a network dataset in the future. Based on this discussion HSL's role will also be clarified. Possible roles are :
+- user of the dataset provided by Helsinki/Kaupunkimittaus or HKL
+- maintainer of the dataset (whether there will be no maintained dataset available elsewhere)
 
 ## Train
 
@@ -20,8 +22,8 @@ Two options, we can pick one that is easier to use:
 
 ## Metro
 
-TBD
+HSL creates the layer with the possible help of HKL and Helsinki/Kaupunkimittaus with some assisting datasets
 
 ## Ferry
 
-TBD
+HSL creates the layer based on ferry GPS-data
