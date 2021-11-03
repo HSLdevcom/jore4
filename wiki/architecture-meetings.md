@@ -9,8 +9,15 @@ This document references the [architectural risks EasyRetro board](https://easyr
 -------------------------------
 
 **1. Presentation on how to use docker-compose bundle Hasura for local repo migrations**
+  - => docker-compose-bundle was demoed
+  - => how to add use of bundle to new repos
+  - => new Hasura migrations can be applied by adding volume mount to Hasura docker image
+  - => alternatively, can use Hasura cli (`hasura migrate`) to apply and check migrations
 
-**2. Recap: Has the current way of ticket walk-through and check-lists in tickets been working?**
+**2. Recap: Has the current way of ticket walk-through and check-lists in tickets been working well?**
+  - => mainly positive feedback, ticket walk-through makes a lot of sense
+  - => small(ish) negative aspect of using tasks: It's not possible to track who is working on which task in case there is multiple assignees
+  - => will continue to re-evaluate this way of working
 
 
 2021-10-27 Architecture meeting
