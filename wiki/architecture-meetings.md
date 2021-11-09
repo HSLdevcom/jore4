@@ -5,10 +5,26 @@ It is not meant to document the architectural solutions as such, rather to docum
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
 
+2021-11-17 Architecture meeting
+-------------------------------
+
+**1. DoD recap**
+  - critical points as tasks in board tickets' task list
+
+
 2021-11-10 Architecture meeting
 -------------------------------
 
-**1. How to model high priority versions "overriding" lower priority versions**
+**1. Review practice**
+  - maybe not necessary to ask for new review if only findings were typos or similar?
+  - for every review, open a slack thread
+  - ping reviewer / author when review proceeds
+
+**2. Microservice walk-thorugh**
+  - @pallost will be away for some weeks
+  - let's check if there is the need to improve our understanding of some of his or others work
+
+**3. How to model high priority versions "overriding" lower priority versions**
   - e.g. lines, routes, stops
   - should there be a separate "entity ID" on top of priority-bound row ID?
 
