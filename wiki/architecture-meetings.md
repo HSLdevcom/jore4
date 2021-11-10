@@ -10,6 +10,10 @@ This document references the [architectural risks EasyRetro board](https://easyr
 
 **1. DoD recap**
   - critical points as tasks in board tickets' task list
+  - deploying - when and how
+
+**2. Demo of jore4-mssql-testdb and jore4-postgres repos**
+  - @pallost will present how things work
 
 
 2021-11-10 Architecture meeting
@@ -19,14 +23,21 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - maybe not necessary to ask for new review if only findings were typos or similar?
   - for every review, open a slack thread
   - ping reviewer / author when review proceeds
+  - => @jschummer will update review document to reflect these updates
 
 **2. Microservice walk-thorugh**
   - @pallost will be away for some weeks
   - let's check if there is the need to improve our understanding of some of his or others work
+  - => jore4-mssql-testdb and jore4-postgres were identified as repos where more understanding is needed
+  - => @pallost will demo them next week
 
 **3. How to model high priority versions "overriding" lower priority versions**
   - e.g. lines, routes, stops
   - should there be a separate "entity ID" on top of priority-bound row ID?
+  - => candidates for partial keys (in addition to priority and validity time window):
+  - => scheduled_stop_point: label
+  - => route: label + direction
+  - => line: label
 
 
 2021-11-03 Architecture meeting
