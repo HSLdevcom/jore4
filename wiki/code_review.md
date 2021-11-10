@@ -40,5 +40,6 @@ _Git Repository / Settings / Branches_
 1. The pull request creator manually assigns reviewer(s) to the pull request who fit the subject the best
 1. In case it's not clear who is most knowledgable in the given subject, we ask on Slack or assign the whole jore4 team as a reviewer
 1. If the pull request is not complete, it is marked as a draft
-1. We aim to keep conversations about code reviews in Reviewable.io instead of Slack. (If you are in a hurry, you could send a Slack DM to the reviewer to notify about a new pull request or ask about some details. Otherwise refrain from spamming the Slack channel)
-1. When a pull request is approved, it can be rebased to the main branch. However even if some trivial changes are asked to be done by the reviewer, aim to get another approval before rebasing the PR to the main branch
+1. In addition to the conversation in reviewable.io, each PR should be advertised in Slack. If there are general questions about the nature of the PR, these can be discussed in a thread originating from the original advertisement message.
+1. After each round of review and implementing corrections, a message should be posted to the slack thread. In urgent cases, you may use pings to notify the reviewer / author, but beware that often a message without ping is enough to catch the recipient's attention.
+1. When a pull request is approved, it can be rebased and pushed to the main branch. However, if some trivial changes are asked to be done by the reviewer, the reviewer can decide to approve a PR and ask the author to implement those changes before pushing to the main branch without an additional approval.
