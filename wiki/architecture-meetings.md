@@ -27,7 +27,7 @@ This document references the [architectural risks EasyRetro board](https://easyr
 
 **2. Microservice walk-thorugh**
   - @pallost will be away for some weeks
-  - let's check if there is the need to improve our understanding of some of his or others work
+  - let's check if there is the need to improve our understanding of some of his or others' work
   - => jore4-mssql-testdb and jore4-postgres were identified as repos where more understanding is needed
   - => @pallost will demo them next week
 
