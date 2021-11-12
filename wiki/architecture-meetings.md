@@ -19,7 +19,8 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - main objectives
   - storing time zone info vs
   - storing UTC offset vs
-  - using PostgreSQL's `TIMESTAMP WITH TIME ZONE`
+  - using PostgreSQL's `TIMESTAMP WITH TIME ZONE` vs
+  - storing time with implicit UTC offset / time zone ontext
 
 
 2021-11-10 Architecture meeting
