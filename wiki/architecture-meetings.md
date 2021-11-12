@@ -15,6 +15,12 @@ This document references the [architectural risks EasyRetro board](https://easyr
 **2. Demo of jore4-mssql-testdb and jore4-postgres repos**
   - @pallost will present how things work
 
+**3. Time zone information in DB**
+  - main objectives
+  - storing time zone info vs
+  - storing UTC offset vs
+  - using PostgreSQL's `TIMESTAMP WITH TIME ZONE`
+
 
 2021-11-10 Architecture meeting
 -------------------------------
