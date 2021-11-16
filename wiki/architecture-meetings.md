@@ -8,14 +8,18 @@ This document references the [architectural risks EasyRetro board](https://easyr
 2021-11-17 Architecture meeting
 -------------------------------
 
-**1. DoD recap**
+**1. Discuss how to fix e2e environment setup
+  - if microservices introduce a new environment variable / secret, the CI jobs will fail
+  - https://github.com/HSLdevcom/jore4/issues/538
+  
+**2. DoD recap**
   - critical points as tasks in board tickets' task list
   - deploying - when and how
 
-**2. Demo of jore4-mssql-testdb and jore4-postgres repos**
+**3. Demo of jore4-mssql-testdb and jore4-postgres repos**
   - @pallost will present how things work
 
-**3. Time zone information in DB**
+**4. Time zone information in DB**
   - main objectives
   - storing time zone info vs
   - storing UTC offset vs
