@@ -13,7 +13,20 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - storing time zone info vs
   - storing UTC offset vs
   - using PostgreSQL's `TIMESTAMP WITH TIME ZONE` vs
-  - storing time with implicit UTC offset / time zone ontext
+  - storing time with implicit UTC offset / time zone context
+  - => 3 different use cases for timestamps in the project were identified:
+    - 1. validity period of lines, routes, and stops (now under work)
+    - 2. timetable information
+    - 3. change logging
+  - => best solution for validity periods:
+    - `TIMESTAMP WITH TIME ZONE`, which stores absolute time in UTC
+    - this way the system can interpret and react to the information contained in the validity period columns
+    - additionally real time zone information, e.g. `Europe/Helsinki`
+    - this allows the frontend to convert the absolute (UTC) timestamps in the database to the appropriate local time to display to users
+    - at this stage of the project, it is sufficient to store the real time zone info in constants in well-chosen places (e.g. frontend and jore3-importer)
+    - at a later stage, entities storing timestamps may be required to store the real time zone information as well
+    - the time zone information used to display timestamps to the user must not be taken from the user's browser information
+    - (the user should see timestamps interpreted according to the place in which the entity under work resides, not where the user (seems to) reside)
 
 
 2021-11-17 Architecture meeting
@@ -35,7 +48,7 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - storing time zone info vs
   - storing UTC offset vs
   - using PostgreSQL's `TIMESTAMP WITH TIME ZONE` vs
-  - storing time with implicit UTC offset / time zone ontext
+  - storing time with implicit UTC offset / time zone context
 
 
 2021-11-10 Architecture meeting
