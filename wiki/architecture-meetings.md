@@ -8,7 +8,7 @@ This document references the [architectural risks EasyRetro board](https://easyr
 2021-12-08 Architecture meeting
 -------------------------------
 
-**1. Common coding style & conventions and best practices
+**1. Common coding style & conventions and best practices**
   - may be different for different repositories / languages
 
 
