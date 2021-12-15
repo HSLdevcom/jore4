@@ -10,6 +10,16 @@ This document references the [architectural risks EasyRetro board](https://easyr
 
 **1. Common coding style & conventions and best practices**
   - may be different for different repositories / languages
+  - => would be good to obey same coding style in same repo
+  - => somwhat functional coding style in Jore3 importer (vavr, immutable)
+  - => @pkainulainen-vincit will add mentioned in README
+  - => UI elements would benefit from IDs
+  - => should be added for important elements, @jschumme will add mention to README
+
+**2. Map-matching mismatch on beginning and ending links**
+  - when beginning and endling links don't have stop points, they may be mismatched
+  - => possible solution: in addition to stop point matching, also match cross roads
+  - => @jarkkoka is implementing this currently
 
 
 2021-11-24 Architecture meeting
