@@ -27,3 +27,16 @@ Sometimes there is a need to run routes that are only run for a limited time for
 |Priority|Normal|Temporary|Temporary|?|?|
 |Visible on static passenger information|Only normal service|No|No|No|No|
 |Visible on dynamic passenger information|Yes|Yes|Yes|No|Like case 2, only when a driver has logged in to that trip/vehicle task|
+
+
+## Notes / specification from a design meet 17.12.21
+
+1. New additional timetables are added for routes in the regular manner, when it comes to external data sources. URL to receive the timetable information is added in Jore as a source, and the timetables are updated through that source automatically.
+2. In this case, a pre-planned route will exist indefinitely as “temporary”. No timetables are attached to it until the route’s use is required. When required, a temporary timetable is added to it with a validity period. Only then will it be visible in dynamic passenger information.
+3. No need to set re-occurring routes or timetables. The required temporary route and timetable will be created as needed or picked from drafts. 
+4. Will be done with draft priority. (Luonnos) Tags can be used to target the draft’s use in testing.
+5. In this case, the passengers can use these trips. The routes and the related timetables can be treated as a temporary route variant. The timetables can be with normal priority.
+
+Note
+- Static passenger information presents only the valid normal priority routes with valid timetables. (Reittien perusversiot voimassaolevilla aikatauluilla) 
+- Dynamic passenger information shows valid routes, both priorities normal and temporary, with valid timetables. (Reittien sekä perus- ja väliaikaiset versiot voimassaolevilla aikatauluilla) 
