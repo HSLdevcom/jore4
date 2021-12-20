@@ -21,9 +21,9 @@
 <h2>2022</h2>
 
 * Routes and network
- * Q1, An ability to create bus lines and bus routes to Jore4
- * Q2, An ability to modify bus lines and routes in Jore4
- * Q3, An ability to add and modify trains, metros, trams and ferries
+  * Q1, An ability to create bus lines and bus routes to Jore4
+  * Q2, An ability to modify bus lines and routes in Jore4
+  * Q3, An ability to add and modify trains, metros, trams and ferries
 
 * Timetables
   * Q3, Timetable data model created to Jore4 database
