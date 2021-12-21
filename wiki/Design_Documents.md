@@ -22,6 +22,9 @@
 
 ## Prototypes
 
+[Timetables 1.0 (Figma)](https://www.figma.com/proto/ImSTkCqQn0nhVUtMcUm41P/JORE-4.0-UX?page-id=2861%3A193278&node-id=2861%3A198036&viewport=363%2C48%2C0.02&scaling=scale-down-width&starting-point-node-id=2861%3A198036)
+- (December 2021)
+
 [Network and routes 1.0 (Figma)](https://www.figma.com/proto/ImSTkCqQn0nhVUtMcUm41P/JORE-4.0-UX?page-id=1763%3A53555&node-id=1763%3A58182&viewport=363%2C48%2C0.53&scaling=scale-down-width&starting-point-node-id=1763%3A58182&show-proto-sidebar=1)
 - (September 2021, incl. list views)
 
@@ -31,8 +34,11 @@
 
 ## User evaluations
 
+[User evaluation results 12/21 (Figma)](https://docs.google.com/presentation/d/1kRdB28_a2uvK54Oz4MfJCVppCI6GO3Nintf5VtBNun8/edit?usp=sharing)
+- Timetables | Main findings
+
 [User evaluation results 09/21 (Figma)](https://drive.google.com/drive/u/0/folders/1N7_2343HgoNVopkuvUyEFFMdM1cSXE-n)
-- Main findings and proposals
+- Routes and Lines | Main findings and proposals
 
 [User evaluation results | All (Drive folder)](https://drive.google.com/drive/u/0/folders/1N7_2343HgoNVopkuvUyEFFMdM1cSXE-n)
 - Slide presentation
