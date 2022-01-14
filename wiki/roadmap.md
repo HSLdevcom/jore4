@@ -2,7 +2,7 @@
 <h2>2021</h2>
 
 * Environment
- * Q1-Q3, Building environment for Jore4, including infrastructure in Azure, CI/CD pipeline
+  * Q1-Q3, Building environment for Jore4, including infrastructure in Azure, CI/CD pipeline
 
 * Routes and network
   * Q2-Q4, Enabling data model, database, Hasura and frontend to support line and route on top of Digiroad network
