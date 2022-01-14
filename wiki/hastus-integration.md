@@ -42,6 +42,10 @@ A: Everything
 Q: Is there a documentation of Hastus-Jore3 CSV format?
 A: Yes, there is a document "Hastus aikataulujen siirto Joreen ja Kolaan, rajapinnan kuvaus" available but it could not be linked here due to copyright reasons. Please ask PO.
 
+## Notes on specific use cases to be supported
+
+Sometimes a journey pattern to be driven is shorter than the route: https://github.com/HSLdevcom/jore4/issues/243
+
 ## Available documentation
 
 HSL has documentation for Hastus, please ask PO. Licencing has not been figured out so it is not linked here.
