@@ -11,6 +11,19 @@ This document references the [architectural risks EasyRetro board](https://easyr
 **1. How to use direct CSS styling mixed with tailwind classes**
   - should we define own classes?
   - in globals.css or on a more fine-grained level?
+  - => define all css definitions separately by extending the tailwind theme in `tailwind.config.js`
+  - => some definitions may be applied globally in `globals.css`
+  - => let's create new shared components whenever common (layout) elements have been identified
+
+**2. How to share graphql queries and query results between components**
+  - => Apollo contains own state which caches query results
+  - => should not need to keep own state of query results
+
+**3. How to share a dump of Jore3 data between developers**
+  - developers should not need to run jore3-importer by themselves (too often)
+  - run needs VPN and SSH tunnels and takes a long time to complete (when run for the first time)
+  - => CI could create own hasura images containing seed data
+  - => @pallost will check this
 
 
 2021-12-15 Architecture meeting
