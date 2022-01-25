@@ -8,6 +8,12 @@ This document references the [architectural risks EasyRetro board](https://easyr
 2022-01-19 Architecture meeting
 -------------------------------
 
+**1. How to model Transmodel route and service/journey pattern in UI**
+
+
+2022-01-19 Architecture meeting
+-------------------------------
+
 **1. How to use direct CSS styling mixed with tailwind classes**
   - should we define own classes?
   - in globals.css or on a more fine-grained level?
