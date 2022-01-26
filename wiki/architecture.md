@@ -46,3 +46,7 @@ The configurations for all environment types are generated from the same input y
 Several Kubernetes staging environments have been deployed in the Azure cloud ("playg", "dev", "test") in addition to the production ("prod") environment. The Kind environment type was created to be used in end-to-end-tests, but may be discontinued in the future. The docker compose environment type can be used locally when developing individual components and may in the future replace the Kind environment type in end-to-end-test scenarios.
 
 For more information on the environment types and deployed environments, please see [the Jore4 flux repository README](https://github.com/HSLdevcom/jore4-flux/#readme).
+
+# Routing/Map-matching architecture
+
+![Map-matching architecture diagram](images/jore4_map-matching_architecture.drawio.png "Map-matching architecture diagram")
