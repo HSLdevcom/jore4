@@ -8,7 +8,26 @@ This document references the [architectural risks EasyRetro board](https://easyr
 2022-01-26 Architecture meeting
 -------------------------------
 
-**1. How to model Transmodel route and service/journey pattern in UI**
+**1. How to model Transmodel (TM) route and service/journey pattern in data model and UI**
+  - data model supports multiple TM journey patterns under the same TM route
+  - in current UI designs, both are combined to a "UI route"
+  - the different aspects of TM route and TM journey pattern are not visible to the user
+  - according to one interpretation the TM, the route uniquely describes the path "the vehicle takes"
+  - cases which may be modeled as a separate TM journey pattern under the same TM route:
+    1. same bus number has 2 different variants starting from the same stop, but ending at different stops (one approaches a subset of stops of the other)
+    2. a train line does not stop at a certain station during a certain period (but other train lines do approach the same stop - and platform - during that period)
+  - => case i. may be modelled as a different TM route + journey pattern
+      - this would also correspond to the TM interpretation of the TM route mentioned above (since bus does not drive the full route in both cases)
+      - may bring challenges in analytics, since it may be wanted that the two TM routes' data is attributed to the same entities
+  - => case ii. may be modelled as a separate temporarily valid TM route
+      - not optimal, since TM route data is duplicated
+      - this situation does not arrise very often, so it may not justify extending the UI for modelling multiple TM journey patterns under the same TM route
+  - => the data model should maintain the possibility to have multiple TM journey patterns under the same TM route in the future
+  - => currently, there is no need to support this case in the UI
+  - => can use a unique index to prevent multiple TM journey patterns under the same TM route in the data model for now
+  - => unique index can be removed and data model and UI can be extended to support this case later
+  - => open questions regarding the data model should be documented in an adequate place in order to be able to get back to them later
+      - @jschummer will establish a document for them and inform the team about the place
 
 
 2022-01-19 Architecture meeting
