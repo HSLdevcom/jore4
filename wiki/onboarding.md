@@ -18,10 +18,9 @@ You need these accounts:
    - Needed for Azure, [gitlab.hsl.fi](https://gitlab.hsl.fi), Sharepoint and possibly other services where `@hsl.fi` email address gets a preference.
    - Set up Multi-Factor Authentication (MFA). MFA is mandatory for all users and you should be asked to set it up when logging in for the first time.
 1. HSL ID account
-   - Create it yourself: <https://www.hsl.fi/user/auth/login?language=fi>
-   - There are also test versions for HSL ID.
-   - Use your preferred email address unless told otherwise.
-   - Ask the PO to add your email address into Jore3 so that you can sign into Jore Map UI.
+   - Have a team member create a test account in the HSL ID test environment (https://hslid-dev.t5.fi)
+   - In case this does not work or the created account is not visible, contact HSL-ID-people on the appropriate channel in HSL's slack
+   - Assign the created account the appropriate roles ("Jore4 admin" at the time of writing)
 1. GitHub account
    - If you do not have one, create it yourself: <https://github.com/join>
    - Use your preferred email address.
