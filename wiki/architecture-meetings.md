@@ -8,6 +8,8 @@ This document references the [architectural risks EasyRetro board](https://easyr
 --------------------------------------------------
 **1. Let's discuss how to maintain microservice orchestration
   - How do we ensure that all the microservices are compatible with each other? E.g. by adding a new NOT NULL constraint into Jore4 database we possible break compatibility with Jore4-Jore3-Importer.
+**2. Which frontend logging/monitoring system to use
+  - https://github.com/HSLdevcom/jore4/issues/565
 
 2022-01-26 Architecture meeting
 -------------------------------
