@@ -4,6 +4,10 @@ It is not meant to document the architectural solutions as such, rather to docum
 
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
+2022-02-09 Architecture meeting preliminary agenda
+--------------------------------------------------
+**1. Let's discuss how to maintain microservice orchestration
+  - How do we ensure that all the microservices are compatible with each other? E.g. by adding a new NOT NULL constraint into Jore4 database we possible break compatibility with Jore4-Jore3-Importer.
 
 2022-01-26 Architecture meeting
 -------------------------------
