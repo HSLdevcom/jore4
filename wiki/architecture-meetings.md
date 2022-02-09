@@ -22,6 +22,12 @@ This document references the [architectural risks EasyRetro board](https://easyr
 
 **2. Which frontend logging/monitoring system to use**
   - https://github.com/HSLdevcom/jore4/issues/565
+  - azure app insights alternative to sentry, same functionality
+  - sentry more commonly used
+  - app insights would be good, because everything would be in the same place (kube docker logs _should_ go there in the future)
+  - with both, analytics data gathering must be taken into account (GDPR)
+  - => let's ask customer's preference
+  - => if no preference, let's use azure app insights
 
 2022-01-26 Architecture meeting
 -------------------------------
