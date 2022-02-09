@@ -4,12 +4,23 @@ It is not meant to document the architectural solutions as such, rather to docum
 
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
-2022-02-09 Architecture meeting preliminary agenda
---------------------------------------------------
-**1. Let's discuss how to maintain microservice orchestration
-  - How do we ensure that all the microservices are compatible with each other? E.g. by adding a new NOT NULL constraint into Jore4 database we possible break compatibility with Jore4-Jore3-Importer.
+2022-02-09 Architecture meeting
+-------------------------------
 
-**2. Which frontend logging/monitoring system to use
+**1. Let's discuss how to maintain microservice orchestration**
+  - How do we ensure that all the microservices are compatible with each other? E.g. by adding a new NOT NULL constraint into Jore4 database we possible break compatibility with Jore4-Jore3-Importer.
+  - should we have separate testing for jore3-importer-compatibility of changes in e.g. hasura repo or map-matching-api
+  - jore3-importer special case:
+    - only one which has db-level-deps with other component (hasura)
+    - might not be in use in 6 months anymore
+  - could importer be started (and/or importer-integration-tests be run) in e2e tests?
+  - atm jore3-importer run succeeds, even though not a single row was written
+  - e2e-test runs from importer repo
+  - => @pallost creates ticket to include import integration test runs in e2e tests
+  - => when data model changes, importer dev should be contacted to make sure they don't break anything
+  - => include date in docker tags
+
+**2. Which frontend logging/monitoring system to use**
   - https://github.com/HSLdevcom/jore4/issues/565
 
 2022-01-26 Architecture meeting
