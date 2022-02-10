@@ -8,8 +8,9 @@ This document references the [architectural risks EasyRetro board](https://easyr
 2022-02-16 Architecture meeting
 -------------------------------
 
-**1. Need for UI unit tests**
-
+**1. Discuss what UI features to be tested with E2E tests and what with UI unit tests.
+  - Create general guideline
+  - Create issues to kanban board with missing UI unit tests
 
 2022-02-09 Architecture meeting
 -------------------------------
