@@ -8,9 +8,14 @@ This document references the [architectural risks EasyRetro board](https://easyr
 2022-02-16 Architecture meeting
 -------------------------------
 
-**1. Discuss what UI features to be tested with E2E tests and what with UI unit tests.
+**1. Discuss what UI features to be tested with E2E tests and what with UI unit tests.**
   - Create general guideline
   - Create issues to kanban board with missing UI unit tests
+
+**2. Should we move the datamodel (hasura) version backwards in the e2e bundle?**
+  - could make jore3 importer features available more early
+  - possible risk that jore3 importer features will change and the early features cannot be used as such later
+
 
 2022-02-09 Architecture meeting
 -------------------------------
