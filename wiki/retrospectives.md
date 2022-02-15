@@ -72,3 +72,6 @@
 
 ## 2022-02-02
 ![Retrospective board](images/retro_010222.png "Retrospective board")
+
+## 2022-02-15
+![Retrospective board](images/retro_150222.png "Retrospective board")
