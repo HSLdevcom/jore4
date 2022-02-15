@@ -18,6 +18,8 @@ This document references the [architectural risks EasyRetro board](https://easyr
 
 **3. Walk-through of Jore3-importer problems and possible solutions**
 
+**4. How to identify dependencies of changes in different microservices**
+
 
 2022-02-09 Architecture meeting
 -------------------------------
