@@ -16,6 +16,8 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - could make jore3 importer features available more early
   - possible risk that jore3 importer features will change and the early features cannot be used as such later
 
+**3. Walk-through of Jore3-importer problems and possible solutions**
+
 
 2022-02-09 Architecture meeting
 -------------------------------
