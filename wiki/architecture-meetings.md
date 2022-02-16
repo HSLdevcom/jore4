@@ -12,13 +12,12 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - Create general guideline
   - Create issues to kanban board with missing UI unit tests
 
-**2. Should we move the datamodel (hasura) version backwards in the e2e bundle?**
+**2. Walk-through of Jore3-importer problems and possible solutions**
+
+**3. How to identify dependencies of changes in different microservices**
+  - should we move the datamodel (hasura) version backwards in the e2e bundle?
   - could make jore3 importer features available more early
   - possible risk that jore3 importer features will change and the early features cannot be used as such later
-
-**3. Walk-through of Jore3-importer problems and possible solutions**
-
-**4. How to identify dependencies of changes in different microservices**
 
 
 2022-02-09 Architecture meeting
