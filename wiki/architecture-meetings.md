@@ -14,23 +14,27 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - e2e-tests slow
   - e2e-environment setup resource intensive, mem might run out
   - should there be integration tests?
-  - with same effort of maintaining unit or integration tests, we can also maintain e2e-tests
-  - unit tests might be justified:
+  - => with same effort of maintaining unit or integration tests, we can also maintain e2e-tests
+  - => unit tests might be justified:
     - for important unitility functions
     - for other non-interactive functionality
-  - let's add some guidelines regarding this to DoD
+  - => let's add some guidelines regarding this to DoD
 
 **2. Walk-through of Jore3-importer problems and possible solutions**
   - possible solution might be to have two separate spring batch jobs / configurations
   - how to trigger second job when first one has finished?
   - might be separate REST API to start jobs
   - original problem: statistics about failed import rows uses optimistic locking and this gets mixed up with chained transaction managers
-  - second possible solution: implement own dummy statistics writer, which does not do anything
+  - second possible solution: implement own dummy statistics writer, which does not do anything (or does not use optimistic locking)
+  - => if in-memory stats writer solution works, could be added to existing PR to make the jore3 importer work again
+  - => if in-memory stats writer does not work, an SQL function could be added to an internal schema (only for jore3-importer's use)
 
 **3. How to identify dependencies of changes in different microservices**
   - should we move the datamodel (hasura) version backwards in the e2e bundle?
   - could make jore3 importer features available more early
   - possible risk that jore3 importer features will change and the early features cannot be used as such later
+  - => jore3 importer can pin hasura version in own environment if needed
+  - => lately added automatic e2e-deployment-PR will help to keep version in sync
 
 
 2022-02-09 Architecture meeting
