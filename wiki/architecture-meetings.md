@@ -11,8 +11,21 @@ This document references the [architectural risks EasyRetro board](https://easyr
 **1. Discuss what UI features to be tested with E2E tests and what with UI unit tests.**
   - Create general guideline
   - Create issues to kanban board with missing UI unit tests
+  - e2e-tests slow
+  - e2e-environment setup resource intensive, mem might run out
+  - should there be integration tests?
+  - with same effort of maintaining unit or integration tests, we can also maintain e2e-tests
+  - unit tests might be justified:
+    - for important unitility functions
+    - for other non-interactive functionality
+  - let's add some guidelines regarding this to DoD
 
 **2. Walk-through of Jore3-importer problems and possible solutions**
+  - possible solution might be to have two separate spring batch jobs / configurations
+  - how to trigger second job when first one has finished?
+  - might be separate REST API to start jobs
+  - original problem: statistics about failed import rows uses optimistic locking and this gets mixed up with chained transaction managers
+  - second possible solution: implement own dummy statistics writer, which does not do anything
 
 **3. How to identify dependencies of changes in different microservices**
   - should we move the datamodel (hasura) version backwards in the e2e bundle?
