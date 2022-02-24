@@ -38,7 +38,11 @@ However, it needs to be taken into account that the time zone applied when times
 Transmodel
 ----------
 
-The data model is somewhat closely based on parts of the [Transmodel (TM) specification](https://www.transmodel-cen.eu/model/index.htm). In general, TM Models have been modelled as individual database schemas, TM Classes and TM Associations have been modelled as tables and views, with columns corresponding to TM Class Attributes. However, some cases have arisen, in which these basic TM modelling principles were seen not to support the system's operational capabilities. Thus some exceptions were made, the most famous of which being:
+The data model is somewhat closely based on parts of the [Transmodel (TM) specification](https://www.transmodel-cen.eu/model/index.htm). In general, TM Models have been modelled as individual database schemas, TM Classes and TM Associations have been modelled as tables and views, with columns corresponding to TM Class Attributes. However, it should be noted, that only those parts of the Transmodel have been modelled, which are of relevance to the Jore4 system.
+
+Also, there have been cases, in which these basic TM modelling principles were seen not to support the system's operational capabilities. Thus, additions and adoptions had to be made, the most famous of which potentially being:
+
+- A route can have only a single journey pattern. This is enforced by a constraint in the current implementation and may be changed in the future.
 - 
 
 
