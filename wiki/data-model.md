@@ -38,9 +38,8 @@ However, it needs to be taken into account that the time zone applied when times
 Transmodel
 ----------
 
-The data model is largely based on the [Transmodel (TM) specification](https://www.transmodel-cen.eu/model/index.htm). TM Models have been 
-
-TM Classes and TM Associations have been modelled as tables and views, with columns corresponding to TM Class Attributes.
+The data model is somewhat closely based on parts of the [Transmodel (TM) specification](https://www.transmodel-cen.eu/model/index.htm). In general, TM Models have been modelled as individual database schemas, TM Classes and TM Associations have been modelled as tables and views, with columns corresponding to TM Class Attributes. However, some cases have arisen, in which these basic TM modelling principles were seen not to support the system's operational capabilities. Thus some exceptions were made, the most famous of which being:
+- 
 
 
 
