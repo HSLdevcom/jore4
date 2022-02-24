@@ -33,14 +33,21 @@ Timestamp with time zone
 
 The system should be able to perform actions at times relating to the timestamps contained in the data base. (For example, a notification email might be sent prior to an entity's validity time expiration.) This means the system needs to be able to interpret the timestamps as absolute points in time, making the `timestamp with time zone` type the natural choice.
 
-However, it needs to be taken into account that the time zone applied when times are displayed to the user, is most likely not UTC and might not be the same as the user's web browser's time zone. (In many cases, the displayed entity's location should be used to determine the time zone to be applied. In a simplified version, the same constant time zone might be used to display user information.)
+However, it needs to be taken into account that the time zone applied when times are displayed to the user, is most likely not UTC and might not be the same as the user's web browser's time zone. In fact, in many cases the displayed entity's actual location should be used to determine the time zone to be applied. This way the user can be displayed the time according to the entity's local time. (In a simplified version, the same constant time zone might be used to display user information. This will serve the system as long as all entities processed by the system live in the same time zone and can later be extended to cover cases in which the system spans multiple time zones.)
+
+Transmodel
+----------
+
+The data model is largely based on the [Transmodel (TM) specification](https://www.transmodel-cen.eu/model/index.htm). TM Models have been 
+
+TM Classes and TM Associations have been modelled as tables and views, with columns corresponding to TM Class Attributes.
 
 
 
-- internal schemas for non-exposed db objects
 - transmodel-based
 - exceptions: label (corresponds to differently named properties with translatable content in transmodel)
 - additions: validity time
+- internal schemas for non-exposed db objects
 
 Routes and lines
 ----------------
