@@ -22,8 +22,31 @@ General principles
 
 It has been anticipated that different organizations in different countries might be interested in using Jore4. For Jore4 to be a viable choice in many different environments, its data model has to be designed to be as generic as possible, while still supporting the Jore4 objectives as well as needed.
 
-Data types
-==========
+Postgresql & Hasura
+-------------------
+
+Postgresql has been chosen to be the database using the data model, with Hasura being the GraphQL engine. Hasura generates the GraphQL schema from the database schemass according to its configuration.
+
+Generally, all database schemas of the Jore4 database should be exposed to the GraphQL schema, except the ones prefixed with `internal_`. These can contain e.g. "raw" tables, which are exposed to the GraphQL schema via a view.
+
+Array and object relationships have been added in the GraphQL schema in many places wherever deemed necessary.
+
+Exposing data via views
+-----------------------
+
+
+
+Constraints
+-----------
+
+The integrity of the data needs to be validated at database level, since no separate backend code can provide this functionality. Database constraints are used for this purpose.
+
+Not all validation can be done via readily provided constraints (such as not-NULL-constraints or exclusion constraints). Therefore trigger functions have to be employed in those cases, in which it is not possible to perform validation via builtin constraints. The trigger functions are installed as deferred constraint triggers on row level and the transaction isolation level is set to 'serializable'.
+
+In case the transaction isolation level is seen to cause too big a performance hit, it can later be lowered. In that case, the integrity of the data is no longer guaranteed due to possible race conditions in concurrent access situations. But the likelihood of such corruption occurring can be thought to be very low.
+
+Data type considerations
+========================
 
 Geography
 ---------
