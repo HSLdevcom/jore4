@@ -5,6 +5,17 @@ It is not meant to document the architectural solutions as such, rather to docum
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
 
+2022-03-02 Architecture meeting
+-------------------------------
+
+**1. Localization solutions**
+  - Options listed in datamodel sketching document:
+    - Option #1 (same as Jore3): Separate columns for each localized string
+    - Option #2: Use JSON(B) to store localizations
+    - Option #3: Separate tables for localized strings
+    - Option #4a: Separate codeset and localization tables for attribute names
+    - Option #4b: Separate codeset and localization tables for attribute names
+
 2022-02-16 Architecture meeting
 -------------------------------
 
