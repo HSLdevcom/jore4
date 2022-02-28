@@ -27,14 +27,16 @@ Postgresql & Hasura
 
 Postgresql has been chosen to be the database using the data model, with Hasura being the GraphQL engine. Hasura generates the GraphQL schema from the database schemass according to its configuration.
 
-Generally, all database schemas of the Jore4 database should be exposed to the GraphQL schema, except the ones prefixed with `internal_`. These can contain e.g. "raw" tables, which are exposed to the GraphQL schema via a view.
+Generally, all database schemas of the Jore4 database should be exposed to the GraphQL schema, except the ones prefixed with `internal_`. These can contain e.g. "raw" tables, which are exposed to the GraphQL schema via a view (also see [below](#exposing-data-via-views)).
 
-Array and object relationships have been added in the GraphQL schema in many places wherever deemed necessary.
+Array and object relationships have been added in the GraphQL schema in many places wherever seen necessary.
 
 Exposing data via views
 -----------------------
 
+In some cases, the data contained in the tables should be transformed or enriched when accessed via the GraphQL schema. For this, database views can be used. The view can be made modifyable by providing `INSTEAD OF` tiggers. This view is then exposed in the GraphQL schema.
 
+One example for this technique is the `internal_route.route` table, which is not exposed as such. Instead, the view `route.route` has been created, which provides the data from the `internal_route.route` table together with the route's geometry, which is added by the view.
 
 Constraints
 -----------
