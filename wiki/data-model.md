@@ -17,19 +17,28 @@ This is the list of open questions regarding the data model, which are to be tak
    - are they different routes with different labels (1a, 1b, 1c, etc), each having a single journey pattern
    - or are they a single route (1) with multiple different journey patterns
 
+4. Multilingual strings
+   - Option #1 (same as Jore3): Separate columns for each localized string
+   - Option #2: Use JSON(B) to store localizations
+   - Option #3: Separate tables for localized strings
+   - Option #4a: Separate codeset and localization tables for attribute names
+   - Option #4b: Separate codeset and localization tables for attribute names
+
 General principles
 ==================
 
 It has been anticipated that different organizations in different countries might be interested in using Jore4. For Jore4 to be a viable choice in many different environments, its data model has to be designed to be as generic as possible, while still supporting the Jore4 objectives as well as needed.
 
+The Jore4 system has been divided into separate modules, which should be coupled as loosely as possible. This has the advantage of making them potentially exchangable in the future, without having to renew the whole system at once. At the time of writing only the "Routes and Lines" module is being implemented.
+
 Postgresql & Hasura
 -------------------
 
-Postgresql has been chosen to be the database using the data model, with Hasura being the GraphQL engine. Hasura generates the GraphQL schema from the database schemass according to its configuration.
+Postgresql has been chosen to be the database, with Hasura being the GraphQL engine. Hasura generates the GraphQL schema from the database schemass according to its configuration.
 
 Generally, all database schemas of the Jore4 database should be exposed to the GraphQL schema, except the ones prefixed with `internal_`. These can contain e.g. "raw" tables, which are exposed to the GraphQL schema via a view (also see [below](#exposing-data-via-views)).
 
-Array and object relationships have been added in the GraphQL schema in many places wherever seen necessary.
+Array and object relationships have been added in the Hasura configuration in many places wherever seen necessary.
 
 Exposing data via views
 -----------------------
