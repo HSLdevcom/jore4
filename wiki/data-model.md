@@ -36,7 +36,7 @@ Exposing data via views
 
 In some cases, the data contained in the tables should be transformed or enriched when accessed via the GraphQL schema. For this, database views can be used. The view can be made modifyable by providing `INSTEAD OF` tiggers. This view is then exposed in the GraphQL schema.
 
-One example for this technique is the `internal_route.route` table, which is not exposed as such. Instead, the view `route.route` has been created, which provides the data from the `internal_route.route` table together with the route's geometry, which is added by the view.
+One example for this technique is the `internal_route.route` table, which is not exposed as such. Instead, the view `route.route` has been created, which provides the data from the `internal_route.route` table together with the route's geometry.
 
 Constraints
 -----------
