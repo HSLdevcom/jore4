@@ -15,6 +15,14 @@ This document references the [architectural risks EasyRetro board](https://easyr
     - Option #3: Separate tables for localized strings
     - Option #4a: Separate codeset and localization tables for attribute names
     - Option #4b: Separate codeset and localization tables for attribute names
+  - => general requirements:
+    - user should be able to use dictionary which offers suggestions when filling in new translatable text fields
+    - dictionary does not need to be editable in such a way that all text that was once suggested for fields, would change all at once
+    - => text can be copied when user accepts a suggestion
+    - text can be suggested to the user one field at a time
+    - i.e. we do not need to suggest translation tuples (for e.g. full name and short name) together
+    - should have the option to suggest field-specific translations only
+    - i.e. only previously used bus stop names would be suggested for a new bus stop's name
 
 2022-02-16 Architecture meeting
 -------------------------------
