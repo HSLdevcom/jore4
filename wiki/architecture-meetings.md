@@ -9,13 +9,15 @@ This document references the [architectural risks EasyRetro board](https://easyr
 -------------------------------
 
 **1. Localization solutions**
-  - Options listed in datamodel sketching document:
+  - Options listed in [datamodel sketching document](https://github.com/HSLdevcom/jore4/blob/main/wiki/data-model-sketching.pdf):
     - Option #1 (same as Jore3): Separate columns for each localized string
     - Option #2: Use JSON(B) to store localizations
     - Option #3: Separate tables for localized strings
     - Option #4a: Separate codeset and localization tables for attribute names
-    - Option #4b: Separate codeset and localization tables for attribute names
+    - Option #4b: Separate codeset and localization tables for attribute names (with UUID)
+
   - => general requirements:
+    - system should be usable without forks in many (global) contexts
     - user should be able to use dictionary which offers suggestions when filling in new translatable text fields
     - dictionary does not need to be editable in such a way that all text that was once suggested for fields, would change all at once
     - => text can be copied when user accepts a suggestion
@@ -23,6 +25,13 @@ This document references the [architectural risks EasyRetro board](https://easyr
     - i.e. we do not need to suggest translation tuples (for e.g. full name and short name) together
     - should have the option to suggest field-specific translations only
     - i.e. only previously used bus stop names would be suggested for a new bus stop's name
+  - => preliminary conclusions regarding different solution options:
+    - => Option 1 does not support the idea of making Jore4 a system which can be used in many global contexts without the need to fork (since supported languages would be hard-coded into the db schema)
+    - => Option 2 is flexible, but does not allow to make any assumptions about the localization data stored (e.g. client bugs / quirks can lead to unusable localization data)
+    - => Option 3 is flexible and allows for a robust DB schema, but does not allow adding translation context information (called 'codeset' in the datamodel sketching document)
+    - => Options 4a and 4b seem to support all requirements. Context information can be added as needed in separate columns in the localication table.
+  - => No definite choice can be made yet, since we need to get back to the datamodel sketching document once more to double check the suggestions
+  - => @jschummer will open a slack thread for further discussion / agreeing on a localization option / planning further meetings on the topic
 
 2022-02-16 Architecture meeting
 -------------------------------
