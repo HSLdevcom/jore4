@@ -8,6 +8,12 @@ This document references the [architectural risks EasyRetro board](https://easyr
 2022-03-02 Architecture meeting
 -------------------------------
 
+**All-rounder conversation: What are team members' tech interests and current know-how?**
+
+
+2022-03-02 Architecture meeting
+-------------------------------
+
 **1. Localization solutions**
   - Options listed in [datamodel sketching document](https://github.com/HSLdevcom/jore4/blob/main/wiki/data-model-sketching.pdf):
     - Option #1 (same as Jore3): Separate columns for each localized string
