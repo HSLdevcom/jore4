@@ -5,11 +5,15 @@ It is not meant to document the architectural solutions as such, rather to docum
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
 
-2022-03-02 Architecture meeting
+2022-03-09 Architecture meeting
 -------------------------------
 
-**All-rounder conversation: What are team members' tech interests and current know-how?**
+**1. All-rounder conversation: What are team members' tech interests and current know-how?**
 
+**2. Idea: Should the ticket numbers be always marked in the commit message?**
+  - Allows to quickly determine if ticket's content has gone into release
+  - could be marked into commit message title for quick search
+  - or into commit message with github magic words "resolves:" for automatic ticket processing
 
 2022-03-02 Architecture meeting
 -------------------------------
