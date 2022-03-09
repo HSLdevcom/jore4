@@ -5,6 +5,14 @@ It is not meant to document the architectural solutions as such, rather to docum
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
 
+2022-03-16 Architecture meeting
+-------------------------------
+
+**1. Walk-through of most important aspects of data model**
+  - how do route and journey pattern relate to each other
+  - what do vehicle mode and vehicle submode mean
+
+
 2022-03-09 Architecture meeting
 -------------------------------
 
