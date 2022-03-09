@@ -8,7 +8,10 @@ This document references the [architectural risks EasyRetro board](https://easyr
 2022-03-16 Architecture meeting
 -------------------------------
 
-**1. Walk-through of most important aspects of data model**
+**1. Should the ticket numbers be always marked in the commit message? - follow up**
+  - What's our opinion now?
+
+**2. Walk-through of most important aspects of data model**
   - how do route and journey pattern relate to each other
   - what do vehicle mode and vehicle submode mean
 
