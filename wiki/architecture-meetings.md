@@ -9,11 +9,19 @@ This document references the [architectural risks EasyRetro board](https://easyr
 -------------------------------
 
 **1. All-rounder conversation: What are team members' tech interests and current know-how?**
+  - => discussed team members' interests
+  - => needs follow up, @ellinooraikaheimo will organize follow-up discussion
 
 **2. Idea: Should the ticket numbers be always marked in the commit message?**
   - Allows to quickly determine if ticket's content has gone into release
   - could be marked into commit message title for quick search
-  - or into commit message with github magic words "resolves:" for automatic ticket processing
+  - or into commit message with github magic words "resolves:" (?) for automatic ticket processing
+  - => general opinion: might not be overly useful, but might have some valid use cases
+  - => putting the ticket number into the commit title allows quick skimming of commits for ticket number
+  - => ...but causes the commit title length to be even more restricted
+  - => not all commits necessarily refer to a (single) ticket, no point in forcing mentioning a ticket number
+  - => let's suggest this to the rest of the team on slack
+  - => some repos can already try this if all committers are willing to do so
 
 2022-03-02 Architecture meeting
 -------------------------------
