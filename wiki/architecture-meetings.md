@@ -10,6 +10,11 @@ This document references the [architectural risks EasyRetro board](https://easyr
 **1. Should the ticket numbers be always marked in the commit message? - follow up**
   - What's our opinion now?
 
+**2. Deployment-process discussion and walk-through**
+  - deployment process
+    - which envs in which order
+  - deployment of related changes in different components
+    - is flux main branch allowed to break?
 
 2022-03-16 Architecture meeting
 -------------------------------
