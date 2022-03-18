@@ -16,6 +16,10 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - deployment of related changes in different components
     - is flux main branch allowed to break?
 
+**3. NetEX nordic profile**
+  - should base future data model work on NetEX nordic profile instead of vanilla TM
+
+
 2022-03-16 Architecture meeting
 -------------------------------
 
