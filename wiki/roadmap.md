@@ -19,14 +19,14 @@
 
 * Data migration
   * Q1, Data migration fundamentals have been planned (ability to connect to Jore3's database, environment for migration)
-  * Q2-Q4, Ability to do migration for routes and lines when needed.
+  * Q2-Q4, An ability to do migration for routes and lines when needed.
 
 <h2>2022</h2>
 
 * Routes and network
   * Q1, An ability to create bus lines and bus routes to Jore4
   * Q2, An ability to modify bus lines and routes in Jore4
-  * Q3, An ability to add and modify trains, metros, trams and ferries
+  * Q3 or Q4, An ability to add and modify trains, metros, trams and ferries
 
 * Timetables
   * Q3, Timetable data model created to Jore4 database
@@ -38,11 +38,12 @@
   * Q4, Design regarding contracts and compensation calculation is done
 
 * Data migration
-  * Q4, An ability to import timetables from Jore3 
+  * Q4, An ability to import timetables from Hastus
 
 * Stops
-  * Q4, Decide the implementation of stop register (existing product such as Tiamat or DIY)
-
+  * Q2, Try out Tiamat as a base of stop registry and decide whether to use it
+  * Q3, Implement chosen stop register to host main data fields of a stop
+ 
 * Accessibility (such as accessibility features of bus stops and vehicles)
   * Q4, Scope is defined
 
@@ -56,6 +57,9 @@
 
 * Terminals
   * Q1, Terminal features such as passenger information poster frames is added
+
+* Data migration
+  * Q3, An ability to import GTFS timetables
 
 * Passenger information
   * Q1, GTFS export
