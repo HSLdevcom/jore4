@@ -5,8 +5,18 @@ It is not meant to document the architectural solutions as such, rather to docum
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
 
+2022-03-30 Architecture meeting
+-------------------------------
+
+**1. DoD checkup - contd.**
+  - some unclear issues during recent checkup
+  - last week's status:
+  - @jpeuralinna possibly made a suggestion on how to change UAT related criteria in "in progress" column
+
+
 2022-03-23 Architecture meeting
 -------------------------------
+
 **1. Should the ticket numbers be always marked in the commit message? - follow up**
   - What's our opinion now?
   - => only number in commit title is faster to write than whole issue id (hsldevcom/jore4#xxx)
