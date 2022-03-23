@@ -9,15 +9,31 @@ This document references the [architectural risks EasyRetro board](https://easyr
 -------------------------------
 **1. Should the ticket numbers be always marked in the commit message? - follow up**
   - What's our opinion now?
+  - => only number in commit title is faster to write than whole issue id (hsldevcom/jore4#xxx)
+  - => full issue id is more useful, because it allows bidirectional linking of issue<->commit
+  - => let's try to remember to mention the issue id (hsldevcom/jore4#xxx) in the commit message body
+  - => if a commit is not directly related to any issue, this is not enforced
 
 **2. Deployment-process discussion and walk-through**
   - deployment process
     - which envs in which order
   - deployment of related changes in different components
     - is flux main branch allowed to break?
+  - => @pallost gave a walk-through
+  - => if a change is noticed in a repo, an "auto-update" PR is created automatically, which will integrate the change into the flux main branch
+  - => after a change is present in the flux main branch, "auto-deploy" PRs will be created automatically to deploy the change to the e2e and dev branches
+  - => whenever an "auto-update" or "auto-deploy" -PR is seen with succeeding tests, it can be safely accepted and integrated
+  - => "auto-deploy" should be integrated with a merge commit, not by re-basing
 
 **3. NetEX nordic profile**
-  - should base future data model work on NetEX nordic profile instead of vanilla TM
+  - should base future data model work on NetEX nordic profile instead of vanilla Transmodel
+  - => important with stops and timetables
+  - => nordic profile documentation also easier to read than TM standard
+
+**4. DoD checkup**
+  - some unclear issues during last week's checkup
+  - => @jpeuralinna will make a suggestion on how to change UAT related criteria in "in progress" column
+  - => ran out of time, let's discuss this next week again
 
 
 2022-03-16 Architecture meeting
