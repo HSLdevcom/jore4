@@ -13,6 +13,7 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - last week's status:
   - @jpeuralinna possibly made a suggestion on how to change UAT related criteria in "in progress" column
 
+**2. Should we allow/disallow null values for validity_start field
 
 2022-03-23 Architecture meeting
 -------------------------------
