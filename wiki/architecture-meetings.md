@@ -16,6 +16,7 @@ This document references the [architectural risks EasyRetro board](https://easyr
 **2. Data model correction**
   - journey patterns do not atm reference abstract stop points ("H1234"), but concrete validity-time-bound manifestations
   - this does not allow to exclude a stop from journey patterns by making its validity time and and start again later
+  - problem does not occur between lines and routes
 
 
 2022-03-23 Architecture meeting
