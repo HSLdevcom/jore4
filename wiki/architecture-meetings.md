@@ -13,6 +13,11 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - last week's status:
   - @jpeuralinna possibly made a suggestion on how to change UAT related criteria in "in progress" column
 
+**2. Data model correction**
+  - journey patterns do not atm reference abstract stop points ("H1234"), but concrete validity-time-bound manifestations
+  - this does not allow to exclude a stop from journey patterns by making its validity time and and start again later
+
+
 2022-03-23 Architecture meeting
 -------------------------------
 
