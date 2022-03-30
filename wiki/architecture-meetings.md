@@ -11,7 +11,7 @@ This document references the [architectural risks EasyRetro board](https://easyr
 **1. DoD checkup - contd.**
   - some unclear issues during recent checkup
   - last week's status:
-  - @jpeuralinna possibly made a suggestion on how to change UAT related criteria in "in progress" column
+  - @jpeuralinna made a suggestion on how to change UAT related criteria in "in progress" column
 
 **2. Data model correction**
   - journey patterns do not atm reference abstract stop points ("H1234"), but concrete validity-time-bound manifestations
