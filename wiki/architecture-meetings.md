@@ -12,11 +12,19 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - some unclear issues during recent checkup
   - last week's status:
   - @jpeuralinna made a suggestion on how to change UAT related criteria in "in progress" column
+  - => fixed / clarified those unclear points
 
 **2. Data model correction**
   - journey patterns do not atm reference abstract stop points ("H1234"), but concrete validity-time-bound manifestations
   - this does not allow to exclude a stop from journey patterns by making its validity time and and start again later
   - problem does not occur between lines and routes
+  - => possible solutions:
+  - => 1. scheduled_stop_point may reference a separate scheduled_stop_point_label -table, which is also referenced from scheduled_stop_point_in_journey_pattern
+  - => 2. scheduled_stop_point_in_journey_pattern may reference scheduled_stop_point labels on a logical level (i.e. without foreign key reference)
+  - => number 1. means "normalizing all stop point data, which is invariant with regards to validity and priority, out of the scheduled_stop_point table"
+  - => since stop points may be moved to a different location, this invariant data only includes the stop point label
+  - => number 2. less optimal, because references can break
+  - => @jschummer will try to explore solution 1. (or implement if no obstacles are found)
 
 
 2022-03-23 Architecture meeting
