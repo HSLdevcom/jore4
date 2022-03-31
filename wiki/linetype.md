@@ -14,7 +14,7 @@ For trunk lines:
 * How to detect if a line is trunk line: In jore3, the line has a requirement "Runkolinjaväritys"
 * Example: 560 Rastila-Myyrmäki
 * Target: Depending on area served, please see below
-* GTFS route type: 401
+* GTFS route type: 702
 * Color: #FF6319
 * Text color: #FFFFFF
 
