@@ -5,6 +5,18 @@ It is not meant to document the architectural solutions as such, rather to docum
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
 
+2022-04-06 Architecture meeting
+-------------------------------
+
+**1. How to integrate data model changes specific to certain regions / HSL**
+  - own migration folder in hasura repo, seed-data-style
+  - docker images build in 3 stages: general -> hsl-specific changes -> seed-data
+  - if possible, HSL-specific changes should not be visible in the graphql schema
+  - e.g. enum may just be modelled as text referencing an HSL specific table
+  - => text field is visible in graphql schema
+  - => validation happens in the background through foreign key constraint
+
+
 2022-03-30 Architecture meeting
 -------------------------------
 
