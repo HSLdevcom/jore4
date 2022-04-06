@@ -13,8 +13,16 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - docker images build in 3 stages: general -> hsl-specific changes -> seed-data
   - if possible, HSL-specific changes should not be visible in the graphql schema
   - e.g. enum may just be modelled as text referencing an HSL specific table
-  - => text field is visible in graphql schema
-  - => validation happens in the background through foreign key constraint
+  - text field is visible in graphql schema
+  - validation happens in the background through foreign key constraint
+  - => this does not entirely keep up the previous standard "no-one needs to fork when she wants to take it into use"
+  - => but it keeps hsl-specific datamodel changes separate and thus allows restoring the state of a general use repository
+  - => minus: this does not allow updating the graphql schema with hsl-specific changes
+  - => e.g. the "transport target" data cannot be normalized out of the "line" table, since it would not be visible in the graphql schema at all
+  - => similarly, no hasura metadata changes could be included
+  - => it was agreed that @eleksi will investigate if hasura metadata could be easily modified via diff+patch
+  - => this would remove the 2 aforementioned negative points
+  - => let's get back to this in slack after the diff+patch investigation
 
 
 2022-03-30 Architecture meeting
