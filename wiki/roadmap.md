@@ -34,7 +34,7 @@
 * UI/UX design
   * Q1-Q2, Support developers regarding routes and lines
   * Q3, Design regarding passenger information and infra is done
-  * Q4, Design regarding contracts and compensation calculation is done
+  * Q4, Design regarding operator interaction is done
 
 * Data migration
   * Q4, An ability to import timetables from Hastus
