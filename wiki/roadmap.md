@@ -49,7 +49,11 @@
 <h2>2023</h2>
 
 * Routes and network
-  * Q1, Routes and lines ver. 2. Reports and an ability to add and modify trains, metros, trams and ferries 
+  * Q1, Routes and lines ver. 2. An ability to add and modify trains, metros, trams and ferries 
+ 
+* Reports
+  * Q2, Design; Figure users' needs 
+  * Q3, Reports required by business 
 
 * Timetables 
   * Q1, Additions to MVP such as diversion routes and possibly an ability to upload from outside data sources (such as GTFS)
