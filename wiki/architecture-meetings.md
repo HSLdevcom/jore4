@@ -5,6 +5,17 @@ It is not meant to document the architectural solutions as such, rather to docum
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
 
+2022-04-13 Architecture meeting
+-------------------------------
+
+**1. How to keep the e2e tests up to date?
+  - UI is introducing changes quite often lately that are breaking the existing e2e tests (~once a week)
+  - As agreed previously, there PRs are merged to the main branch of the UI repo but not to the e2e branch of the flux repo
+  - All the next PRs in the UI repo are having broken e2e tests until they are fixed
+  - Getting the e2e tests fixed nowadays has been taking several days, meaning that for this time we cannot be 100% sure that the new UI PRs we added don't cause regression
+  - How to handle the breaking e2e tests? How to improve this process?
+  - Should it be mandatory that the developer who creates a PR with breaking changes in the UI repo should also be the one fixing the e2e tests?
+
 2022-04-06 Architecture meeting
 -------------------------------
 
