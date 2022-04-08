@@ -80,7 +80,6 @@
   * Q4, Rest rooms including invoicing
   
 * UI/UX design
-  * Q2, Design for passenger information tools is done
   * Q4, Design for compensation calculation and vehicle registry is done
  
 <h2>2024</h2>
