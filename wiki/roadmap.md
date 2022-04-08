@@ -59,7 +59,7 @@
   * Q1, Additions to MVP such as diversion routes and possibly an ability to upload from outside data sources (such as GTFS)
 
 * Stops
-  * Q1, More features for stops such as passenger information poster frames and shelters. Reporting features
+  * Q1, More features for stops such as passenger information poster frames and shelters
 
 * Terminals
   * Q1, Terminal features such as passenger information poster frames is added
