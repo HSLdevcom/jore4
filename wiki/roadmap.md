@@ -26,7 +26,6 @@
 * Routes and network
   * Q1, An ability to create bus lines and bus routes to Jore4
   * Q2, An ability to modify bus lines and routes in Jore4
-  * Q3 or Q4, An ability to add and modify trains, metros, trams and ferries
 
 * Timetables
   * Q3, Timetable data model created to Jore4 database
@@ -48,6 +47,9 @@
   * Q4, Scope is defined
 
 <h2>2023</h2>
+
+* Routes and network
+  * Q1, Routes and lines ver. 2. Reports and an ability to add and modify trains, metros, trams and ferries 
 
 * Timetables 
   * Q1, Additions to MVP such as diversion routes and possibly an ability to upload from outside data sources (such as GTFS)
