@@ -64,8 +64,11 @@
 * Terminals
   * Q1, Terminal features such as passenger information poster frames is added
 
+* User management
+  * Q2, Add owners to routes and add log of changes to UI
+
 * Data migration
-  * Q3, An ability to import GTFS timetables
+  * Q3, An ability to import GTFS/IVU? timetables
 
 * Passenger information
   * Q1, GTFS export
