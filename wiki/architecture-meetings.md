@@ -16,6 +16,8 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - How to handle the breaking e2e tests? How to improve this process?
   - Should it be mandatory that the developer who creates a PR with breaking changes in the UI repo should also be the one fixing the e2e tests?
 
+#333, #344, #424
+
 2022-04-06 Architecture meeting
 -------------------------------
 
