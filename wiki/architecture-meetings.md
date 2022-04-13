@@ -11,6 +11,12 @@ This document references the [architectural risks EasyRetro board](https://easyr
 **1. Ticket cleanup (cont'd):**
   - #424: [Figure out how we want to share files from Azure storage](https://github.com/HSLdevcom/jore4/issues/424)
 
+**2. Should validity_start be nullable in the db?**
+  - pro: jore3-import contains entities, whose start time is not defined
+  - pro: would enable other Jore -using orgs to use e.g. stops without any validity times
+  - contra: code needs to be added to frontend-graphql (filters need to take NULL into account)
+  - nullability could be disabled (SET NOT NULL) via HSL-specific migration
+
 
 2022-04-13 Architecture meeting
 -------------------------------
