@@ -5,6 +5,13 @@ It is not meant to document the architectural solutions as such, rather to docum
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
 
+2022-04-21 Architecture meeting
+-------------------------------
+
+**1. Ticket cleanup (cont'd):**
+  - #424: [Figure out how we want to share files from Azure storage](https://github.com/HSLdevcom/jore4/issues/424)
+
+
 2022-04-13 Architecture meeting
 -------------------------------
 
@@ -15,12 +22,20 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - Getting the e2e tests fixed nowadays has been taking several days, meaning that for this time we cannot be 100% sure that the new UI PRs we added don't cause regression
   - How to handle the breaking e2e tests? How to improve this process?
   - Should it be mandatory that the developer who creates a PR with breaking changes in the UI repo should also be the one fixing the e2e tests?
+  - => e2e tests should be fixed whenever a PR with failing tests is discovered
+  - => developer is responsible for fixing it
+  - => can of course get help from others, does not necessarily have to fix it herself / alone
+  - => fixed tests can be run in jore4-robot -repo with custom branch for verification
+  - => @jpeuralinna will organize a workshop on e2e tests for the team
 
 **2. Ticket cleanup:**
   - What to do with the following tickets:
   - #333: [Use multiple Hasura roles on the frontend](https://github.com/HSLdevcom/jore4/issues/333)
+  - => could not identify parts not done, asked @pallost for confirmation
   - #344: [Ensure SQL schema up and down migrations complement each other](https://github.com/HSLdevcom/jore4/issues/344)
+  - => ticket deemed useful and updated
   - #424: [Figure out how we want to share files from Azure storage](https://github.com/HSLdevcom/jore4/issues/424)
+  - => no strong opinions, moved to next week's arch meeting
 
 
 2022-04-06 Architecture meeting
