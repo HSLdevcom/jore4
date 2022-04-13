@@ -8,7 +8,7 @@ This document references the [architectural risks EasyRetro board](https://easyr
 2022-04-13 Architecture meeting
 -------------------------------
 
-**1. How to keep the e2e tests up to date?
+**1. How to keep the e2e tests up to date?**
   - UI is introducing changes quite often lately that are breaking the existing e2e tests (~once a week)
   - As agreed previously, there PRs are merged to the main branch of the UI repo but not to the e2e branch of the flux repo
   - All the next PRs in the UI repo are having broken e2e tests until they are fixed
@@ -16,7 +16,12 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - How to handle the breaking e2e tests? How to improve this process?
   - Should it be mandatory that the developer who creates a PR with breaking changes in the UI repo should also be the one fixing the e2e tests?
 
-#333, #344, #424
+**2. Ticket cleanup:**
+  - What to do with the following tickets:
+  - #333: [Use multiple Hasura roles on the frontend](https://github.com/HSLdevcom/jore4/issues/333)
+  - #344: [Ensure SQL schema up and down migrations complement each other](https://github.com/HSLdevcom/jore4/issues/344)
+  - #424: [Figure out how we want to share files from Azure storage](https://github.com/HSLdevcom/jore4/issues/424)
+
 
 2022-04-06 Architecture meeting
 -------------------------------
