@@ -53,7 +53,7 @@
  
 * Reports
   * Q2, Design; Figure users' needs 
-  * Q3, Reports required by business 
+  * Q3, Implementing reports MVP
 
 * Timetables 
   * Q1, Additions to MVP such as diversion routes and possibly an ability to upload from outside data sources (such as GTFS)
