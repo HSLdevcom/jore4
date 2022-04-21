@@ -5,17 +5,39 @@ It is not meant to document the architectural solutions as such, rather to docum
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
 
+2022-04-28 Architecture meeting
+-------------------------------
+
+**1. Should validity_start be nullable in the db? (cont'd)**
+  - has a solution been found to avoid duplicate code in qgl queries?
+
+
 2022-04-21 Architecture meeting
 -------------------------------
 
 **1. Ticket cleanup (cont'd):**
   - #424: [Figure out how we want to share files from Azure storage](https://github.com/HSLdevcom/jore4/issues/424)
+  - => ticket checked and corrected to meet new requirements
 
 **2. Should validity_start be nullable in the db?**
   - pro: jore3-import contains entities, whose start time is not defined
   - pro: would enable other Jore -using orgs to use e.g. stops without any validity times
   - contra: code needs to be added to frontend-graphql (filters need to take NULL into account)
   - nullability could be disabled (SET NOT NULL) via HSL-specific migration
+  - => PR containing duplicated code relating to query filters (validity time) is in review
+  - => duplicates might not be solvable only with gql fragments
+  - => qgl builder might solve this
+  - => alternatively using filter criteria on JS-side of things
+  - => a POC will be made as part of the PR
+  - => let's get back to this after 1-2 weeks, when the PR has proceeded
+
+**3. Automated testing of frontend**
+  - refactoring of frontend difficult, because testing does not ensure things don't break
+  - at least robot tests should be added
+  - possibly unit tests too
+  - with robot tests difficult to choose correct API response to check
+  - @jpeuralinna will create ticket to improve robot tests to choose correct api response
+  - also @jpeuralinna will organize walk through of how to create / improve robot tests
 
 
 2022-04-13 Architecture meeting
