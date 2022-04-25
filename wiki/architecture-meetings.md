@@ -11,6 +11,8 @@ This document references the [architectural risks EasyRetro board](https://easyr
 **1. Should validity_start be nullable in the db? (cont'd)**
   - has a solution been found to avoid duplicate code in qgl queries?
 
+**2. Do we need merge commits in the deploy repo?**
+
 
 2022-04-21 Architecture meeting
 -------------------------------
