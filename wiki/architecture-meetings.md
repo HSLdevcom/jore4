@@ -13,6 +13,13 @@ This document references the [architectural risks EasyRetro board](https://easyr
 
 **2. Do we need merge commits in the deploy repo?**
 
+**3. How to run robot tests and integrate PRs which are dependent on each other and break tests?**
+  - run robot tests manually when PRs are waiting for review
+  - document and link test run in PR comment
+  - integrate all PRs together after review
+  - update flux (e2e / dev) after that
+  - any way to automate / improve the process?
+
 
 2022-04-21 Architecture meeting
 -------------------------------
