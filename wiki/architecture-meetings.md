@@ -11,13 +11,23 @@ This document references the [architectural risks EasyRetro board](https://easyr
 **1. Should we keep on using clean Transmodel or rather allow adding our own HSL-specific additions directly**
   - helper views and functions in SQL instead of implementing all business logic in frontend
 
+
 2022-04-28 Architecture meeting
 -------------------------------
 
 **1. Should validity_start be nullable in the db? (cont'd)**
   - has a solution been found to avoid duplicate code in qgl queries?
+  - => a solution has been found to avoid duplicate code in qgl query filters
+  - => there are still other places where the null-possibility of validity_start is taken into account
+  - => currently, there is no code changes, which would require additional code because of validity_start's nullability
+  - => let's change this, if the need arises (code changes ahead, which require additional work because of this)
 
 **2. Do we need merge commits in the deploy repo?**
+  - => not easy to see what happened at merge commits
+  - => would be possibly easier to interpret repo history with filtering
+  - => only identified use: hotfixes in production
+  - => let's let flux repo's branches (dev, prod, etc) follow main branch by rebasing
+  - => if there is a need for hotfixes in the future, the exact procedure for those can be revised (force-push vs merge, use of tags, etc)
 
 **3. How to run robot tests and integrate PRs which are dependent on each other and break tests?**
   - run robot tests manually when PRs are waiting for review
@@ -25,9 +35,15 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - integrate all PRs together after review
   - update flux (e2e / dev) after that
   - any way to automate / improve the process?
+  - => the window when test runs of unrelated PRs can break is tens of minutes
+  - => let's try to keep that window as small as possible by pushing related PRs (almost) at the same time
 
 **4. Should we keep on using clean Transmodel or rather allow adding our own HSL-specific additions directly**
   - helper views and functions in SQL instead of implementing all business logic in frontend
+  - => time runs out
+  - => let's get back to this next week
+  - => please also comment on the slack thread related to costs of using TM
+
 
 2022-04-21 Architecture meeting
 -------------------------------
