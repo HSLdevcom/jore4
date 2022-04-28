@@ -20,6 +20,8 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - update flux (e2e / dev) after that
   - any way to automate / improve the process?
 
+**4. Should we keep on using clean Transmodel or rather allow adding our own HSL-specific additions
+  - helper views and functions in SQL instead of implementing all business logic in frontend
 
 2022-04-21 Architecture meeting
 -------------------------------
