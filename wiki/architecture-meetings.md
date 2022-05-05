@@ -5,17 +5,34 @@ It is not meant to document the architectural solutions as such, rather to docum
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
 
+2022-05-12 Architecture meeting
+-------------------------------
+
+**1. Should we keep on using clean Transmodel or rather allow adding our own HSL-specific additions directly (cont'd)**
+  - helper views and functions in SQL instead of implementing all business logic in frontend
+  - last week we decided to have a follow-up on this issue
+  - what was the reactions of the PO and other stakeholders on the presentation made?
+  - can we make conclusions for the technical side based on those reactions?
+
+
 2022-05-05 Architecture meeting
 -------------------------------
 
 **1. Should we keep on using clean Transmodel or rather allow adding our own HSL-specific additions directly**
   - helper views and functions in SQL instead of implementing all business logic in frontend
+  - => "special treatment" of HSL-specific additions has caused some additional work
+  - => more general discussion about the expense of using TM ongoing elsewhere
+  - => let's get back to this when we've gotten feedback from the PO(s)
 
 **2. What are viable options to mark a route's beginning and end on the route's infra links?**
   - currently start and end stop points are used
   - would it be feasible to use the relative link offset (0..1) instead?
   - how to handle the situation when a stop is moved?
   - what is the "best" way (in different contexts, e.g. kola) to determine a route's length?
+  - => it might be good enough to use journey pattern's first and last stops for all applications
+  - => no specific case requires keeping start and stop point on route level
+  - => more discussion needed about the implications for the users of this in different scenarios
+  - => @jschummer will organize a separate meeting in which this can be evaluated together with design
 
 
 2022-04-28 Architecture meeting
