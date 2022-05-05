@@ -11,6 +11,12 @@ This document references the [architectural risks EasyRetro board](https://easyr
 **1. Should we keep on using clean Transmodel or rather allow adding our own HSL-specific additions directly**
   - helper views and functions in SQL instead of implementing all business logic in frontend
 
+**2. What are viable options to mark a route's beginning and end on the route's infra links?**
+  - currently start and end stop points are used
+  - would it be feasible to use the relative link offset (0..1) instead?
+  - how to handle the situation when a stop is moved?
+  - what is the "best" way (in different contexts, e.g. kola) to determine a route's length?
+
 
 2022-04-28 Architecture meeting
 -------------------------------
