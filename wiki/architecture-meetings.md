@@ -14,6 +14,11 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - what was the reactions of the PO and other stakeholders on the presentation made?
   - can we make conclusions for the technical side based on those reactions?
 
+**2. Updating the DoD
+  - Joonas is leaving (18.5.), and this will affect the DoD, the way tickets are moved from column to another
+  - At the moment there is no furhter information about the future replacements 
+  - How to proceed with the DoD update process?
+
 
 2022-05-05 Architecture meeting
 -------------------------------
