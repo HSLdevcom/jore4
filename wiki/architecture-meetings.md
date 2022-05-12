@@ -19,6 +19,11 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - At the moment there is no further information about the future replacements 
   - How to proceed with the DoD update process?
 
+**3. Robot framework vs alternatives: Current status**
+  - there was dicussion about whether robot framework could be replaced by something else
+  - the issue was discussed in a separate meeting
+  - what is the current status?
+
 
 2022-05-05 Architecture meeting
 -------------------------------
