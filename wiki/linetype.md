@@ -52,7 +52,6 @@ For all except ones listed above:
 |9207|Sipoo internal traffic|
 |9208|Tuusula internal traffic|
 |9209|Siuntio internal traffic|
-|9210|Regional traffic within Helsinki, Espoo, Vantaa and Kauniainen|
 |9311|Kerava regional traffic|
 |9312|Kirkkonummi regional traffic|
 |9314|Tuusula regional traffic|
@@ -60,6 +59,10 @@ For all except ones listed above:
 |9320|Espoo regional traffic|
 |9321|Vantaa regional traffic|
 |9322|Transverse regional|
+|9510|Helsinki/Espoo/Vantaa/Kauniainen regional U-traffic|
+|9511|Kirkkonummi regional U-traffic|
+|9512|Sipoo internal U-traffic|
+|9513|Tuusula regional U-traffic|
 
 ### Train
 
