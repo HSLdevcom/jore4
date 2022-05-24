@@ -52,7 +52,7 @@ For all except ones listed above:
 |9207|Sipoo internal traffic|
 |9208|Tuusula internal traffic|
 |9209|Siuntio internal traffic|
-|9310|Regional traffic|Should only be used for other modes than buses?|
+|9310|Regional traffic (Should only be used for other modes, not buses(?))|
 |9311|Kerava regional traffic|
 |9312|Kirkkonummi regional traffic|
 |9314|Tuusula regional traffic|
