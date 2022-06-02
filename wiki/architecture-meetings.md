@@ -8,8 +8,43 @@ This document references the [architectural risks EasyRetro board](https://easyr
 2022-06-02 Architecture meeting
 -------------------------------
 
-**1. Open questions regarding QGIS-fixup layer**
+**Introduction of QGIS fixup layers**
 
+1. Introduction of `jore4-digiroad-import` repository
+    - Short explanation of what is being done with different shell scripts e.g. Digiroad import
+    - Walk through work directories containing Digiroad .zip file and shapefiles extracted from the archive file (under `workdir` folder)
+    - Show contents of `fixup` folder:
+        - QGIS project file
+        - GeoPackage file containing actual fix layer definitions (`fixup.gpkg` under `digiroad` subfolder)
+2. Walk through different QGIS layers in QGIS fixup project file
+    - Background map tiles, currently Digitransit
+    - Data from Digiroad shapefiles: infrastructure links and public transport stops
+    - JORE4 fix layer group containing layers: `add_link` and `remove_link`
+3. Had a glance inside GeoPackage file containing JORE4 fix layers
+    - Inspect GeoPackage file as an SQLite database with _DB Browser for SQLite_
+    - Walk through mandatory and optional attributes of `add_link` and `remove_link` layers
+4. Short explanation of how fix layers in GeoPackage file are incorporated into Digiroad import/export process
+    - Explanation of how `link_id` attribute is derived for HSL-specific infrastructure links defined on fix layer
+5. QGIS lesson on how new infrastructure links are added to fix layer
+    - Walk through essential QGIS tools: _Identify Features_, _Toggle Editing_, _Snapping Tool_, _Add Line Feature_, _Open Attribute_
+    - Demonstration of following:
+        - Adding a couple of new infrastructure links with attributes entered as well
+        - Saving changes
+        - Value generation for auto-generated `fid` field (auto-incremented primary key)
+        - Editing attributes on fix layer afterwards
+    - There was a question on whether speed limit information could be utilised in calculation of route driving times. It was pointed out that speed limits are available through Digiroad but, as of time being, they are not taken into use in JORE4. It was noted that in the future speed limits may be incorporated into JORE4 data model if need be.
+6. Discussion of open issues and identified problems
+    - The issues were introduced and discussed but there was no time to make decisions. Follow-up discussion will be held in Slack with more details provided and also in further architecture meetings if needed.
+    - Open issues
+        - Long-term persistence of `link_id` attribute values
+        - How HSL-made changes to GeoPackage file should be saved?
+            1. Directly to Github repository?
+            2. Or is it required to make some validity checks first e.g. with regard to topological integrity by running a script that merges changes?
+        - Should an additional layer for public transport stops be added into GeoPackage file?
+            - Especially in case a Digiroad road link is marked for removal (on `remove_link` layer) and there exist one or more Digiroad stops along the link
+            - Currently, JORE3 Importer depends on public transport stop data provided by Digiroad. Also map-matching service utilises Digiroad stop information to some extent. Hence, removal of Digiroad stops affects scheduled stop points and routes exported to JORE4.
+                - It is an open question whether stop processing logic in JORE3 Importer should be changed. Instead of matching JORE3 stops to Digiroad stops (using ELY number as an association key) and taking road link associations and stop directionality from Digiroad, Importer could calculate the same data itself by resolving the closest link to each JORE3 stop using PostGIS functions.
+        - How to resolve conflicts between QGIS fixup layer and Digiroad changes in the future?
 
 2022-05-12 Architecture meeting
 -------------------------------
