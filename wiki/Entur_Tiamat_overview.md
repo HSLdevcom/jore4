@@ -18,6 +18,8 @@ Entur Tiamat overview - A developer's perspective
 * GraphQL (web API)
 * In-memory H2 with GeoDB extension used in testing
 
+The current version of Entur Tiamat has numerous dependencies with critical vulnerabilities. They should be updated before it is possible to use Tiamat.
+
 # How to run Tiamat
 
 * A couple of SNAPSHOT versions of other Entur libraries needs to be first installed into local Maven repository
@@ -26,6 +28,12 @@ Entur Tiamat overview - A developer's perspective
     * [Entur superpom](https://github.com/entur/superpom)
     * [Rutebanken-helpers](https://github.com/entur/rutebanken-helpers)
 * Currently (11.2.2021), GeoTools repository needs to be manually added to `pom.xml` in order to download GeoTools libraries
+
+## Problems running Tiamat
+
+The H2 database used for local testing is incompatible with the migrations used and is not possible to be used. A proper postgresql database is needed for local testing.
+
+An EntityChangedListener should be manually created, since the ones defined ones do not run in a local environment.
 
 # Data model
 
