@@ -4,10 +4,22 @@ It is not meant to document the architectural solutions as such, rather to docum
 
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
+2022-08-04 Architecture meeting
+-------------------------------
+
+1. Discuss the issues with the typings of the graphql queries on the UI
+    - Currently all e.g. `route_route` query results are converted to the same `RouteRoute[]` type
+    - This type is too generic, it assumed that the whole graph with all attributes are fetched. This results in incorrect typings
+    - Suggestion part 1: let's start using the generated query result types, e.g. `type GetRoutesWithInfrastructureLinksQuery`
+    - The problem with this is that it's very deeply nested and can't really use nested types for parameters, like `function myFunction(line: GetRoutesWithInfrastructureLinksQuery['route_route'][0]['route_line]) {}`
+    - Suggestion part 2: let's start using the generated fragment types to reference and reuse parts of the typings, e.g. `type LineAllFieldsFragment`
+    - Suggestion part 3: as only really few of our queries are actually reusable, let's move their gql definition to the hook/component that's actually using them. The fragments themselves are more reusable, we could keep those in the current `src/graphql` directory
+
+
 2022-06-09 Architecture meeting
 -------------------------------
 
-**1. Discuss issues related to transferring scheduled stop points from JORE3**
+1. Discuss issues related to transferring scheduled stop points from JORE3
     - Infrastructure link association is not correct in a many cases
 
 2022-06-02 Architecture meeting
