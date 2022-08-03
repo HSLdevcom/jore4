@@ -14,6 +14,12 @@ This document references the [architectural risks EasyRetro board](https://easyr
     - The problem with this is that it's very deeply nested and can't really use nested types for parameters, like `function myFunction(line: GetRoutesWithInfrastructureLinksQuery['route_route'][0]['route_line]) {}`
     - Suggestion part 2: let's start using the generated fragment types to reference and reuse parts of the typings, e.g. `type LineAllFieldsFragment`
     - Suggestion part 3: as only really few of our queries are actually reusable, let's move their gql definition to the hook/component that's actually using them. The fragments themselves are more reusable, we could keep those in the current `src/graphql` directory
+2. Discuss and plan how to clean up the backlog columns: To be deployed (55 tickets), Waiting for QA (5 tickets) and User acceptance testing (12 tickets)
+    - Is it possible to have all the tickets that are Done, to Done column before the next sprint planning 16.8.
+3. Discuss how to proceed with the new opportunities that the GitHb Projects feature provides
+    - Clone and test first?
+    - Identify possible risks
+    - Consult PO before making updates or changes to the active backlog
 
 
 2022-06-09 Architecture meeting
