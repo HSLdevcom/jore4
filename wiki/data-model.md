@@ -52,7 +52,7 @@ Constraints
 
 The integrity of the data needs to be validated at database level, since no separate backend code can provide this functionality. Database constraints are used for this purpose.
 
-Not all validation can be done via readily provided constraints (such as not-NULL-constraints or exclusion constraints). Therefore trigger functions have to be employed in those cases, in which it is not possible to perform validation via builtin constraints. The trigger functions are installed as deferred constraint triggers on row level and the transaction isolation level is set to 'serializable'.
+Not all validation can be done via readily provided constraints (such as not-NULL-constraints or exclusion constraints). Therefore trigger functions have to be employed in those cases, in which it is not possible to perform validation via builtin constraints. The trigger functions are installed as deferred constraint triggers on row level and the transaction isolation level is set to 'serializable'. The most complex checks are performed by the route verification constraints, for more information see [Route verification](#route-verification) below.
 
 In case the transaction isolation level is seen to cause too big a performance hit, it can later be lowered. In that case, the integrity of the data is no longer guaranteed due to possible race conditions in concurrent access situations. But the likelihood of such corruption occurring can be thought to be very low.
 
@@ -92,8 +92,12 @@ Validity times and priorities
 
 The line, route, and scheduled stop point entities are considered _core entities_ and have a validity time and priority associated with their instances. The priority determines which instance is the one "in effect" at a given point in time, if at that point in time there is more than one valid instance.
 
-These core entities have a 'label' property, which serves as the unique identifier of the entity. It has to be unique within the scope of the instance's validity time and priority. The label is a user-readable, non-translatable character sequence. E.g. in case of a bus line, the `label` column of the line table contains the line's real world bus line number.
+These core entities have a 'label' property, which serves as the unique identifier of the entity. It has to be unique within the scope of the entity instances' validity times and priorities. The label is a user-readable, non-translatable character sequence. E.g. in case of a bus line, the `label` column of the line table contains the line's real world bus line number.
 
-As a result of the identification of entities via their label (together with the validity time), journey patterns do not reference scheduled stop point instances directly, but rather refer to the scheduled stop point entity via its label. This indirection allows the journey pattern to reference always the highest priority stop point instance at any given point in time.
+As a result of the identification of entities via their label, journey patterns do not reference scheduled stop point instances directly, but rather refer to the scheduled stop point entity via the `scheduled_stop_point_invariant` table. This indirection allows the journey pattern to automatically reference the highest priority stop point instance at any given point in time. Other hand this means that it is necessary to consider all scheduled stop point instances with stop point labels referenced by a journey pattern (and valid at a given point in time) in order to determine the actual TM journey pattern at that point in time. For more details, also see [Route verification](#route-verification) below.
 
 As opposed to the `label` column, other descriptive columns of entity tables may be translateble and are not necessarily unique in any context. E.g. the line table's 'short_name_i18n' column is not required to be unique in any context on database level, even though from a user perspective it may contain information unique to the line.
+
+Route verification
+------------------
+
