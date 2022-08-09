@@ -79,18 +79,21 @@ Routes and lines
 Transmodel
 ----------
 
-The data model is somewhat closely based on parts of the [Transmodel (TM) specification](https://www.transmodel-cen.eu/model/index.htm). In general, TM Models have been modelled as individual database schemas, TM Classes and TM Associations have been modelled as tables and views, with columns corresponding to TM Class Attributes. However, it should be noted, that only those parts of the Transmodel have been modelled, which are of relevance to the Jore4 system.
+The data model is somewhat closely based on parts of the [Transmodel (TM) specification](https://www.transmodel-cen.eu/model/index.htm). In general, TM Models have been modelled as individual database schemas, TM Classes and TM Associations have been modelled as tables and views, with columns corresponding to TM Class Attributes. However, it should be noted that only those parts of the Transmodel have been modelled, which are of relevance to the Jore4 system.
 
 Also, there have been cases, in which these basic TM modelling principles were seen not to support the system's operational capabilities. Thus, additions and adoptions had to be made, some of the most important being:
 
-- The line, route, and scheduled stop point entity are considered "core entities" and have a validity time and priority assigned to them. (See section [Validity times and priorities](#validity-times-and-priorities) below.)
+- The line, route, and scheduled stop point entity are considered "core entities" and their instances have a validity time and priority assigned to them. (See section [Validity times and priorities](#validity-times-and-priorities) below.)
 - A route can have only a single journey pattern. This is enforced by a constraint in the current implementation and may be changed in the future.
+- An actual journey pattern valid at a certain point in time has to be determined by evaluating the linked scheduled stop points' highest priority instances at that point in time (see [Validity times and priorities](#validity-times-and-priorities) below.)
 
 Validity times and priorities
 -----------------------------
 
-The line, route, and scheduled stop point entity are considered _core entities_ and have a validity time and priority associated with them. The priority determines which entitity is the one "in effect" at a given point in time, if at that point in time there is more than one valid entity.
+The line, route, and scheduled stop point entities are considered _core entities_ and have a validity time and priority associated with their instances. The priority determines which instance is the one "in effect" at a given point in time, if at that point in time there is more than one valid instance.
 
-These core entities have a 'label' property, which serves as the unique identifier of the entity within the scope of the entity's validity time and priority. The label is a user-readable, non-translatable character sequence. E.g. in case of a bus line, the `label` column of the line table contains the line's real world bus line number.
+These core entities have a 'label' property, which serves as the unique identifier of the entity. It has to be unique within the scope of the instance's validity time and priority. The label is a user-readable, non-translatable character sequence. E.g. in case of a bus line, the `label` column of the line table contains the line's real world bus line number.
+
+As a result of the identification of entities via their label (together with the validity time), journey patterns do not reference scheduled stop point instances directly, but rather refer to the scheduled stop point entity via its label. This indirection allows the journey pattern to reference always the highest priority stop point instance at any given point in time.
 
 As opposed to the `label` column, other descriptive columns of entity tables may be translateble and are not necessarily unique in any context. E.g. the line table's 'short_name_i18n' column is not required to be unique in any context on database level, even though from a user perspective it may contain information unique to the line.
