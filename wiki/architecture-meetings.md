@@ -8,6 +8,15 @@ This document references the [architectural risks EasyRetro board](https://easyr
 -------------------------------
 
 1. Constraint performance problems and possible mitigations
+    - constraint checking the routes' integrity (with regards to the journey pattern's stops) is very slow
+    - checking a single route's integrity is done in 1-2s
+    - this becomes a problem when many (up to 100-200) routes need to be checked when a stop point is modified
+    - => first steps to mitigate the problem:
+    - => 1. Spinner (already implemented)
+    - => 2. Additional text ("this might take a while") shown to user when stops are modified
+    - => 3. App gw timeout needs to be increased (currently 30s)
+    - => 4. Possibly the checks can be run in parallel batches
+    - => later a progress bar can be implemented to indicate progress to the user
 
 
 2022-08-04 Architecture meeting
