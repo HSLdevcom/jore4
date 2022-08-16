@@ -4,6 +4,14 @@ It is not meant to document the architectural solutions as such, rather to docum
 
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
+2022-08-18 Architecture meeting
+-------------------------------
+
+1. Identity dependencies between the different modules
+    - Allows building a roadmap with reasonable time estimates
+    - To be discussed that how/when to sunset individual modules from jore3 when replaced by jore4
+    - While exports like Matkustaja info or GTFS depend on master data that is still only found in jore3, we cannot implement these in jore4
+
 2022-08-11 Architecture meeting
 -------------------------------
 
