@@ -1,0 +1,100 @@
+@startuml
+
+' Relevant documentation:
+' https://plantuml.com/component-diagram
+'
+
+left to right direction
+
+package jore3 as "Jore3" {
+    component timestables as "Timetables"
+    component stops as "Stop Registry"
+    component inventory as "Inventory"
+    component others as "...Others??"
+}
+interface katla as "Katla FTP Server"
+interface webservice as "Web Service"
+interface uiexport as "File Export from UI"
+
+jore3 -- katla
+jore3 -- webservice
+jore3 -- uiexport
+
+package jore4 as "Jore4" {
+    component routes as "Routes and Lines"
+}
+interface hasura as "Hasura GraphQL Server"
+
+jore4 -- hasura
+
+package consumers as "Consumers" {
+    component gtfs as "Google GTFS"
+    katla <.. gtfs
+
+    component reittiopas as "Reittiopas"
+    katla <.. reittiopas
+
+    component opentrip as "OpenTripPlanner"
+    katla <.. opentrip
+
+    component google_transit as "Google Transit"
+    katla <.. google_transit
+
+    component digiroad as "Digiroad"
+    katla <.. digiroad
+
+    component pubtrans as "PubTrans"
+
+    component lissu as "Lissu"
+    webservice <.. lissu
+
+    component taku as "Taku"
+    webservice <.. taku
+
+    component bultti as "Bultti"
+
+    component kartat as "kartta.hsl.fi"
+    katla <.. kartat
+
+    component dynamics as "Microsoft Dynamics 365"
+
+    component hastus as "Hastus"
+    uiexport <..> hastus : CSV
+
+    component liptu as "LIPTU"
+    uiexport <.. liptu : CSV
+}
+
+package exports as "Exports" {
+    file bathroom as "reitin_lmaarat.xls"
+    uiexport <.. bathroom : Excel
+
+    file routeLengths as "reitin_tiedot.xls"
+    uiexport <.. routeLengths : Excel
+
+    file business1 as "Massalistaus Exceliin suunnitellut suoritteet.xlsx"
+    uiexport <.. business1 : Excel
+
+    file business2 as "Massalistaus Exceliin suoritteet ja korvaukset.xlsx"
+    uiexport <.. business2 : Excel
+
+    file equipmentReport as "Varustelutiedot.xlsx"
+    uiexport <.. equipmentReport : Excel
+
+    file posterExport as "Julistepaikkatiedot.xlsx"
+    uiexport <.. posterExport : Excel
+
+    file posterUsageGuide as "vb2JulistePaikat.docx"
+    uiexport <.. posterUsageGuide : Word
+
+    file infoExport as "Infopaikkatiedot.xlsx"
+    uiexport <.. infoExport : Excel
+
+    file plateGuide as "vb2Kilvitys.docx"
+    uiexport <.. plateGuide : Word
+
+    file posterExport2 as "vb2P2.docx"
+    uiexport <.. posterExport2 : Word
+}
+
+@enduml
