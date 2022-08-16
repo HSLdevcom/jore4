@@ -97,4 +97,8 @@ This aspect in turn has to pay attention to the fact that as stated above, only 
 
 The same concept is applied to routes themselves. If a higher priority route instance overrides a lower priority route instance for part of its validity time, the lower priority route is not considered valid - and thus should not be verified - for the time it is being "overridden".
 
-This concept allows 
+This concept allows modelling temporary (= high priority) stops residing on infrastructure links, which are only included in a temporary (= high priority) instance of the route, but not in the route's basic version. For example, if a route has to deviate from its usual course for the duration of a construction site, a high priority instance of that route is created following the new course and which is valid for the duration of the construction site. Additionally, the user can create a high priority instance of a stop point residing on the area of the construction site, which is also valid for the duration of the construction site. With this setup, the temporary route may reference the stop point entity, because for the duration of the construction site, the high priority stop point is on the path of the high priority route and for the remaining time, the (then valid) lower priority stop point is on the path of the (then valid) lower priority route.
+
+Without the concept of priority-based validity, it would be unclear which of the two stop point instances are referenced by each instance of the route (high and low priority) and it could therefore be concluded that some instances of the stop point can not be reached when traversing either instance of the route.
+
+An exception to the concept of priority-based validity are draft-priority instances, which are not considered valid, even though their numerical priority is higher than e.g. a basic version instance's priority. Therefore draft-priority instances are not included in the route verification at all.
