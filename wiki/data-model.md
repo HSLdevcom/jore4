@@ -96,8 +96,16 @@ These core entities have a 'label' property, which serves as the unique identifi
 
 As a result of the identification of entities via their label, journey patterns do not reference scheduled stop point instances directly, but rather refer to the scheduled stop point entity via the `scheduled_stop_point_invariant` table. This indirection allows the journey pattern to automatically reference the highest priority stop point instance at any given point in time. Other hand this means that it is necessary to consider all scheduled stop point instances with stop point labels referenced by a journey pattern (and valid at a given point in time) in order to determine the actual TM journey pattern at that point in time. For more details, also see [Route verification](#route-verification) below.
 
+Validity times allow modelling the situation of an entity being "out of order" for a certain time by making an instance's validity end when the entity is put out of order and creating another instance, whose validity starts when the "out of order" situation is resolved. If e.g. a scheduled stop point with label A cannot be used for the duration of construction work, it's scheduled stop point instance's validity end time should be set to the starting point in time of the construction work. Then another stop point instance with label A should be created, whose validity start time is set to the point in time when the construction work ends.
+
 As opposed to the `label` column, other descriptive columns of entity tables may be translateble and are not necessarily unique in any context. E.g. the line table's 'short_name_i18n' column is not required to be unique in any context on database level, even though from a user perspective it may contain information unique to the line.
 
 Route verification
 ------------------
 
+Since the route and journey pattern are stored separately in Transmodel and the Jore4 datamodel, it is advisable to check that a journey pattern referencing a certain route is compatible with that route. In other words, it should be ensured that all scheduled stop points of the journey pattern can be reached when traversing the route. This implies the following conditions are met:
+  - all links, on which the stop points reside, are included in the route
+  - those links are traversed in the same order in which they appear in the journey pattern
+  - each of those links is traversed in a direction, which allows approaching the stop point residing on it
+
+Since 
