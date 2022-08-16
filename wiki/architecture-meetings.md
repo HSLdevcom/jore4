@@ -7,10 +7,11 @@ This document references the [architectural risks EasyRetro board](https://easyr
 2022-08-18 Architecture meeting
 -------------------------------
 
-1. Identity dependencies between the different modules
-    - Allows building a roadmap with reasonable time estimates
+1. Identity dependencies between the different modules to build a reasonable roadmap
+    - Allows better estimates for taking jore4 into production use
     - To be discussed that how/when to sunset individual modules from jore3 when replaced by jore4
-    - While exports like Matkustaja info or GTFS depend on master data that is still only found in jore3, we cannot implement these in jore4
+    - While exports like Matkustaja info or GTFS depend on master data that is still only found in jore3, we might not be able to take modules into production use in jore4. E.g. Matkustaja info probably needs all the "routes and lines", "timetables" and "bus stop register" modules to be ready in jore4 before we can do the export.
+    - To be discussed whether it's possible to pick some master data from jore3, some from jore4 and create the exports with combining these
 
 2022-08-11 Architecture meeting
 -------------------------------
