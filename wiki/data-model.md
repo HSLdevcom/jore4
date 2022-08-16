@@ -7,7 +7,7 @@ It has been anticipated that different organizations in different countries migh
 
 The Jore4 system has been divided into separate modules, which should be coupled as loosely as possible. This has the advantage of making them potentially exchangable in the future, without having to renew the whole system at once. At the time of writing only the "Routes and Lines" module has reached the implementation stage.
 
-For example the stop module's data is to be kept separate from the "routes and lines" module, even though both modules model aspects of the same physical scheduled stop points. Where needed, the data of both modules could then be joined via their ids. Joining the data could be realized on the graphql API level.
+For example the stop module's data is to be kept separate from the "routes and lines" module, even though both modules model aspects of the same physical scheduled stop points. Where needed, the data of both modules could then be joined via their ids. Joining the data could be implemented on the graphql API level.
 
 Postgresql & Hasura
 -------------------
@@ -86,9 +86,15 @@ As opposed to the `label` column, other descriptive columns of entity tables may
 Route verification
 ------------------
 
-Since the route and journey pattern are stored separately in Transmodel and the Jore4 datamodel, it is advisable to check that a journey pattern referencing a certain route is compatible with that route. In other words, it should be ensured that all scheduled stop points of the journey pattern can be reached when traversing the route. This implies the following conditions are met:
+Since the route and journey pattern are stored separately from each other in the Jore4 data model (as specified in Transmodel), it is advisable to check that a journey pattern referencing a certain route is compatible with that route. In other words, it should be ensured that all scheduled stop points of the journey pattern can be reached when traversing the route. This implies that the following conditions are met:
   - all links, on which the stop points reside, are included in the route
   - those links are traversed in the same order in which they appear in the journey pattern
   - each of those links is traversed in a direction, which allows approaching the stop point residing on it
 
-Since 
+Since the same route instance references all scheduled stop point instances with the same label, the check should also ensure that all of the above hold at all points in time when the route is valid, i.e. the above must hold for all scheduled stop point instances referenced.
+
+This aspect in turn has to pay attention to the fact that as stated above, only the instance with the highest priority at a certain point in time is considered valid. In other words, if a scheduled stop point entity has an instance with high priority "overriding" a lower priority instance, then for the time span of overriding, only the higher priority instance is considered valid and only that one should be included in the route verification. But for the remaining validity time of the lower priority stop instance (when it is not "overridden"), the lower priority instance is considered valid and for that part should be included in the route verification for that time span.
+
+The same concept is applied to routes themselves. If a higher priority route instance overrides a lower priority route instance for part of its validity time, the lower priority route is not considered valid - and thus should not be verified - for the time it is being "overridden".
+
+This concept allows 
