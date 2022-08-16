@@ -7,6 +7,8 @@ It has been anticipated that different organizations in different countries migh
 
 The Jore4 system has been divided into separate modules, which should be coupled as loosely as possible. This has the advantage of making them potentially exchangable in the future, without having to renew the whole system at once. At the time of writing only the "Routes and Lines" module has reached the implementation stage.
 
+For example the stop module's data is to be kept separate from the "routes and lines" module, even though both modules model aspects of the same physical scheduled stop points. Where needed, the data of both modules could then be joined via their ids. Joining the data could be realized on the graphql API level.
+
 Postgresql & Hasura
 -------------------
 
