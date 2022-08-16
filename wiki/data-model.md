@@ -1,29 +1,5 @@
 This file aims to document the Jore4 data model and open questions regarding future development of the data model.
 
-Open questions
-==============
-
-This is the list of open questions regarding the data model, which are to be taken into account and / or solved in the future:
-
-1. How can a temporarily closed / out of order stop point in a service pattern be modelled?
-   - e.g. ending stop point's validity time and creating a new one whose validity time starts in the future?
-   - what about a stop point not being accessable only by certain journey patterns?
-
-2. How to model a stop point, whose usability / access is limited (e.g. wheel chair access not possible)?
-   - stop point register's data should be connected to route and line module's data?
-
-3. How to model versions of the same route with different end stops? (
-   - example: route1 = stop A -> stop B, route2 = stop A -> stop C
-   - are they different routes with different labels (1a, 1b, 1c, etc), each having a single journey pattern
-   - or are they a single route (1) with multiple different journey patterns
-
-4. Multilingual strings
-   - Option #1 (same as Jore3): Separate columns for each localized string
-   - Option #2: Use JSON(B) to store localizations
-   - Option #3: Separate tables for localized strings
-   - Option #4a: Separate codeset and localization tables for attribute names
-   - Option #4b: Separate codeset and localization tables for attribute names
-
 General principles
 ==================
 
@@ -72,6 +48,11 @@ Timestamp with time zone
 The system should be able to perform actions at times relating to the timestamps contained in the data base. (For example, a notification email might be sent prior to an entity's validity time expiration.) This means the system needs to be able to interpret the timestamps as absolute points in time, making the `timestamp with time zone` type the natural choice.
 
 However, it needs to be taken into account that the time zone applied when times are displayed to the user, is most likely not UTC and might not be the same as the user's web browser's time zone. In fact, in many cases the displayed entity's actual location should be used to determine the time zone to be applied. This way the user can be displayed the time according to the entity's local time. (In a simplified version, the same constant time zone might be used to display user information. This will serve the system as long as all entities processed by the system live in the same time zone and can later be extended to cover cases in which the system spans multiple time zones.)
+
+Localizable strings
+-------------------
+
+Localizable strings are modelled via JSON fields in the respective database entities. This solution was seen to be sufficiently stable and provides easy access to the localized data for the UI and other components. Also, JSON fields do not impose as much overhead as separate translation tables.
 
 Routes and lines
 ================
