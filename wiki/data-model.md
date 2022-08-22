@@ -1,4 +1,4 @@
-This file aims to document the Jore4 data model and open questions regarding future development of the data model.
+This file aims to document the Jore4 data model. If there are open questions regarding future development of the data model, you can add them in their own section 
 
 General principles
 ==================
