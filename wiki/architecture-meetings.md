@@ -4,6 +4,16 @@ It is not meant to document the architectural solutions as such, rather to docum
 
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
+
+2022-09-15 Architecture meeting
+-------------------------------
+
+1. Walk-through of current state of Timetable-module's data model
+   - General concepts
+   - Impact of Hastus API
+   - Impact of using Hastus calendar feature
+
+
 2022-08-18 Architecture meeting
 -------------------------------
 
