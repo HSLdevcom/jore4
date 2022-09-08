@@ -1,0 +1,22 @@
+name: Add issues to project
+
+on:
+  issues:
+    types:
+      - opened
+      - reopened
+  # Schedule a check once an hour. Useful if you reference cross-repository
+  # issues or pull requests. Can be removed otherwise.
+  schedule:
+    - cron: "0 * * * *"
+
+# automatically add all orphan tickets to the JORE4 project
+jobs:
+  add-to-project:
+    name: Add issue to project
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/add-to-project@6133899d5e5e259e48945c61767e830ad10dbd43
+        with:
+          project-url: https://github.com/orgs/HSLdevcom/projects/7
+          github-token: ${{ secrets.GITHUB_TOKEN }}
