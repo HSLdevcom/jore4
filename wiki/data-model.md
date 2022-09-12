@@ -1,5 +1,17 @@
 This file aims to document the Jore4 data model. If there are open questions regarding future development of the data model, you can add them in their own section at the beginning of this document.
 
+
+Open questions - timetables
+===========================
+
+- should "special days" (e.g. holidays or other days with exceptional traffic) be modelled as plain "higher priorities", as the priorities in routes and lines?
+- if not, is there any other use for priorities?
+- possible timestamp format to allow for >24h times: timestamp + day offset (integer)
+- need to question whether timestamp should include tz information
+  - => on one hand, the timestamp is always to be seen as the time at the stop, so tz info is intrinsic
+  - => but: does the system potentially need to react to the timetable times?
+
+
 General principles
 ==================
 
