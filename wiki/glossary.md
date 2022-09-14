@@ -1,5 +1,53 @@
 # Glossary
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [References](#references)
+- [Non-transmodel terminology of less technical subjects](#non-transmodel-terminology-of-less-technical-subjects)
+  - [Physical world](#physical-world)
+    - [Installation instruction for stop signs](#installation-instruction-for-stop-signs)
+    - [Poster frame](#poster-frame)
+    - [Break room](#break-room)
+  - [Employees](#employees)
+    - [Public transport planner](#public-transport-planner)
+    - [Transport planner](#transport-planner)
+    - [Transport researcher](#transport-researcher)
+    - [Planning assistant](#planning-assistant)
+    - [Data service coordinator](#data-service-coordinator)
+  - [Work processes](#work-processes)
+    - [Public transport target](#public-transport-target)
+    - [Trip operation plan](#trip-operation-plan)
+    - [Compensation](#compensation)
+    - [Compensation calculation](#compensation-calculation)
+    - [Route bundle contract](#route-bundle-contract)
+- [Transport data terminology](#transport-data-terminology)
+  - [Common Objects](#common-objects)
+    - [Point on Link](#point-on-link)
+  - [Fixed Objects](#fixed-objects)
+    - [Stop Place](#stop-place)
+    - [Quay](#quay)
+  - [Networks](#networks)
+    - [Infrastructure point](#infrastructure-point)
+    - [Infrastructure link](#infrastructure-link)
+  - [Routes and Lines](#routes-and-lines)
+    - [Line](#line)
+    - [Route](#route)
+    - [Route Point](#route-point)
+    - [Route Link](#route-link)
+    - [Point On Route](#point-on-route)
+  - [Tactical Planning](#tactical-planning)
+    - [Scheduled stop point](#scheduled-stop-point)
+    - [Timing Point](#timing-point)
+  - [Service Calendar](#service-calendar)
+    - [Day Types](#day-types)
+    - [Property of Day Type](#property-of-day-type)
+  - [Timetables](#timetables)
+    - [Vehicle Journey](#vehicle-journey)
+    - [Passing Time](#passing-time)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## References
 
 - [Transmodel V6 hierarchy](http://www.transmodel-cen.eu/model/index.htm)
@@ -112,7 +160,7 @@ A physical place, region or structure where vehicles may stop.
 
   > NeTEx: "A place such as platform, stance, or quayside where passengers have access to PT vehicles, Taxi, cars or other means of transportation. A QUAY may serve one or more VEHICLE STOPPING PLACEs and be associated with one or more STOP POINTS."
 
-### Networks and Routes
+### Networks
 
 #### Infrastructure point
 
@@ -140,6 +188,8 @@ In NeTEx: A directed link between two `infrastructure points`. May contain `poin
 
 > NeTEx: "A super-type including all LINKs of the physical network (e.g. RAILWAY ELEMENT)."
 
+
+### Routes and Lines
 #### Line
 
 * In Finnish: _Linja_
@@ -218,3 +268,35 @@ Links a `route point` with a `route`. The `order` attribute defines the order in
 In Jore 3, hastus points represent important route-specific stop places, which are used to e.g. synchronize timetables between multiple routes, or highlight a point where the vehicle speed changes significantly (e.g. the last stop before transitioning to a highway).
 
 Because the hastus points are route specific, a single stop place may be a hastus point on a particular route but only a regular stop place on other routes. A single route may have any number of hastus points, minimum amount is two: The first and last stops are always Hastus points.
+
+### Service Calendar
+
+#### Day Types
++ In NeTEx: part1 - 7.7.5.5.2
+
+> NeTEx: "A type of day characterised by one or more properties which affect public transport operation. For example: weekday in school holidays."
+
+This is a generic description of day types, like weekdays, weekends, holidays, etc. These attributes described by multiple PROPERTIES OF DAY TYPE
+
+#### Property of Day Type
++ In NeTEx: part1 - 7.7.5.6
+
+> NeTEx: "A property which a day may possess, such as school holiday, weekday, summer, winter etc. This may be used to generate a description of a day type in many different natural languages."
+
+These properties are technically enums, like "day of week", "week of month" or "day of year", etc.
+
+### Timetables
+
+#### Vehicle Journey
+- In NeTEx: part2 7.2.1.1
+
+> NeTEx: "The planned movement of a public transport vehicle on a DAY TYPE from the start point to the end point of a JOURNEY PATTERN on a specified ROUTE."
+
+This is a generic wrapper for a given route's timetables for a given day type.
+
+#### Passing Time
+- In NeTEx: part2 7.2.13.5.1
+
+> NeTEx: "Time data concerning public transport vehicles passing a particular POINT; e.g. arrival time, departure time, waiting time."
+
+This tells that when does a vehicle arrive and depart from a scheduled stop point for a given vehicle journey.
