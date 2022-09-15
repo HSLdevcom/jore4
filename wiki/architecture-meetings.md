@@ -8,7 +8,8 @@ This document references the [architectural risks EasyRetro board](https://easyr
 2022-09-22 Architecture meeting
 -------------------------------
 
-1. Summary of DoD changes (proposed / decided in slack conversation)
+1. QGIS-fixup-workflow
+2. Summary of DoD changes (proposed / decided in slack conversation)
 
 
 2022-09-15 Architecture meeting
