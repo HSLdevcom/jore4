@@ -9,6 +9,8 @@ This document references the [architectural risks EasyRetro board](https://easyr
 -------------------------------
 
 1. QGIS-fixup-workflow
+  - Would HSL traffic planners use git directly?
+  - Or should the QGIS-file(s) be exported and sent to the traffic planners (as zip etc)?
 2. Summary of DoD changes (proposed / decided in slack conversation)
 
 
