@@ -8,16 +8,17 @@ This document references the [architectural risks EasyRetro board](https://easyr
 2022-09-22 Architecture meeting
 -------------------------------
 
-1. QGIS-fixup-workflow
-  - Would HSL traffic planners use git directly?
-  - Or should the QGIS-file(s) be exported and sent to the traffic planners (as zip etc)?
-2. Summary of DoD changes (proposed / decided in slack conversation)
+1. Summary of DoD changes (proposed / decided in slack conversation)
 
 
 2022-09-15 Architecture meeting
 -------------------------------
 
-1. Walk-through of current state of Timetable-module's data model
+1. QGIS-fixup-workflow
+   - Would HSL traffic planners use git directly?
+   - Or should the QGIS-file(s) be exported and sent to the traffic planners (as zip etc)?
+
+2. Walk-through of current state of Timetable-module's data model
    - General concepts
    - Impact of Hastus API
    - Impact of using Hastus calendar feature
