@@ -10,6 +10,9 @@ This document references the [architectural risks EasyRetro board](https://easyr
 
 1. Summary of DoD changes (proposed / decided in slack conversation)
 
+2. Walk-through of current state of Timetable-module's data model
+   - follow-up from last week
+
 
 2022-09-15 Architecture meeting
 -------------------------------
@@ -26,6 +29,14 @@ This document references the [architectural risks EasyRetro board](https://easyr
    - General concepts
    - Impact of Hastus API
    - Impact of using Hastus calendar feature
+   - => Using `vehicle journey` vs `service journey`:
+     - => routes & lines module only models scheduled stop points
+     - => we still may want to be able to model (some cases of) `dead run`s on the time table side
+     - => in that sense `vehicle journey` may be the better choice
+   - => Some dead runs may need to be modelled, but not all of them
+   - => Most dead runs are traffic operators' "own business", i.e. do not affect time tables or compensations
+   - => Discussion needs a follow up, either @pallost will organize a separate meeting
+   - => Or we will get back to this in slack and / or the next architecture meeting
 
 
 2022-08-18 Architecture meeting
