@@ -17,6 +17,10 @@ This document references the [architectural risks EasyRetro board](https://easyr
 1. QGIS-fixup-workflow
    - Would HSL traffic planners use git directly?
    - Or should the QGIS-file(s) be exported and sent to the traffic planners (as zip etc)?
+   - Or could the changes be imported via a UI feature with a dedicated microservice?
+   - => In the MVP-phase, manual exchange of the QGIS-file(s) may be sufficient
+   - => HSL's traffic planners need to be involved in the process of deciding this
+   - => In later phases, a dedicated microservice with UI feature could be implemented
 
 2. Walk-through of current state of Timetable-module's data model
    - General concepts
