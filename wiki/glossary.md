@@ -292,7 +292,14 @@ These properties are technically enums, like "day of week", "week of month" or "
 
 > NeTEx: "The planned movement of a public transport vehicle on a DAY TYPE from the start point to the end point of a JOURNEY PATTERN on a specified ROUTE."
 
-This is a generic wrapper for a given route's timetables for a given day type.
+This is a generic wrapper for a given route's timetables for a given day type. From this, Transmodel inherits the types Service Journey (journey with passangers) and Dead Run (journey without passengers - e.g. from garage to first stop, or journey from last stop of route A to first stop of route B in the middle of the day)
+
+#### Block
+- In NeTEx: part2 8.2.2.1.1 Blocks
+
+> NeTEx: "The work of a vehicle from the time it leaves a PARKING POINT after parking until its next return to park at a PARKING POINT. Any subsequent departure from a PARKING POINT after parking marks the start of a new BLOCK. The period of a BLOCK has to be covered by DUTies."
+
+For HSL, this can be used as a section of a given day. E.g. when overwriting only the afternoon's timetable for a given day.
 
 #### Passing Time
 - In NeTEx: part2 7.2.13.5.1
