@@ -9,9 +9,16 @@ This document references the [architectural risks EasyRetro board](https://easyr
 -------------------------------
 
 1. Summary of DoD changes (proposed / decided in slack conversation)
+   - => flux-repository update will be automized
+   - => update of e2e and dev -branches (and environments) will be automized
+   - => corner cases (e.g. new env variables) and breaking e2e tests need to be handled manually
+   - => QA will update test env after testing changes in dev env
 
 2. Walk-through of current state of Timetable-module's data model
    - follow-up from last week
+   - => discussion about different ways of modelling exceptional days etc
+   - => team will get presentation of jore3-timetable module next monday
+   - => design might need to be involved again, "special" days and/or priorities need attention
 
 
 2022-09-15 Architecture meeting
