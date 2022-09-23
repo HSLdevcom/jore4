@@ -78,7 +78,7 @@ The data model is somewhat closely based on parts of the [Transmodel (TM) specif
 
 Also, there have been cases, in which these basic TM modelling principles were seen not to support the system's operational capabilities. Thus, additions and adoptions had to be made, some of the most important being:
 
-- The line, route, and scheduled stop point entity are considered "core entities" and their instances have a validity time and priority assigned to them. (See section [Validity times and priorities](#validity-times-and-priorities) below.)
+- The line, route, and scheduled stop point entity are considered "core entities" and their instances have a label, validity time and priority assigned to them. (See section [Validity times and priorities](#validity-times-and-priorities) below.)
 - A route can have only a single journey pattern. This is enforced by a constraint in the current implementation and may be changed in the future.
 - An actual journey pattern valid at a certain point in time has to be determined by evaluating the linked scheduled stop points' highest priority instances at that point in time (see [Validity times and priorities](#validity-times-and-priorities) below.)
 
