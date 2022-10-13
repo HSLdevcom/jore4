@@ -10,6 +10,8 @@ This document references the [architectural risks EasyRetro board](https://easyr
 
 1. State of the timetable data model
 
+2. Route editing handles, map-matching
+
 
 2022-09-22 Architecture meeting
 -------------------------------
