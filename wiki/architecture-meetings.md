@@ -9,8 +9,13 @@ This document references the [architectural risks EasyRetro board](https://easyr
 -------------------------------
 
 1. State of the timetable data model
+  - general overview
+  - how do priorities work
+  - => priorities are defined on `vehicle_schedule_frame` basis and are evaluated on day and line basis
+  - differences to Transmodel
 
 2. Route editing handles, map-matching
+  - => loop handling on bi-directional links solved using additional handles
 
 
 2022-09-22 Architecture meeting
