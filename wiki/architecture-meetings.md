@@ -5,6 +5,18 @@ It is not meant to document the architectural solutions as such, rather to docum
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
 
+2022-10-27 Architecture meeting
+-------------------------------
+
+1. Keeping SQL functionality separate from data
+  - would allow for much easier development of SQL functionality
+  - could be done with this card, but possibly would make sense to do this earlier than originally thought: https://github.com/HSLdevcom/jore4/issues/923
+  - could work by keeping functionality and data migrations separately
+  - functionality migrations would always create everything from scratch
+  - basic up flow:  functionality migration N - 1 down -> data migration N up -> functionality migration N up
+  - basic down flow:  functionality migration N down -> data migration N down -> functionality migration N - 1 up
+
+
 2022-10-13 Architecture meeting
 -------------------------------
 
