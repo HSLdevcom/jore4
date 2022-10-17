@@ -299,7 +299,7 @@ This is a generic wrapper for a given route's timetables for a given day type. F
 
 > NeTEx: "The work of a vehicle from the time it leaves a PARKING POINT after parking until its next return to park at a PARKING POINT. Any subsequent departure from a PARKING POINT after parking marks the start of a new BLOCK. The period of a BLOCK has to be covered by DUTies."
 
-For HSL, this can be used as a section of a given day. E.g. when overwriting only the afternoon's timetable for a given day.
+For HSL, this marks a section of a given day. E.g. when a bus has journeys in the morning (block no 1.), goes to the garage and then has journeys in the evening (block no 2.)
 
 #### Passing Time
 - In NeTEx: part2 7.2.13.5.1
