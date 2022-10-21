@@ -16,6 +16,12 @@ This document references the [architectural risks EasyRetro board](https://easyr
   - basic up flow:  functionality migration N - 1 down -> data migration N up -> functionality migration N up
   - basic down flow:  functionality migration N down -> data migration N down -> functionality migration N - 1 up
 
+2. Discussion about the current architecture and its maintainability in general
+  - currently we are using an anti-pattern where the database is doing validation and the UI is doing business logic
+  - having a database-heavy architecture is good when we have performance critical operations (e.g. GIS), but that part is already separated to mapmatchingdb, so there's no reason to keep this up with the rest of the database
+  - having multiple logical databases will make cross-database validation cumbersome if not impossible
+  - currently there's a major risk that noone can really maintain the current functionality implemented in SQL other than a single person, or it takes a major effort to continue with the current style
+  - idea: let's implement mutations such that database writes must go through backend microservice(s). Queries however could still work as they do now
 
 2022-10-13 Architecture meeting
 -------------------------------
