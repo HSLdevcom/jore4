@@ -112,5 +112,8 @@
 ## 2022-09-27
 ![Retrospective board](images/retro_270922.png "Retrospective board")
 
-## 2022-010-11
+## 2022-10-11
 ![Retrospective board](images/retro_111022.png "Retrospective board")
+
+## 2022-10-25
+![Retrospective board](images/retro_251022.png "Retrospective board")
