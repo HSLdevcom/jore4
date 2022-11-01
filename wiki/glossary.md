@@ -21,29 +21,36 @@
     - [Compensation](#compensation)
     - [Compensation calculation](#compensation-calculation)
     - [Route bundle contract](#route-bundle-contract)
-- [Transport data terminology](#transport-data-terminology)
-  - [Common Objects](#common-objects)
-    - [Point on Link](#point-on-link)
-  - [Fixed Objects](#fixed-objects)
-    - [Stop Place](#stop-place)
-    - [Quay](#quay)
-  - [Networks](#networks)
-    - [Infrastructure point](#infrastructure-point)
-    - [Infrastructure link](#infrastructure-link)
-  - [Routes and Lines](#routes-and-lines)
-    - [Line](#line)
-    - [Route](#route)
-    - [Route Point](#route-point)
-    - [Route Link](#route-link)
-    - [Point On Route](#point-on-route)
-  - [Tactical Planning](#tactical-planning)
-    - [Scheduled stop point](#scheduled-stop-point)
-    - [Timing Point](#timing-point)
-  - [Service Calendar](#service-calendar)
-    - [Day Types](#day-types)
-    - [Property of Day Type](#property-of-day-type)
-  - [Timetables](#timetables)
+- [Transmodel terminology](#transmodel-terminology)
+  - [Common Concepts](#common-concepts)
+    - [Generic Point & Link MODEL](#generic-point--link-model)
+      - [Point on Link](#point-on-link)
+    - [Generic Service Calendar MODEL](#generic-service-calendar-model)
+      - [Operating Day](#operating-day)
+      - [Day Type](#day-type)
+      - [Property of Day Type](#property-of-day-type)
+  - [Network Topology Domain](#network-topology-domain)
+    - [Network Infrastructure MODEL](#network-infrastructure-model)
+      - [Infrastructure point](#infrastructure-point)
+      - [Infrastructure link](#infrastructure-link)
+    - [Route MODEL](#route-model)
+      - [Line](#line)
+      - [Route](#route)
+      - [Route Point](#route-point)
+      - [Route Link](#route-link)
+      - [Point On Route](#point-on-route)
+    - [Fixed Object MODEL](#fixed-object-model)
+      - [Stop Place](#stop-place)
+      - [Quay](#quay)
+    - [Journey / Service / Timing Pattern MODEL](#journey--service--timing-pattern-model)
+      - [Scheduled stop point](#scheduled-stop-point)
+      - [Timing Point](#timing-point)
+      - [Timing Place (not in Transmodel)](#timing-place-not-in-transmodel)
+      - [Journey Pattern](#journey-pattern)
+      - [Point in Journey Pattern](#point-in-journey-pattern)
+  - [Timing information and vehicle scheduling data domain](#timing-information-and-vehicle-scheduling-data-domain)
     - [Vehicle Journey](#vehicle-journey)
+    - [Block](#block)
     - [Passing Time](#passing-time)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -121,17 +128,19 @@
 * In Finnish: _Sopimuskohde_
 * Practically all routes that are driven from a single contract. Contract has a limited validity period, such as 5 years.
 
-## Transport data terminology
+## Transmodel terminology
 
-The following taxonomy loosely follows the Transmodel hierarchy and attemps to map similar concepts in Transmodel and Jore 3.x.
+The following taxonomy loosely follows the Transmodel hierarchy and attempts to map similar concepts in Transmodel and Jore 3.x.
 
-### Common Objects
+### Common Concepts
 
-#### Point on Link
+#### Generic Point & Link MODEL
+
+##### Point on Link
 
 * In Finnish: _Linkin piste_
 * In Jore 3: _Piste_
-* In NeTEx: 7.6.5.1.3
+* In NeTEx: Part 1 - 7.6.5.1.3
 * Examples: a point on a road element
 * Attributes: `coordinates`, `order`
 
@@ -139,34 +148,41 @@ A single point on a link.
 
 > NeTEx: "A POINT in a LINK SEQUENCE indicating its order in that particular LINK SEQUENCE."
 
-### Fixed Objects
+#### Generic Service Calendar MODEL
 
-#### Stop Place
+##### Operating Day
 
-* In Finnish: _Pysähdyspaikka (fyysinen)_
-* In Jore 3: _Pysäkkialue_ or _Terminaali_
-* In NeTEx: 8.5.4
-* Examples: a rail way terminal, two bus stops on the opposite sides of the road
+* In Finnish: _Liikennöintipäivä_
+* In NeTEx: Part 1 - 7.7.5.5.3
 
-A physical place, region or structure where vehicles may stop.
+> NeTEx: "A day of public transport operation in a specific calendar. An OPERATING DAY may last more than 24 hours."
 
-> NeTEx: "A place comprising one or more locations where vehicles may stop and where passengers may board or leave vehicles or prepare their trip. A STOP PLACE will usually have one or more well-known names."
+##### Day Type
 
-#### Quay
+* In Finnish: _Päivätyyppi_
+* In NeTEx: Part 1 - 7.7.5.5.2
 
-* In Finnish: _Laituri_
-* In Jore 3: _Pysäkki_
-* In NeTEx: 8.5.4.5.6
+This is a generic description of day types, like weekdays, weekends, holidays, etc. These attributes described by multiple PROPERTIES OF DAY TYPE
 
-  > NeTEx: "A place such as platform, stance, or quayside where passengers have access to PT vehicles, Taxi, cars or other means of transportation. A QUAY may serve one or more VEHICLE STOPPING PLACEs and be associated with one or more STOP POINTS."
+> NeTEx: "A type of day characterised by one or more properties which affect public transport operation. For example: weekday in school holidays."
 
-### Networks
+##### Property of Day Type
 
-#### Infrastructure point
+* In NeTEx: Part 1 - 7.7.5.6
+
+These properties are technically enums, like "day of week", "week of month" or "day of year", etc.
+
+> NeTEx: "A property which a day may possess, such as school holiday, weekday, summer, winter etc. This may be used to generate a description of a day type in many different natural languages."
+
+### Network Topology Domain
+
+#### Network Infrastructure MODEL
+
+##### Infrastructure point
 
 * In Finnish: _Verkon piste_
 * In Jore 3: _Verkon solmu_
-* In NeTEx: 8.4.1.4.1
+* In NeTEx: Part 1 - 8.4.1.4.1
 * Examples: road junction, railway junction
 * Attributes: `coordinates`
 
@@ -174,31 +190,29 @@ An intersection point through which public transport traffic flows.
 
 > NeTEx: "A super-type including all POINTs of the physical network (e.g. RAILWAY JUNCTION)."
 
-#### Infrastructure link
+##### Infrastructure link
 
 * In Finnish: _Verkon linkki_
 * In Jore 3: _Verkon linkki_
-* In NeTEx: 8.4.1.4.5
+* In NeTEx: Part 1 - 8.4.1.4.5
 * Examples: road element, railway element
 * Attributes: `from point`, `to point`, `distance`, `points on link`
 
-In Jore 3:
-
-In NeTEx: A directed link between two `infrastructure points`. May contain `points on link` which specify the exact shape of the link.
+A directed link between two `infrastructure points`. May contain `points on link` which specify the exact shape of the link.
 
 > NeTEx: "A super-type including all LINKs of the physical network (e.g. RAILWAY ELEMENT)."
 
+#### Route MODEL
 
-### Routes and Lines
-#### Line
+##### Line
 
 * In Finnish: _Linja_
 * In Jore 3: _Linja_ + _Linjan nimet_
-* In NeTEx: Part 1 - 8.4.5.6
+* In NeTEx: Part 1 -  8.4.5.6
 
-  > NeTEx: "A group of ROUTEs which is generally known to the public by a similar name or number."
+> NeTEx: "A group of ROUTEs which is generally known to the public by a similar name or number."
 
-#### Route
+##### Route
 
 * In Finnish: _Reitti_
 * In Jore 3: _Reitti_ + _Reitin suunta_
@@ -211,7 +225,7 @@ Note that in Jore 3, a single _reitti_ defines two _reitin suunta_: two routes i
 
 > NeTEx: "An ordered list of located POINTs defining one single path through the road (or rail) network. A ROUTE may pass through the same POINT more than once".
 
-#### Route Point
+##### Route Point
 
 * In Finnish: _Reittipiste_
 * In NeTEx: Part 1 - 8.4.5.5.2
@@ -221,7 +235,7 @@ A point through which `route(s)` may flow. The same `route` may go through the s
 
 > NeTEx: "A POINT used to define the shape of a ROUTE through the network."
 
-#### Route Link
+##### Route Link
 
 * In Finnish: _Reitin linkki_
 * In Jore 3: _Reitin linkki_
@@ -236,7 +250,7 @@ In NeTEx each point may either be a `route point` or a `scheduled stop point`.
 
 > NeTEx: "an oriented link between two ROUTE POINTs allowing the definition of a unique path through the network."
 
-#### Point On Route
+##### Point On Route
 
 * In Finnish: _Piste reitillä_
 * In Jore 3: N/A
@@ -247,63 +261,103 @@ Links a `route point` with a `route`. The `order` attribute defines the order in
 
 > NeTEx: "A ROUTE POINT used to define a ROUTE with its order on that ROUTE."
 
-### Tactical Planning
+#### Fixed Object MODEL
 
-#### Scheduled stop point
+##### Stop Place
+
+* In Finnish: _Pysähdyspaikka (fyysinen)_
+* In Jore 3: _Pysäkkialue_ or _Terminaali_
+* In NeTEx: Part 1 - 8.5.4, 8.5.4.5.1
+* Examples: a rail way terminal, two bus stops on the opposite sides of the road
+
+A physical place, region or structure where vehicles may stop.
+
+> NeTEx: "A place comprising one or more locations where vehicles may stop and where passengers may board or leave vehicles or prepare their trip. A STOP PLACE will usually have one or more well-known names."
+
+##### Quay
+
+* In Finnish: _Laituri_
+* In Jore 3: _Pysäkki_
+* In NeTEx: Part 1 - 8.5.4.5.6
+
+> NeTEx: "A place such as platform, stance, or quayside where passengers have access to PT vehicles, Taxi, cars or other means of transportation. A QUAY may serve one or more VEHICLE STOPPING PLACEs and be associated with one or more STOP POINTS."
+
+#### Journey / Service / Timing Pattern MODEL
+
+##### Scheduled stop point
 
 * In Finnish: _Pysähdyspaikka (looginen)_
-* In Jore 3: N/A
+* In Jore 3: _Pysäkki_
 * In NeTEx: Part 1 - 8.6.3.4.2
+* Attributes: `measured_location`, `direction`
 
-  > NeTEx: "A POINT where passengers can board or alight from vehicles"
+In Jore 4, scheduled stop points model logical stop points. They have a measured location and are associated with an infrastructure link.
 
-#### Timing Point
+A scheduled stop point may be associated with a _timing place_ (Hastus place). A scheduled stop point associated with a timing place can be set as a timing point for a specific journey pattern, but only as a regular stop point for some other journey pattern.
 
-* In Finnish: _Hastus-paikka_
-* In Jore 3: _Hastus-paikka_
-* In NeTEx: 8.4.7.4.1
+> NeTEx: "A POINT where passengers can board or alight from vehicles"
+
+##### Timing Point
+
+* In Finnish: _Ajoituspiste_
+* In NeTEx: Part 1 - 8.4.7.4.1
 
 > NeTEx: "A POINT against which the timing information necessary to build schedules may be recorded."
 
-In Jore 3, hastus points represent important route-specific stop places, which are used to e.g. synchronize timetables between multiple routes, or highlight a point where the vehicle speed changes significantly (e.g. the last stop before transitioning to a highway).
+##### Timing Place (not in Transmodel)
 
-Because the hastus points are route specific, a single stop place may be a hastus point on a particular route but only a regular stop place on other routes. A single route may have any number of hastus points, minimum amount is two: The first and last stops are always Hastus points.
+* In Finnish: _Hastus-paikka_
+* In Jore 3: _Hastus-paikka_
 
-### Service Calendar
+In Jore 3, Hastus places represent important route-specific stop places, which are used to e.g. synchronize timetables between multiple routes, or highlight a point where the vehicle speed changes significantly (e.g. the last stop before transitioning to a highway).
 
-#### Day Types
-+ In NeTEx: part1 - 7.7.5.5.2
+In Jore 4, an individual scheduled stop points can be associated with a timing place. A timing place can consist of several scheduled stop points.
 
-> NeTEx: "A type of day characterised by one or more properties which affect public transport operation. For example: weekday in school holidays."
+> Hastus glossary: "Places are locations on the transit network that can be used to define timing points, relief points, garages, and canteens."
 
-This is a generic description of day types, like weekdays, weekends, holidays, etc. These attributes described by multiple PROPERTIES OF DAY TYPE
+##### Journey Pattern
 
-#### Property of Day Type
-+ In NeTEx: part1 - 7.7.5.6
+* In Finnish: _Kulkukuvio_
+* In Jore 3: N/A
+* In NeTEx: Part 1 - 8.6.2.3.1
 
-> NeTEx: "A property which a day may possess, such as school holiday, weekday, summer, winter etc. This may be used to generate a description of a day type in many different natural languages."
+An ordered list of scheduled stop points on a single route.
 
-These properties are technically enums, like "day of week", "week of month" or "day of year", etc.
+> NeTEX: "An ordered list of STOP POINTs and TIMING POINTs on a single ROUTE, describing the pattern of working for public transport vehicles."
 
-### Timetables
+##### Point in Journey Pattern
+
+* In Finnish: _Kulkukuvion piste_
+* In Jore 3: N/A
+* In NeTEx: Part 1 - 8.6.2.3.3
+* Attributes: `is_used_as_timing_point`, `is_loading_time_allowed`, `is_via_point`
+
+In Jore 4, all points in the journey pattern are scheduled stop points. The attribute `is_used_as_timing_point` indicates whether the scheduled stop point as part of the journey pattern is set as a timing point in that specific journey pattern. A single journey pattern may have any number of timing points, minimum amount is two: the first and last stop are always a timing point.
+
+> NeTEx: "A STOP POINT or TIMING POINT in a JOURNEY PATTERN with its order in that JOURNEY PATTERN."
+
+### Timing information and vehicle scheduling data domain
 
 #### Vehicle Journey
-- In NeTEx: part2 7.2.1.1
 
-> NeTEx: "The planned movement of a public transport vehicle on a DAY TYPE from the start point to the end point of a JOURNEY PATTERN on a specified ROUTE."
+* In NeTEx: Part 2 - 7.2.1.1
 
 This is a generic wrapper for a given route's timetables for a given day type. From this, Transmodel inherits the types Service Journey (journey with passangers) and Dead Run (journey without passengers - e.g. from garage to first stop, or journey from last stop of route A to first stop of route B in the middle of the day)
 
-#### Block
-- In NeTEx: part2 8.2.2.1.1 Blocks
+> NeTEx: "The planned movement of a public transport vehicle on a DAY TYPE from the start point to the end point of a JOURNEY PATTERN on a specified ROUTE."
 
-> NeTEx: "The work of a vehicle from the time it leaves a PARKING POINT after parking until its next return to park at a PARKING POINT. Any subsequent departure from a PARKING POINT after parking marks the start of a new BLOCK. The period of a BLOCK has to be covered by DUTies."
+#### Block
+
+* In NeTEx: Part 2 - 8.2.2.1.1
 
 For HSL, this marks a section of a given day. E.g. when a bus has journeys in the morning (block no 1.), goes to the garage and then has journeys in the evening (block no 2.)
 
-#### Passing Time
-- In NeTEx: part2 7.2.13.5.1
+> NeTEx: "The work of a vehicle from the time it leaves a PARKING POINT after parking until its next return to park at a PARKING POINT. Any subsequent departure from a PARKING POINT after parking marks the start of a new BLOCK. The period of a BLOCK has to be covered by DUTies."
 
-> NeTEx: "Time data concerning public transport vehicles passing a particular POINT; e.g. arrival time, departure time, waiting time."
+#### Passing Time
+
+* In NeTEx: Part 2 - 7.2.13.5.1
 
 This tells that when does a vehicle arrive and depart from a scheduled stop point for a given vehicle journey.
+
+> NeTEx: "Time data concerning public transport vehicles passing a particular POINT; e.g. arrival time, departure time, waiting time."
