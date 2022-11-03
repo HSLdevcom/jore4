@@ -15,7 +15,18 @@ This document references the [architectural risks EasyRetro board](https://easyr
 -------------------------------
 
 1. How to model referencing days in timetables
-2. How to model days with no vehicle journeys
+  - in Jore3 all days were defined for all timetables imported from Hastus
+  - Jore4 does not have this requirement (because of partial imports with higher priority)
+  - for this reason, it is not clear how to model references
+  - 2 options: either referencing by key "timetable + priority + day type" or by "calendar date"
+  - in Jore3 references could be limited by time (e.g. "traffic as on Sundays, but ownly until 16:00")
+  - => more input from designers and end users is needed
+  - => e.g. question of why until now day types have been used in references as opposded to calendar days
+  - => input will be gathered and let's get back to the issue later
+
+2. How to model exceptional days with no vehicle journeys
+  - => days with no vehicle journeys (as an exception to "normal" timetables) can be modelled as a
+       special case of the referencing days
 
 
 2022-10-27 Architecture meeting
