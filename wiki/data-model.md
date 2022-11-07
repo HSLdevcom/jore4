@@ -109,7 +109,15 @@ This aspect in turn has to pay attention to the fact that as stated above, only 
 
 The same concept is applied to routes themselves. If a higher priority route instance overrides a lower priority route instance for part of its validity time, the lower priority route is not considered valid - and thus should not be verified - for the time it is being "overridden".
 
-This concept allows modelling temporary (= high priority) stops residing on infrastructure links, which are only included in a temporary (= high priority) instance of the route, but not in the route's basic version. For example, if a route has to deviate from its usual course for the duration of a construction site, a high priority instance of that route is created following the new course and which is valid for the duration of the construction site. Additionally, the user can create a high priority instance of a stop point residing on the area of the construction site, which is also valid for the duration of the construction site. With this setup, the temporary route may reference the stop point entity, because for the duration of the construction site, the high priority stop point is on the path of the high priority route and for the remaining time, the (then valid) lower priority stop point is on the path of the (then valid) lower priority route.
+This concept allows modelling temporary (= high priority) stops residing on infrastructure links, which are only included in a temporary (= high priority) instance of the route, but not in the route's basic version. As an example, consider the following basic route version:
+
+![basic-route](https://user-images.githubusercontent.com/77336519/200253786-88313187-e898-4187-b335-f8a8303135c7.png)
+
+
+If that route has to deviate from its usual course for the duration of a construction site, a high priority instance of that route is created following the new course and which is valid for the duration of the construction site. Additionally, the user can create a high priority instance of a stop point residing on the area of the construction site, which is also valid for the duration of the construction site. With this setup, the temporary route may reference the stop point entity, because for the duration of the construction site, the high priority stop point is on the path of the high priority route and for the remaining time, the (then valid) lower priority stop point is on the path of the (then valid) lower priority route:
+
+![temp-route](https://user-images.githubusercontent.com/77336519/200253788-67719bdd-5d6b-4e59-919c-c6a524ba0622.png)
+
 
 Without the concept of priority-based validity, it would be unclear which of the two stop point instances are referenced by each instance of the route (high and low priority) and it could therefore be concluded that some instances of the stop point can not be reached when traversing either instance of the route.
 
