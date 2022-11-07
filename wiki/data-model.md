@@ -58,12 +58,14 @@ In order to support geographic locations of large scale, the system should not b
 
 When the need to use a function supporting only the `geometry` type arises, the `internal_utils.determine_SRID` functions should be used to determine the SRID for the conversion to the `geometry` type. The `internal_utils.determine_SRID` functions have been created to provide an abstraction layer to the PostGIS internal `_ST_BestSRID` functions, which are not documented and may be deprecated in the future. When this happens, the `internal_utils.determine_SRID` functions serve as single point of failure and can be changed to adopt a different way of determinining the most suitable SRIDs for the given `geography` parameters.
 
-Timestamp with time zone
-------------------------
+Validity times
+--------------
 
-The system should be able to perform actions at times relating to the timestamps contained in the data base. (For example, a notification email might be sent prior to an entity's validity time expiration.) This means the system needs to be able to interpret the timestamps as absolute points in time, making the `timestamp with time zone` type the natural choice.
+Validity times were originally modelled using the `timestamp with time zone` data type. It was thought that the system would need to be able to react to validity time changes autonomously, e.g. by sending out notifications to users when a validity time span reaches its end. This would make it necessary to define an exact point in time (hence `timestamp`) with an absolute time relation (hence `with time zone`).
 
-However, it needs to be taken into account that the time zone applied when times are displayed to the user, is most likely not UTC and might not be the same as the user's web browser's time zone. In fact, in many cases the displayed entity's actual location should be used to determine the time zone to be applied. This way the user can be displayed the time according to the entity's local time. (In a simplified version, the same constant time zone might be used to display user information. This will serve the system as long as all entities processed by the system live in the same time zone and can later be extended to cover cases in which the system spans multiple time zones.)
+However, exact points in time did not turn out to be a good solution. The user interface was designed to let the user handle validity dates only, which led to problems when the UI generated timestamps from a user input date. A `date` type seemed to be the more natural choice, since it does not offer addition of "best guess" exact times to the actual user input values. The `date`type also removed the need for an absolute time relation, since the system cannot in any case autonomously determine an absolute point in time at which to react.
+
+Validity times, which are now modelled as local timezone `date`s, should be interpreted to be local dates of the entities they are affecting.
 
 Localizable strings
 -------------------
