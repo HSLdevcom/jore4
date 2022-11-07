@@ -24,7 +24,7 @@ For example the stop module's data is to be kept separate from the "routes and l
 Postgresql & Hasura
 -------------------
 
-Postgresql has been chosen to be the database, with Hasura being the GraphQL engine. Hasura generates the GraphQL schema from the database schemass according to its configuration.
+Postgresql has been chosen to be the database, with Hasura being the GraphQL engine. Hasura generates the GraphQL schema from the database schemas according to its configuration.
 
 Generally, all database schemas of the Jore4 database should be exposed to the GraphQL schema, except the ones prefixed with `internal_`. These can contain e.g. "raw" tables, whose data may be exposed to the GraphQL schema via a view (also see [below](#exposing-data-via-views)) or may not be directly exposed at all.
 
