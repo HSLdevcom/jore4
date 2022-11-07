@@ -30,12 +30,14 @@ Generally, all database schemas of the Jore4 database should be exposed to the G
 
 Array and object relationships have been added in the Hasura configuration in many places wherever seen necessary.
 
-Exposing data via views
------------------------
+Exposing calculated data in the GraphQL schema
+----------------------------------------------
 
-In some cases, the data contained in the tables should be transformed or enriched when accessed via the GraphQL schema. For this, database views can be used. The view can be made modifyable by providing `INSTEAD OF` tiggers. This view is then exposed in the GraphQL schema.
+In some cases, the data contained in the tables should be transformed or enriched when accessed via the GraphQL schema. For this, database views had been used originally. The views were made modifyable by providing `INSTEAD OF` tiggers and were then exposed in the GraphQL schema. One example was the `internal_service_pattern.scheduled_stop_point` table, which was not exposed as such. Instead, the view `service_pattern.scheduled_stop_point` had been created, which provided the data from the `internal_service_pattern.scheduled_stop_point` table together with calculcated geometry data.
 
-One example for this technique is the `internal_service_pattern.scheduled_stop_point` table, which is not exposed as such. Instead, the view `service_pattern.scheduled_stop_point` has been created, which provides the data from the `internal_service_pattern.scheduled_stop_point` table together with calculcated geometry data.
+However, later it was discovered that the maintenance overhead of this techniqe was rather high. This was due to every change in the underlying original table requiring changes to be incorporated into the view and the affected `INSTEAD OF`-triggers.
+
+Instead of exposing computed data via views, all tables are now exposed directly and are enriched via Hasura's calculated fields. For example, the `service_pattern.scheduled_stop_point` view was removed and the `internal_service_pattern.scheduled_stop_point` table was moved to the `service_pattern` schema instead and exposed in the GraphQL API. The `closest_point_on_infrastructure_link` field, which was previously computed as a view column, is now included in the generated GraphQL queries as a computed field.
 
 Constraints
 -----------
