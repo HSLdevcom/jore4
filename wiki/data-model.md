@@ -58,14 +58,14 @@ In order to support geographic locations of large scale, the system should not b
 
 When the need to use a function supporting only the `geometry` type arises, the `internal_utils.determine_SRID` functions should be used to determine the SRID for the conversion to the `geometry` type. The `internal_utils.determine_SRID` functions have been created to provide an abstraction layer to the PostGIS internal `_ST_BestSRID` functions, which are not documented and may be deprecated in the future. When this happens, the `internal_utils.determine_SRID` functions serve as single point of failure and can be changed to adopt a different way of determinining the most suitable SRIDs for the given `geography` parameters.
 
-Validity times
+Validity spans
 --------------
 
-Validity times were originally modelled using the `timestamp with time zone` data type. It was thought that the system would need to be able to react to validity time changes autonomously, e.g. by sending out notifications to users when a validity time span reaches its end. This would make it necessary to define an exact point in time (hence `timestamp`) with an absolute time relation (hence `with time zone`).
+Validity spans were originally modelled using the `timestamp with time zone` data type. It was thought that the system would need to be able to react to validity span changes autonomously, e.g. by sending out notifications to users when a validity span reaches its end. This would make it necessary to define an exact point in time (hence `timestamp`) with an absolute time relation (hence `with time zone`).
 
 However, exact points in time did not turn out to be a good solution. The user interface was designed to let the user handle validity dates only, which led to problems when the UI generated timestamps from a user input date. A `date` type seemed to be the more natural choice, since it does not offer addition of "best guess" exact times to the actual user input values. The `date`type also removed the need for an absolute time relation, since the system cannot in any case autonomously determine an absolute point in time at which to react.
 
-Validity times, which are now modelled as local timezone `date`s, should be interpreted to be local dates of the entities they are affecting.
+Validity spans, which are now modelled as local timezone `date`s, should be interpreted to be local dates of the entities they are affecting.
 
 Localizable strings
 -------------------
@@ -82,20 +82,20 @@ The data model is somewhat closely based on parts of the [Transmodel (TM) specif
 
 Also, there have been cases, in which these basic TM modelling principles were seen not to support the system's operational capabilities. Thus, additions and adoptions had to be made, some of the most important being:
 
-- The line, route, and scheduled stop point entity are considered "core entities" and their instances have a label, validity time and priority assigned to them. (See section [Validity times and priorities](#validity-times-and-priorities) below.)
+- The line, route, and scheduled stop point entity are considered "core entities" and their instances have a label, validity span and priority assigned to them. (See section [Validity spans and priorities](#validity-spans-and-priorities) below.)
 - A route can have only a single journey pattern. This is enforced by a constraint in the current implementation and may be changed in the future.
-- An actual journey pattern valid at a certain point in time has to be determined by evaluating the linked scheduled stop points' highest priority instances at that point in time (see [Validity times and priorities](#validity-times-and-priorities) below.)
+- An actual journey pattern valid at a certain point in time has to be determined by evaluating the linked scheduled stop points' highest priority instances at that point in time (see [Validity spans and priorities](#validity-spans-and-priorities) below.)
 
-Validity times and priorities
+Validity spans and priorities
 -----------------------------
 
-The line, route, and scheduled stop point entities are considered _core entities_ and have a validity time and priority associated with their instances. The priority determines which instance is the one "in effect" at a given point in time, if at that point in time there is more than one valid instance.
+The line, route, and scheduled stop point entities are considered _core entities_ and have a validity span and priority associated with their instances. The priority determines which instance is the one "in effect" at a given point in time, if at that point in time there is more than one valid instance.
 
-These core entities have a 'label' property, which serves as the unique identifier of the entity. It has to be unique within the scope of the entity instances' validity times and priorities. The label is a user-readable, non-translatable character sequence. E.g. in case of a bus line, the `label` column of the line table contains the line's real world bus line number. (Transmodel features a `label` attribute for scheduled stop point entities, which served as the inspiration for the Jore4 label property. Note, however, that TM does not specify a label property for routes or lines and that the TM scheduled stop point label is meant to be translatable.)
+These core entities have a 'label' property, which serves as the unique identifier of the entity. It has to be unique within the scope of the entity instances' validity spans and priorities. The label is a user-readable, non-translatable character sequence. E.g. in case of a bus line, the `label` column of the line table contains the line's real world bus line number. (Transmodel features a `label` attribute for scheduled stop point entities, which served as the inspiration for the Jore4 label property. Note, however, that TM does not specify a label property for routes or lines and that the TM scheduled stop point label is meant to be translatable.)
 
 As a result of the identification of entities via their label, journey patterns do not reference scheduled stop point instances directly, but rather refer to the scheduled stop point entity via the `scheduled_stop_point_invariant` table. This indirection allows the journey pattern to automatically reference the highest priority stop point instance at any given point in time. Other hand this means that it is necessary to consider all scheduled stop point instances with stop point labels referenced by a journey pattern (and valid at a given point in time) in order to determine the actual TM journey pattern at that point in time. For more details, also see [Route verification](#route-verification) below.
 
-Validity times allow modelling the situation of an entity being "out of order" for a certain time by making an instance's validity end when the entity is put out of order and creating another instance, whose validity starts when the "out of order" situation is resolved. If e.g. a scheduled stop point with label A cannot be used for the duration of construction work, it's scheduled stop point instance's validity end time should be set to the starting point in time of the construction work. Then another stop point instance with label A should be created, whose validity start time is set to the point in time when the construction work ends.
+Validity spans allow modelling the situation of an entity being "out of order" for a certain time by making an instance's validity end when the entity is put out of order and creating another instance, whose validity starts when the "out of order" situation is resolved. If e.g. a scheduled stop point with label A cannot be used for the duration of construction work, it's scheduled stop point instance's validity end time should be set to the starting point in time of the construction work. Then another stop point instance with label A should be created, whose validity start time is set to the point in time when the construction work ends.
 
 As opposed to the `label` column, other descriptive columns of entity tables may be translateble and are not necessarily unique in any context. E.g. the line table's 'short_name_i18n' column is not required to be unique in any context on database level, even though from a user perspective it may contain information unique to the line.
 
@@ -109,9 +109,9 @@ Since the route and journey pattern are stored separately from each other in the
 
 Since the same route instance references all scheduled stop point instances with the same label, the check should also ensure that all of the above hold at all points in time when the route is valid, i.e. the above must hold for all scheduled stop point instances referenced.
 
-This aspect in turn has to pay attention to the fact that as stated above, only the instance with the highest priority at a certain point in time is considered valid. In other words, if a scheduled stop point entity has an instance with high priority "overriding" a lower priority instance, then for the time span of overriding, only the higher priority instance is considered valid and only that one should be included in the route verification. But for the remaining validity time of the lower priority stop instance (when it is not "overridden"), the lower priority instance is considered valid and for that part should be included in the route verification for that time span.
+This aspect in turn has to pay attention to the fact that as stated above, only the instance with the highest priority at a certain point in time is considered valid. In other words, if a scheduled stop point entity has an instance with high priority "overriding" a lower priority instance, then for the time span of overriding, only the higher priority instance is considered valid and only that one should be included in the route verification. But for the remaining validity span of the lower priority stop instance (when it is not "overridden"), the lower priority instance is considered valid and for that part should be included in the route verification for that time span.
 
-The same concept is applied to routes themselves. If a higher priority route instance overrides a lower priority route instance for part of its validity time, the lower priority route is not considered valid - and thus should not be verified - for the time it is being "overridden".
+The same concept is applied to routes themselves. If a higher priority route instance overrides a lower priority route instance for part of its validity span, the lower priority route is not considered valid - and thus should not be verified - for the time it is being "overridden".
 
 This concept allows modelling temporary (= high priority) stops residing on infrastructure links, which are only included in a temporary (= high priority) instance of the route, but not in the route's basic version. As an example, consider the following basic route version:
 
