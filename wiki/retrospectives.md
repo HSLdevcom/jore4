@@ -117,3 +117,6 @@
 
 ## 2022-10-25
 ![Retrospective board](images/retro_251022.png "Retrospective board")
+
+## 2022-11-08
+![Retrospective board](images/retro_081122.png "Retrospective board")
