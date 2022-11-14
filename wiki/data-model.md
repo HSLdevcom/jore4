@@ -72,6 +72,12 @@ Localizable strings
 
 Localizable strings are modelled via JSON fields in the respective database entities. This solution was seen to be sufficiently stable and provides easy access to the localized data for the UI and other components. Also, JSON fields do not impose as much overhead as separate translation tables.
 
+Timetable times
+---------------
+
+Timetable times are modelled in the datbase using the postgresql `interval` type. On the one hand, this allows accounting for >24h times, which are needed for modelling operating day timetables. On the other hand, the `interval` type can also be easily converted to e.g. `timestamp` if "absolute time" timetables have to be generated.
+
+
 Routes and lines
 ================
 
@@ -126,3 +132,17 @@ If that route has to deviate from its usual course for the duration of a constru
 Without the concept of priority-based validity, it would be unclear which of the two stop point instances are referenced by each instance of the route (high and low priority) and it could therefore be concluded that some instances of the stop point can not be reached when traversing either instance of the route.
 
 An exception to the concept of priority-based validity are draft-priority instances, which are not considered valid, even though their numerical priority is higher than e.g. a basic version instance's priority. Therefore draft-priority instances are not included in the route verification at all.
+
+Timetables
+==========
+
+Timetables are modelled by referencing `journey_pattern`s from the _Routes and lines_ module indirectly. As pointed out above, the modules should be loosely coupled. For this reason, both modules' data is modelled in separate databases and references between the modules should be placed at well-defined points.
+
+The reference to the `journey_pattern` table in the _Routes and lines_ database is realized through a `journey_pattern_ref` table in the _Timetable_ database. A `journey_pattern_ref` row logically maps a point in time (the observation date) of a certain `journey_pattern` row onto the _Timetable_ side. In order to be able to determine if a _Routes and lines_ `journey_pattern` has changed after a reference has been created for it, also the timestamp of the creation of the reference is stored.
+
+Note that the current _Routes and lines_ implementation does not keep track of changes, so determining if a change has happened in a `journey_pattern` after its corresponding `journey_pattern_ref` had been created is not possible. But with any change tracking of the tables related to `journey_pattern`s this becomes easily implememntable.
+
+
+
+- should "special days" (e.g. holidays or other days with exceptional traffic) be modelled as plain "higher priorities", as the priorities in routes and lines?
+- if not, is there any other use for priorities?
