@@ -5,10 +5,24 @@ It is not meant to document the architectural solutions as such, rather to docum
 This document references the [architectural risks EasyRetro board](https://easyretro.io/board/7bd0a287-133c-49dc-9935-36627d8f9c1c/6f29490c-bfa6-46a6-a400-4f48e0640a1f).
 
 
-2022-11-10 Architecture meeting
+2022-11-17 Architecture meeting
 -------------------------------
 
 1. How to version infrastructure network
+  - The topic relates to this backlog ticket: https://github.com/HSLdevcom/jore4/issues/975
+  - It was acknowledged that the problem is challenging and has not been solved in the MVP phase
+  - Basically, there is no need to store history data of shapes of infrastructure links
+    - With regard to compensation ("korvauslaskenta"), we can later add a numeric field into `route` table that defines the length of a route used as a basis for compensation. It is used to override the calculated route length in the same way as in Jore3.
+    - In simple cases, the geometry of an infrastructure link can be updated/replaced, but it does not solve the problem with divided/split road links.
+  - When a new road junction (intersection point) is created along an existing road link, the road link is divided into two new links, for which new IDs are created. We need to solve the following problems:
+    - What to do with an existing route whose part (route link) refers to an old link that existed before the split?
+      - Proposal: We maintain different versions of the infrastructure links with non-overlapping validity periods. As long as the route is not modified, it can still point to old versions of the road links. When editing route geometry, the road links are updated to new versions via the map-matching service. The map-matching service would always use the up-to-date versions of infrastructure links.
+    - How to get a scheduled stop point updated to point to the new road link?
+      - Proposal: We may need to provide UI that shows which stop points refer to old versions of road links (filtering by road link validity periods). Implement a feature to change road link reference from old link to a new link.
+      - To be clarified/researched: Is there a need to maintain duplicate versions of scheduled stop points for both new and old road links to allow existing journey patterns to coexist with new routes/journey-patterns based on the updated infrastructure network.
+  - There was a discussion about the extent of changes occurring in Digiroad, in order to evaluate a suitable technical solution
+    - Digiroad offers a real-time API from which changes can be queried
+    - Digiroad staff can be inquired about the number of annual changes. What is the typical number of road splits between Digiroad releases? However, inquiries themselves do not solve the problem of link splitting, which we probably need to solve anyway, as it can also happen with HSL-specific changes in the QGIS fixup project.
 
 
 2022-11-03 Architecture meeting
