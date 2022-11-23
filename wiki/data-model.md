@@ -90,7 +90,7 @@ Also, there have been cases, in which these basic TM modelling principles were s
 Validity spans and priorities
 -----------------------------
 
-The line, route, and scheduled stop point entities are considered _core entities_ and have a validity span and priority associated with their instances. The priority determines which instance is the one "effective" at a given point in time, if at that point in time there is more than one valid instance.
+The line, route, and scheduled stop point entities are considered _core entities_. Each core entity can have many instances associated with them. The instances of an entity are distinguished by their validity span and priority. The priority determines which of the instances of an entity is the one "effective" at a given point in time, if at that point in time there is more than one valid instance.
 
 These core entities have a 'label' property, which serves as the unique identifier of the entity. It has to be unique within the scope of the entity instances' validity spans and priorities. The label is a user-readable, non-translatable character sequence. E.g. in case of a bus line, the `label` column of the line table contains the line's real world bus line number. (Transmodel features a `label` attribute for scheduled stop point entities, which served as the inspiration for the Jore4 label property. Note, however, that TM does not specify a label property for routes or lines and that the TM scheduled stop point label is meant to be translatable.)
 
