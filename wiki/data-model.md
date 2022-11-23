@@ -108,13 +108,13 @@ Since the route and journey pattern are stored separately from each other in the
   - those links are traversed in the same order in which they appear in the journey pattern
   - each of those links is traversed in a direction, which allows approaching the stop point residing on it
 
-Since the same route instance references all scheduled stop point instances with the same label, the check should also ensure that all of the above hold at all points in time when the route is effective, i.e. the above must hold for all scheduled stop point instances referenced.
+Since the same route instance indirectly references all scheduled stop point instances with the same label, the check should also ensure that all of the above hold at all points in time when the route is effective, i.e. the above must hold for all scheduled stop point instances referenced.
 
-This aspect in turn has to pay attention to the fact that as stated above, only the instance with the highest priority at a certain point in time is considered effective. In other words, if a scheduled stop point entity has an instance with high priority "overriding" a lower priority instance, then for the time span of overriding, only the higher priority instance is considered effective and only that one should be included in the route verification. But for the remaining validity span of the lower priority stop instance (when it is not "overridden"), the lower priority instance is considered effective and for that part should be included in the route verification for that time span.
+This check in turn has to pay attention to the fact that as stated above, only the instance with the highest priority at a certain point in time is considered effective. In other words, if a scheduled stop point entity has an instance with high priority "overriding" a lower priority instance, then for the time span of overriding, only the higher priority instance is considered effective and only that one should be included in the route verification. But for the remaining validity span of the lower priority stop instance (when it is not "overridden"), the lower priority instance is considered effective and for that part should be included in the route verification for that time span.
 
 The same concept is applied to routes themselves. If a higher priority route instance overrides a lower priority route instance for part of its validity span, the lower priority route is not considered effective - and thus should not be verified - for the time it is being "overridden".
 
-This concept allows modelling temporary (= high priority) stops residing on infrastructure links, which are only included in a temporary (= high priority) instance of the route, but not in the route's basic version. As an example, consider the following basic route version:
+This concept of priority-based effectiveness allows modelling temporary (= high priority) stops residing on infrastructure links, which are only included in a temporary (= high priority) instance of the route, but not in the route's basic version. As an example, consider the following basic route version:
 
 ![basic-route](https://user-images.githubusercontent.com/77336519/200253786-88313187-e898-4187-b335-f8a8303135c7.png)
 
@@ -124,7 +124,9 @@ If that route has to deviate from its usual course for the duration of a constru
 ![temp-route](https://user-images.githubusercontent.com/77336519/200253788-67719bdd-5d6b-4e59-919c-c6a524ba0622.png)
 
 
-Without the concept of priority-based effectiveness, it would be unclear which of the two stop point instances are referenced by each instance of the route (high and low priority) and it could therefore be concluded that some instances of the stop point can not be reached when traversing either instance of the route.
+Note that for this to work, the user has to _first_ create a temporary route instance, whose journey pattern does not include the stop to be overridden (H0002). Then, in a second step, she can create the temporary stop instance with the same validity span as the temporary route instance and attach the H0002-stop entity to the temporary route instance. If the temporary stop instance would be created before the temporary route instance, this would imply that the basic route instance would reference the temporary stop instance, which does, however, not lie on any of the route's links and would thus consitute an illegal state.
+
+Without the concept of priority-based effectiveness, it would be unclear which of the two stop point instances are referenced by each instance of the route (high and low priority) and it could therefore be concluded that some instances of the stop point cannot be reached when traversing either instance of the route.
 
 An exception to the concept of priority-based effectiveness are draft-priority instances, which are not ever considered effective, even though their numerical priority is higher than e.g. a basic version instance's priority. Therefore draft-priority instances are not included in the route verification at all.
 
