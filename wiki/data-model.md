@@ -4,11 +4,7 @@ This file aims to document the Jore4 data model. If there are open questions reg
 Open questions - timetables
 ===========================
 
-
-- possible timestamp format to allow for >24h times: timestamp + day offset (integer)
-- need to question whether timestamp should include tz information
-  - => on one hand, the timestamp is always to be seen as the time at the stop, so tz info is intrinsic
-  - => but: does the system potentially need to react to the timetable times?
+- how to model referencing days ("sundays should be operated like day xxx")
 
 
 General principles
@@ -89,20 +85,20 @@ Also, there have been cases, in which these basic TM modelling principles were s
 
 - The line, route, and scheduled stop point entity are considered "core entities" and their instances have a label, validity span and priority assigned to them. (See section [Validity spans and priorities](#validity-spans-and-priorities) below.)
 - A route can have only a single journey pattern. This is enforced by a constraint in the current implementation and may be changed in the future.
-- An actual journey pattern valid at a certain point in time has to be determined by evaluating the linked scheduled stop points' highest priority instances at that point in time (see [Validity spans and priorities](#validity-spans-and-priorities) below.)
+- An actual journey pattern effective at a certain point in time has to be determined by evaluating the linked scheduled stop points' highest priority instances at that point in time (see [Validity spans and priorities](#validity-spans-and-priorities) below.)
 
 Validity spans and priorities
 -----------------------------
 
-The line, route, and scheduled stop point entities are considered _core entities_ and have a validity span and priority associated with their instances. The priority determines which instance is the one "in effect" at a given point in time, if at that point in time there is more than one valid instance.
+The line, route, and scheduled stop point entities are considered _core entities_ and have a validity span and priority associated with their instances. The priority determines which instance is the one "effective" at a given point in time, if at that point in time there is more than one valid instance.
 
 These core entities have a 'label' property, which serves as the unique identifier of the entity. It has to be unique within the scope of the entity instances' validity spans and priorities. The label is a user-readable, non-translatable character sequence. E.g. in case of a bus line, the `label` column of the line table contains the line's real world bus line number. (Transmodel features a `label` attribute for scheduled stop point entities, which served as the inspiration for the Jore4 label property. Note, however, that TM does not specify a label property for routes or lines and that the TM scheduled stop point label is meant to be translatable.)
 
-As a result of the identification of entities via their label, journey patterns do not reference scheduled stop point instances directly, but rather refer to the scheduled stop point entity via the `scheduled_stop_point_invariant` table. This indirection allows the journey pattern to semantically reference the highest priority stop point instance at any given point in time, without the need to version and update the references from journey patterns. But this also means that it is necessary to consider all scheduled stop point instances with stop point labels referenced by a journey pattern (and valid at a given point in time) in order to determine the actual TM journey pattern at that point in time. For more details, also see [Route verification](#route-verification) below.
+As a result of the identification of entities via their label, journey patterns do not reference scheduled stop point instances directly, but rather refer to the scheduled stop point entity via the `scheduled_stop_point_invariant` table. This indirection allows the journey pattern to semantically reference the highest priority stop point instance at any given point in time, without the need to version and update the references from journey patterns. But this also means that it is necessary to consider all scheduled stop point instances with stop point labels referenced by a journey pattern (and valid at a given point in time) in order to determine the actual effective TM journey pattern at that point in time. For more details, also see [Route verification](#route-verification) below.
 
 Validity spans allow modelling the situation of an entity being "out of order" for a certain time by making an instance's validity end when the entity is put out of order and creating another instance, whose validity starts when the "out of order" situation is resolved. If e.g. a scheduled stop point with label A cannot be used for the duration of construction work, it's scheduled stop point instance's validity end time should be set to the starting point in time of the construction work. Then another stop point instance with label A should be created, whose validity start time is set to the point in time when the construction work ends.
 
-As opposed to the `label` column, other descriptive columns of entity tables may be translateble and are not necessarily unique in any context. E.g. the line table's 'short_name_i18n' column is not required to be unique in any context on database level, even though from a user perspective it may contain information unique to the line.
+As opposed to the `label` column, other descriptive columns of entity tables may be translateble and are not necessarily unique in any context. E.g. the line table's 'short_name_i18n' column is not required to be unique in any context on database level, even though from a user perspective it may contain information unique to a specific line.
 
 Route verification
 ------------------
@@ -112,25 +108,25 @@ Since the route and journey pattern are stored separately from each other in the
   - those links are traversed in the same order in which they appear in the journey pattern
   - each of those links is traversed in a direction, which allows approaching the stop point residing on it
 
-Since the same route instance references all scheduled stop point instances with the same label, the check should also ensure that all of the above hold at all points in time when the route is valid, i.e. the above must hold for all scheduled stop point instances referenced.
+Since the same route instance references all scheduled stop point instances with the same label, the check should also ensure that all of the above hold at all points in time when the route is effective, i.e. the above must hold for all scheduled stop point instances referenced.
 
-This aspect in turn has to pay attention to the fact that as stated above, only the instance with the highest priority at a certain point in time is considered valid. In other words, if a scheduled stop point entity has an instance with high priority "overriding" a lower priority instance, then for the time span of overriding, only the higher priority instance is considered valid and only that one should be included in the route verification. But for the remaining validity span of the lower priority stop instance (when it is not "overridden"), the lower priority instance is considered valid and for that part should be included in the route verification for that time span.
+This aspect in turn has to pay attention to the fact that as stated above, only the instance with the highest priority at a certain point in time is considered effective. In other words, if a scheduled stop point entity has an instance with high priority "overriding" a lower priority instance, then for the time span of overriding, only the higher priority instance is considered effective and only that one should be included in the route verification. But for the remaining validity span of the lower priority stop instance (when it is not "overridden"), the lower priority instance is considered effective and for that part should be included in the route verification for that time span.
 
-The same concept is applied to routes themselves. If a higher priority route instance overrides a lower priority route instance for part of its validity span, the lower priority route is not considered valid - and thus should not be verified - for the time it is being "overridden".
+The same concept is applied to routes themselves. If a higher priority route instance overrides a lower priority route instance for part of its validity span, the lower priority route is not considered effective - and thus should not be verified - for the time it is being "overridden".
 
 This concept allows modelling temporary (= high priority) stops residing on infrastructure links, which are only included in a temporary (= high priority) instance of the route, but not in the route's basic version. As an example, consider the following basic route version:
 
 ![basic-route](https://user-images.githubusercontent.com/77336519/200253786-88313187-e898-4187-b335-f8a8303135c7.png)
 
 
-If that route has to deviate from its usual course for the duration of a construction site, a high priority instance of that route is created following the new course and which is valid for the duration of the construction site. Additionally, the user can create a high priority instance of a stop point residing on the area of the construction site, which is also valid for the duration of the construction site. With this setup, the temporary route may reference the stop point entity, because for the duration of the construction site, the high priority stop point is on the path of the high priority route and for the remaining time, the (then valid) lower priority stop point is on the path of the (then valid) lower priority route:
+If that route has to deviate from its usual course for the duration of a construction site, a high priority instance of that route is created following the new course and which is valid for the duration of the construction site. Additionally, the user can create a high priority instance of a stop point residing on the area of the construction site, which is also valid for the duration of the construction site. With this setup, the temporary route may reference the stop point entity, because for the duration of the construction site, the high priority stop point is on the path of the high priority route and for the remaining time, the (then effective) lower priority stop point is on the path of the (then effective) lower priority route:
 
 ![temp-route](https://user-images.githubusercontent.com/77336519/200253788-67719bdd-5d6b-4e59-919c-c6a524ba0622.png)
 
 
-Without the concept of priority-based validity, it would be unclear which of the two stop point instances are referenced by each instance of the route (high and low priority) and it could therefore be concluded that some instances of the stop point can not be reached when traversing either instance of the route.
+Without the concept of priority-based effectiveness, it would be unclear which of the two stop point instances are referenced by each instance of the route (high and low priority) and it could therefore be concluded that some instances of the stop point can not be reached when traversing either instance of the route.
 
-An exception to the concept of priority-based validity are draft-priority instances, which are not considered valid, even though their numerical priority is higher than e.g. a basic version instance's priority. Therefore draft-priority instances are not included in the route verification at all.
+An exception to the concept of priority-based effectiveness are draft-priority instances, which are not ever considered effective, even though their numerical priority is higher than e.g. a basic version instance's priority. Therefore draft-priority instances are not included in the route verification at all.
 
 Timetables
 ==========
@@ -142,7 +138,7 @@ Priorities and validity span
 
 During the import step, the timetable(s) to be imported are assigned a priority. The validity span is defined in the data retrieved from Hastus. The basic mechanism of the priority and validity span of a timetable is the same as in the Routes and Lines -module: Timetables with a higher priority "override" timetables with a lower priority for the duration of the higher priority timetable's validity span. As opposed to the implementation of e.g. routes' priorities, timetables do not have an own identifier. Instead, they use the label of the route they were created for.
 
-High priority timetables are also used as a replacement of the "special days" previously used with Jore3. In situations, which would have required a "special day" in Jore3, a one day timetable can be created to override the otherwise valid timetable in the given scope.
+High priority timetables are also used as a replacement of the "special days" previously used with Jore3. In situations, which would have required a "special day" in Jore3, a one day timetable can be created to override the otherwise effective timetable in the given scope.
 
 Referencing Jore4 Routes and Lines
 ----------------------------------
@@ -152,8 +148,3 @@ Timetables are modelled by referencing `journey_pattern`s from the _Routes and l
 The reference to the `journey_pattern` table in the _Routes and lines_ database is realized through a `journey_pattern_ref` table in the _Timetable_ database. A `journey_pattern_ref` row logically maps a point in time (the observation date) of a certain `journey_pattern` row onto the _Timetable_ side. In order to be able to determine if a _Routes and lines_ `journey_pattern` has changed after a reference has been created for it, also the timestamp of the creation of the reference is stored.
 
 Note that the current _Routes and lines_ implementation does not keep track of changes, so determining if a change has happened in a `journey_pattern` after its corresponding `journey_pattern_ref` had been created is not possible. But with any change tracking of the tables related to `journey_pattern`s this becomes easily implememntable.
-
-- possible timestamp format to allow for >24h times: timestamp + day offset (integer)
-- need to question whether timestamp should include tz information
-  - => on one hand, the timestamp is always to be seen as the time at the stop, so tz info is intrinsic
-  - => but: does the system potentially need to react to the timetable times?
