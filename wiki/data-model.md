@@ -131,12 +131,12 @@ An exception to the concept of priority-based effectiveness are draft-priority i
 Timetables
 ==========
 
-Timetables are not created within Jore4, but in a separate tool called Hastus. Routes are exported from Jore4 into Hastus and the created timetable is imported back into Jore4. 
+Timetables are not created within Jore4, but in a separate tool called Hastus. Routes are exported from Jore4 into Hastus and the created timetables are imported back into Jore4. 
 
 Priorities and validity span
 ----------------------------
 
-During the import step, the timetable(s) to be imported are assigned a priority. The validity span is defined in the data retrieved from Hastus. The basic mechanism of the priority and validity span of a timetable is the same as in the Routes and Lines -module: Timetables with a higher priority "override" timetables with a lower priority for the duration of the higher priority timetable's validity span. As opposed to the implementation of e.g. routes' priorities, timetables do not have an own identifier. Instead, they use the label of the route they were created for.
+During the import step, the timetable(s) to be imported are assigned a priority. The validity span is defined in the data retrieved from Hastus. The basic mechanism of the priority and validity span of a timetable is the same as in the Routes and Lines -module: Timetables with a higher priority "override" timetables with a lower priority for the duration of the higher priority timetable's validity span. As opposed to the implementation of e.g. routes' priorities, timetables do not have an own "label" identifier. Instead, they use the label of the route they were created for.
 
 High priority timetables are also used as a replacement of the "special days" previously used with Jore3. In situations, which would have required a "special day" in Jore3, a one day timetable can be created to override the otherwise effective timetable in the given scope.
 
@@ -147,4 +147,4 @@ Timetables are modelled by referencing `journey_pattern`s from the _Routes and l
 
 The reference to the `journey_pattern` table in the _Routes and lines_ database is realized through a `journey_pattern_ref` table in the _Timetable_ database. A `journey_pattern_ref` row logically maps a point in time (the observation date) of a certain `journey_pattern` row onto the _Timetable_ side. In order to be able to determine if a _Routes and lines_ `journey_pattern` has changed after a reference has been created for it, also the timestamp of the creation of the reference is stored.
 
-Note that the current _Routes and lines_ implementation does not keep track of changes, so determining if a change has happened in a `journey_pattern` after its corresponding `journey_pattern_ref` had been created is not possible. But with any change tracking of the tables related to `journey_pattern`s this becomes easily implememntable.
+Note that the current _Routes and lines_ implementation does not currently keep track of changes, so determining if a change has happened in a `journey_pattern` after its corresponding `journey_pattern_ref` had been created, is not possible at the time of writing. But with any change tracking of the tables related to `journey_pattern`s this becomes easily implememntable.
