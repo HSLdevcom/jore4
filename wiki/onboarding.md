@@ -120,6 +120,11 @@ After performing these steps, you should be able to SSH into the bastion host us
 ssh hsl-jore4-dev-bastion
 ```
 
+In order to prevent the SSH connection to be closed due to inactivity (while using port forwarding in the background), run the following command in the remote shell:
+
+```env TMOUT=0 bash
+```
+
 ### Jore3 test database
 
 [Jore3](jore3.md) has a test database.
