@@ -12,7 +12,7 @@
   * Q2, Implement chosen stop register to host main data fields of a stop
   * Q3, More features for stops such as passenger information poster frames and shelters
 * Terminals
-  * Q2, Terminal features such as quays and rest rooms
+  * Q2, Terminal features such as quays and drivers' break rooms 
   * Q2, Terminal features such as passenger information poster frames is added
 * User management
   * Q3, Add owners to routes and add log of changes to UI
