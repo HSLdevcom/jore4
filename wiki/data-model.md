@@ -130,6 +130,15 @@ Without the concept of priority-based effectiveness, it would be unclear which o
 
 An exception to the concept of priority-based effectiveness are draft-priority instances, which are not ever considered effective, even though their numerical priority is higher than e.g. a basic version instance's priority. Therefore draft-priority instances are not included in the route verification at all.
 
+Hidden route variants
+---------------------
+
+A route could have hidden variant(s). Hidden variant is modeled in Jore 4 with `variant` field in route. Hidden route variant is created when a route version has some difference compared to basic version of a route, but it is so small that it does not deserve a visible difference in route name. Hidden route variant is also used to model part of a route that needs to be driven between route directions in some conditions, as explained in the following example.
+
+An example of a hidden variant is [route 831 variant 3](https://reittiopas.hsl.fi/linjat/HSL:1831/pysakit/HSL:1831:1:02). In addition to route directions 1 and 2, there is hidden variant 3. In addition to going from Itäkeskus to Landbo and from Landbo to Itäkeskus, there is a loop around Landbo that needs to be driven to serve passengers travelling from/to a few stops around Landbo. The loop is driven as part of direction 2 (Landbo -> Itäkeskus).
+
+There is a problem though, for example at night when this route (or rather its variant 831K) is served quite infrequently. A passenger that wants to get from Itäkeskus to a stop that is located along the loop that goes around Landbo, would have to wait for a long time at the last stop of 831 direction 1, because the loop is not part of that route direction and there is some time between vehicle services. For that reason hidden variant 3 was created for route 831. The variant consist only of the loop going around Landbo. Variant 3 can be driven for example at night after direction 1 to get all passengers to their destination without unnecessary wait time.
+
 Timetables
 ==========
 
