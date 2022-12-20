@@ -1,95 +1,52 @@
 <h1>Jore4 Roadmap</h1>
-<h2>2021</h2>
+<h2>2023: Release 1 (buses)</h2>
 
-* Environment
-  * Q1-Q3, Building environment for Jore4, including infrastructure in Azure, CI/CD pipeline
-
-* Routes and network
-  * Q2-Q4, Enabling data model, database, Hasura and frontend to support line and route on top of Digiroad network
- 
-* UI/UX-concept + user interface
-  * Q1, UI/UX-concept exists
-  * Q2, UI design for routes and network done
-  * Q3-Q4, UI design for timetables and vehicle schedules done
-
-* User management
-  * Q1, Plan what solution to use for user management
-  * Q2-Q3, Implement HSLid
-  * Q4, Update Hasura which allows user management as planned
-
-* Data migration
-  * Q1, Data migration fundamentals have been planned (ability to connect to Jore3's database, environment for migration)
-  * Q2-Q4, An ability to do migration for routes and lines when needed.
-
-<h2>2022</h2>
-
-* Routes and network
-  * Q1, An ability to create bus lines and bus routes to Jore4
-  * Q2, An ability to modify bus lines and routes in Jore4
-
+* UI/UX design
+  * Q1, Design regarding passenger information and infra is done
+  * Q1, Scope for accessibility is defined  (such as accessibility features of bus stops and vehicles)
 * Timetables
-  * Q3, Timetable data model created to Jore4 database
-  * Q4, Timetable UI done in MVP level. Hastus import.
-
-* UI/UX design
-  * Q1-Q2, Support developers regarding routes and lines
-  * Q3, Design regarding passenger information and infra is done
-  * Q4, Design regarding operator interaction is done
-
-* Data migration
-  * Q4, An ability to import timetables from Hastus
-
+  * (Q4/22, Timetable data model created to Jore4 database)
+  * Q1, Timetable UI done in MVP level. Hastus import.
 * Stops
-  * Q2, Try out Tiamat as a base of stop registry and decide whether to use it
-  * Q3, Implement chosen stop register to host main data fields of a stop
- 
-* Accessibility (such as accessibility features of bus stops and vehicles)
-  * Q4, Scope is defined
-
-<h2>2023</h2>
-
-* Routes and network
-  * Q1, Routes and lines ver. 2. An ability to add and modify trains, metros, trams and ferries 
- 
-* Reports
-  * Q2, Design; Figure users' needs 
-  * Q3, Implementing reports MVP
-
-* Timetables 
-  * Q1, Additions to MVP such as diversion routes and possibly an ability to upload from outside data sources (such as GTFS)
-
-* Stops
-  * Q1, More features for stops such as passenger information poster frames and shelters
-
+  * Q4/22, Try out Tiamat as a base of stop registry and decide whether to use it
+  * Q2, Implement chosen stop register to host main data fields of a stop
+  * Q3, More features for stops such as passenger information poster frames and shelters
 * Terminals
-  * Q1, Terminal features such as passenger information poster frames is added
-
+  * Q2, Terminal features such as quays and rest rooms
+  * Q2, Terminal features such as passenger information poster frames is added
 * User management
-  * Q2, Add owners to routes and add log of changes to UI
-
-* Data migration
-  * Q3, An ability to import GTFS/IVU? timetables
-
+  * Q3, Add owners to routes and add log of changes to UI
 * Passenger information
-  * Q1, GTFS export
-  * Q2, Exports to 3rd party passenger information tools such as Taku
-  * Q2, NeTEx export
-  * Q3, Passenger information features such as bus stop sign installation instructions
+  * Q3, GTFS export
+  * Q3, NeTEx export
 
-* Bus contracts
-  * Q4, Bus contracts
+<h2>2023-24: Release 2 (other types of transport)</h2>
 
-* Rest rooms
-  * Q4, Rest rooms including invoicing
-  
 * UI/UX design
-  * Q4, Design for compensation calculation and vehicle registry is done
- 
-<h2>2024</h2>
+  * Q3, Design regarding operator interaction is done
+* Routes and network
+  * Q4, Routes and lines ver. 2. An ability to add and modify trains, metros, trams and ferries
+* Timetables
+  * Q4, Additions to MVP such as diversion routes and possibly an ability to upload from outside data sources (such as GTFS)
+* Passenger information
+  * Q1/24, Passenger information features such as bus stop sign installation instructions
+  * Q1/24, Exports to 3rd party passenger information tools such as Taku
+* Data migration
+  * Q4, An ability to import GTFS/IVU? timetables
 
+<h2>Further releases (TBD)</h2>
+
+* UI/UX design
+  * Design for compensation calculation and vehicle registry is done
+  * Design for reports; Figure users' needs
+* Reports
+  * Implementing reports MVP
+* Bus contracts
+* Rest rooms
+  * Rest rooms including invoicing
 * Compensation calculation
-  * Q1, Compensation calculation is implemented
-  * Q2, Integrations to e.g. Bultti are done
-
+  * Compensation calculation is implemented
+  * Integrations to e.g. Bultti are done
 * Vehicle registry
-  * Q2, Vehicle registry is implented (buses and rail vehicles)
+  * Vehicle registry is implented (buses and rail vehicles)
+ 
