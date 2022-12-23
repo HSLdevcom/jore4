@@ -125,4 +125,4 @@
 ![Retrospective board](images/Retro_221122.png "Retrospective board")
 
 ## 2022-12-20
-![Retrospective board](images/Retro_201222.png "Retrospective board")
+![Retrospective board](images/retro_201222.png "Retrospective board")
