@@ -229,7 +229,7 @@ Data:
 ### Infopoiminta
 
 ```
-Format: Multiple DAT files in a zip
+Format: Multiple DAT files in a zip. A more detailed document infodoc2_5.rtf available.
 Protocol: FTP
 Data:
   - Sample dataset available in Drive. For example reitti.dat:
@@ -323,6 +323,26 @@ Data:
 1001	1	4.10.2021	31.12.2050	1050416	3
 1001	1	4.10.2021	31.12.2050	1060404	3
 
+
+  ```
+  ### HSL JuBuMeRa
+```
+Format: CSV in a ZIP
+Protocol: FTP
+Data:
+- Includes information regarding bus_vehicle, operator, procurement_unit, exception_days, dated_vehicle_journey and journey_pattern_point_type and pattern_point. For example exception_days.csv:
+
+ erityispvm;erityispaiva;selite;viikonpaiva                     
+ 09.04.2023;1P;Pääsiäispäivä;Su                                 
+ 10.04.2023;2P;Toinen pääsiäis;Ma                               
+ 17.05.2023;HA;Helatorstain aa;Ke                               
+ 18.05.2023;HT;Helatorstai;To                                   
+ 29.01.2023;I1;Ilmalan ratatyö;Su                               
+ 23.06.2023;JH;Juhannusaatto;Pe                                 
+ 24.06.2023;JP;Juhannuspäivä;La                                 
+ 25.06.2023;JS;Juhannussunnunt;Su                               
+ 22.06.2023;JU;Juhannusaatonaa;To                               
+ 25.03.2023;KA;Kesäaika alkaa ;La       
 
   ```
   
