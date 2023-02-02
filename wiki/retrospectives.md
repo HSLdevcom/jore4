@@ -131,4 +131,4 @@
 ![Retrospective board](images/retro_170123.png "Retrospective board")
 
 ## 2023-01-31
-![Retrospective board](images/retro_310123.png "Retrospective board")
+![Retrospective board](images/Retro_310123.png "Retrospective board")
