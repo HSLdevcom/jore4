@@ -8,6 +8,7 @@ This document references the [architectural risks EasyRetro board](https://easyr
 -------------------------------
 
 1. Discuss how to streamline seed data generation (https://github.com/HSLdevcom/jore4/issues/1142)
+2. Discuss whether to split jore4-flux repository to Azure (Flux, Kubernetes) and E2E (Docker Compose) environments
 
 2022-11-17 Architecture meeting
 -------------------------------
