@@ -1,0 +1,52 @@
+@startuml Microservices
+
+[JORE3] as JORE3
+
+[Hastus] as Hastus
+
+[Digiroad] as Digiroad
+
+package "HSL JORE4" {
+  [User Interface] as UI
+  package "exposed services" {
+    [Mapbox Tiles] as MBTiles
+    [Auth Backend] as Auth
+    [Hasura GraphQL server] as Hasura
+    [Map-matching server] as Mapmatching
+    [Hastus Importer-Exporter] as HastusService
+  }
+  [Digiroad Importer] as DigiroadService
+  [JORE3 Importer] as Jore3Service
+  database "PostgreSQL" as DB {
+    database "Network DB" as NetworkDB
+    database "Timetables DB" as TimetablesDB
+  }
+  database "Map-matching db" as MapmatchingDB
+}
+
+' JORE3 flow
+JORE3 ..> Jore3Service
+Jore3Service ..> DB : routes, stops
+
+' Digiroad flow
+Digiroad ..> DigiroadService
+DigiroadService ..> MapmatchingDB : infra links
+DigiroadService ..> DB : infra links
+DigiroadService ..> MBTiles : mapbox tiles
+MBTiles ..> UI : tiles
+
+' Auth flow
+UI .down.> Hasura
+Hasura <..> Auth : authentication hook
+Hasura <..> DB : query, mutate
+
+' Map-matching flow
+UI .down.> Mapmatching
+Mapmatching ..> MapmatchingDB
+
+' Hastus flow
+Hasura ..> HastusService : routes
+HastusService ..> Hasura : timetables
+HastusService <..> Hastus
+
+@enduml
