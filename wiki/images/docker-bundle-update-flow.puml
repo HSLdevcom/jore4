@@ -1,0 +1,13 @@
+@startuml (Auto)update docker bundle flow
+
+Participant Developer as dev
+Participant "jore4-flux repository" as flux
+Participant "jore4-tools repository" as tools
+
+autonumber
+dev -> flux : update docker image version in common.yaml
+flux -> flux : generate docker-compose bundle with gomplate
+flux -> flux : run e2e tests on docker-compose bundle
+flux -> tools : upload docker-compose bundle to releases
+
+@enduml

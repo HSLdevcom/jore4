@@ -1,0 +1,24 @@
+@startuml Run e2e tests for microservices
+
+Participant Developer as dev
+Participant "jore4-tools repository" as tools
+Participant "jore4-ui repository" as UI
+
+autonumber
+dev -> UI : create new pull request with UI changes
+
+UI -> UI : build and push new docker image to docker hub
+
+UI -> tools : call setup-e2e-environment github action
+tools --> UI : fetch the latest docker-compose bundle
+opt customizing docker-compose bundle
+  UI -> UI : override docker-compose bundle to use latest UI docker image
+end
+UI -> UI : start up docker-compose environment
+
+UI -> tools : call the run-cypress-tests github action
+tools --> UI : run the cypress tests from within the docker-compose bundle (using the latest UI image)
+
+UI --> dev : e2e test results and artifacts for the pull request
+
+@enduml

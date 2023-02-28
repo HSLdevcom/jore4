@@ -1,0 +1,19 @@
+@startuml Retrieve docker bundle for local development
+
+Participant Developer as dev
+Participant "jore4-tools repository" as tools
+Participant "Project workspace" as ws
+
+autonumber
+dev -> ws : start-dependencies.sh
+ws -> tools : download latest docker-compose bundle from releases
+tools --> ws : docker-compose.tar.gz
+
+opt customizing docker-compose bundle
+  ws -> ws : edit docker-compose.custom.yml to pin other microservices' versions
+end
+
+ws -> ws : start up docker-compose environment
+ws --> dev : dependency services running on localhost
+
+@enduml
