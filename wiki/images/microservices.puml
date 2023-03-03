@@ -17,7 +17,7 @@ package "HSL JORE4" {
   }
   [Digiroad Importer] as DigiroadService
   [JORE3 Importer] as Jore3Service
-  database "PostgreSQL" as DB {
+  database "JORE4 database" as DB {
     database "Network DB" as NetworkDB
     database "Timetables DB" as TimetablesDB
   }
@@ -48,5 +48,7 @@ Mapmatching ..> MapmatchingDB
 Hasura ..> HastusService : routes
 HastusService ..> Hasura : timetables
 HastusService <..> Hastus
+UI ..> HastusService : export routes, import timetables
+
 
 @enduml
