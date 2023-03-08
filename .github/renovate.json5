@@ -1,0 +1,10 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: [
+    "github>HSLdevcom/jore4-tools//renovatebot/jore4-default-preset.json5",
+  ],
+
+  // repository-specific additional rules about grouping, exclusions and inclusions
+  // Note: if the rule feels generic enough, should consider adding it to the jore4 default preset
+  packageRules: [],
+}
