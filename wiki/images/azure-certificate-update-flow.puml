@@ -1,0 +1,16 @@
+@startuml Autoupdate HTTPS certificate
+
+Participant "App Service Certificate" as asc
+Participant "Key-Vault" as kv
+Participant "Application gateway" as appgw
+Participant "Kubernetes ingress (AGIC)" as ingress
+
+autonumber
+ingress -> appgw : ingress defines which appgw certificate is used
+asc -> asc : certificate gets renewed automatically
+asc -> kv : automatically copied to key-vault secret
+appgw -> kv : polling key-vault secret every 4 hours
+kv --> appgw : updated certificate
+appgw --> appgw : update certificate in HTTP Listener
+
+@enduml
